@@ -87,30 +87,30 @@ export default function DuRirePage() {
             transition={{ duration: 1, delay: 0.9 }}
             className="flex flex-wrap gap-4 justify-center"
           >
-            <div className="bg-burgundy-500/20 backdrop-blur-sm rounded-full px-6 py-3 flex flex-col items-center">
-              <div className="flex items-center mb-2">
-                <Calendar className="w-5 h-5 mr-2 text-gold-500" />
-                <span className="text-cream">Prochain Spectacle</span>
+            <div className="bg-burgundy-500/20 backdrop-blur-sm rounded-2xl px-8 py-6 flex flex-col items-center max-w-2xl">
+              <div className="flex items-center mb-4">
+                <Calendar className="w-8 h-8 mr-3 text-gold-500" />
+                <span className="text-cream text-2xl font-semibold">Prochain Spectacle</span>
               </div>
-              <div className="text-xs text-gold-400">
+              <div className="text-lg text-gold-400 mb-6 font-medium">
                 20 septembre 2025 - 20h
               </div>
-              <div className="flex gap-2 mt-2">
+              <div className="flex gap-6">
                 <div className="text-center">
-                  <div className="text-lg font-bold text-gold-500">{timeLeft.days}</div>
-                  <div className="text-xs text-cream/70">jours</div>
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.days}</div>
+                  <div className="text-lg text-cream/70 font-medium">jours</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg font-bold text-gold-500">{timeLeft.hours}</div>
-                  <div className="text-xs text-cream/70">h</div>
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.hours}</div>
+                  <div className="text-lg text-cream/70 font-medium">heures</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg font-bold text-gold-500">{timeLeft.minutes}</div>
-                  <div className="text-xs text-cream/70">min</div>
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.minutes}</div>
+                  <div className="text-lg text-cream/70 font-medium">min</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg font-bold text-gold-500">{timeLeft.seconds}</div>
-                  <div className="text-xs text-cream/70">sec</div>
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.seconds}</div>
+                  <div className="text-lg text-cream/70 font-medium">sec</div>
                 </div>
               </div>
             </div>
