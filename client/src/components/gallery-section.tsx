@@ -1,9 +1,48 @@
 import { motion } from "framer-motion";
-import { Instagram, ExternalLink } from "lucide-react";
+import { Instagram, ExternalLink, Heart, MessageCircle } from "lucide-react";
+import galleryImage1 from "@assets/523852904_122213781302128593_1046532013144842213_n_1754398633265.jpg";
+import galleryImage2 from "@assets/images_1754399318468.jpg";
+import galleryImage3 from "@assets/image_1754399805103.png";
+import galleryImage4 from "@assets/image_1754399907307.png";
 
 export default function GallerySection() {
   const instagramHandle = "social_par_attelier_archibald";
   const instagramUrl = `https://instagram.com/${instagramHandle}`;
+
+  const instagramPosts = [
+    {
+      id: 1,
+      image: galleryImage1,
+      caption: "Soirée burlesque inoubliable au Social 🎭✨ #BurlesqueNight #SocialBar",
+      likes: 127,
+      comments: 23,
+      time: "2h"
+    },
+    {
+      id: 2,
+      image: galleryImage2,
+      caption: "L'ambiance sophistiquée qui fait notre réputation 🍷 #AttelerArchibald",
+      likes: 89,
+      comments: 15,
+      time: "1j"
+    },
+    {
+      id: 3,
+      image: galleryImage3,
+      caption: "Événement privé dans nos salons d'exception 🎉 #EventPrive #Social",
+      likes: 156,
+      comments: 31,
+      time: "2j"
+    },
+    {
+      id: 4,
+      image: galleryImage4,
+      caption: "Spectacle exclusif - une soirée magique 🌟 #Spectacle #Burlesque",
+      likes: 203,
+      comments: 42,
+      time: "3j"
+    }
+  ];
 
   return (
     <section id="galerie" className="relative py-20 z-10">
@@ -62,51 +101,74 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="w-full max-w-4xl mx-auto"
           >
-            <div className="relative bg-gradient-to-br from-pink-500/10 to-purple-600/10 rounded-xl p-8 border border-gold-500/20">
-              <div className="flex flex-col items-center space-y-6">
-                <div className="w-24 h-24 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
-                  <Instagram className="w-12 h-12 text-white" />
-                </div>
-                
-                <div className="text-center">
-                  <h4 className="text-2xl font-playfair text-cream mb-2">
-                    Feed Instagram en direct
-                  </h4>
-                  <p className="text-cream/70 mb-6">
-                    Cliquez sur le bouton ci-dessus pour voir nos dernières publications, stories et découvrir l'ambiance burlesque du Social en temps réel.
-                  </p>
-                </div>
+            {/* Instagram Posts Grid */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {instagramPosts.map((post, index) => (
+                <motion.div
+                  key={post.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
+                >
+                  {/* Instagram Post Header */}
+                  <div className="flex items-center p-4 border-b border-gold-500/20">
+                    <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                      <Instagram className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h5 className="text-cream font-semibold text-sm">@{instagramHandle}</h5>
+                      <p className="text-cream/60 text-xs">{post.time}</p>
+                    </div>
+                    <motion.a
+                      href={instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      className="text-gold-500 hover:text-gold-400"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </motion.a>
+                  </div>
 
-                {/* Call to Action */}
-                <div className="grid md:grid-cols-3 gap-6 w-full">
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="bg-burgundy-800/30 rounded-lg p-4 border border-gold-500/20"
-                  >
-                    <div className="text-gold-500 text-3xl mb-2">🎭</div>
-                    <h5 className="text-cream font-semibold mb-1">Spectacles</h5>
-                    <p className="text-cream/70 text-sm">Nos performances burlesque exclusives</p>
-                  </motion.div>
-                  
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="bg-burgundy-800/30 rounded-lg p-4 border border-gold-500/20"
-                  >
-                    <div className="text-gold-500 text-3xl mb-2">🍷</div>
-                    <h5 className="text-cream font-semibold mb-1">Ambiance</h5>
-                    <p className="text-cream/70 text-sm">L'atmosphère raffinée de nos soirées</p>
-                  </motion.div>
-                  
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="bg-burgundy-800/30 rounded-lg p-4 border border-gold-500/20"
-                  >
-                    <div className="text-gold-500 text-3xl mb-2">🎉</div>
-                    <h5 className="text-cream font-semibold mb-1">Événements</h5>
-                    <p className="text-cream/70 text-sm">Nos événements privés et corporatifs</p>
-                  </motion.div>
-                </div>
-              </div>
+                  {/* Instagram Post Image */}
+                  <div className="aspect-square relative overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={`Instagram post ${post.id}`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Instagram Post Footer */}
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center space-x-4">
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="flex items-center text-gold-500 hover:text-red-500 transition-colors"
+                        >
+                          <Heart className="w-5 h-5 mr-1" />
+                          <span className="text-sm">{post.likes}</span>
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="flex items-center text-gold-500 hover:text-blue-400 transition-colors"
+                        >
+                          <MessageCircle className="w-5 h-5 mr-1" />
+                          <span className="text-sm">{post.comments}</span>
+                        </motion.button>
+                      </div>
+                    </div>
+                    <p className="text-cream/80 text-sm leading-relaxed">
+                      {post.caption}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
