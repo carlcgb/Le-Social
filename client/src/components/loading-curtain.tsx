@@ -12,15 +12,12 @@ export default function LoadingCurtain() {
       >
         <div className="text-center">
           <motion.div
-            initial={{ scale: 1.3, opacity: 1 }}
+            initial={{ opacity: 1 }}
             animate={{ 
-              scale: [1.3, 1.4, 0.75], 
-              opacity: [1, 1, 1],
-              filter: ["brightness(0)", "brightness(0)", "brightness(0) invert(1)"]
+              filter: ["brightness(0)", "brightness(0) invert(1)"]
             }}
             transition={{ 
-              duration: 2.8, 
-              times: [0, 0.2, 1],
+              duration: 2.5, 
               ease: "easeInOut"
             }}
             className="mb-4"
