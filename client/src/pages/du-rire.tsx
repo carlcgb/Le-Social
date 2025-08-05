@@ -50,14 +50,17 @@ export default function DuRirePage() {
 
       {/* Reserve button - fixed top right */}
       <div className="fixed top-8 right-8 z-50">
-        <motion.button
+        <motion.a
+          href="https://app.tixigo.com/TOffice?token=sNozI5aN0tE7QVy3zaUxCFBQFtB%2Bg7sW0cWMhItujXo%3D&fbclid=IwY2xjawL-8z9leHRuA2FlbQIxMABicmlkETFibFdFQ0doVVFTOVdnSVc3AR4ABF-vM7_NsRFZfEUztGTJ5NL1YxibJpbmV3i3GVeE7IhiCy3inGDwReJMdw_aem_-7nVUgUJXOxeZJvH2oiH5Q"
+          target="_blank"
+          rel="noopener noreferrer"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-gradient-to-r from-burgundy-500 to-burgundy-600 text-cream px-6 py-3 rounded-full hover:from-burgundy-600 hover:to-burgundy-700 transition-all duration-300 font-medium text-lg shadow-lg shadow-burgundy-900/50 backdrop-blur-sm border border-gold-500/30"
+          className="bg-gradient-to-r from-burgundy-500 to-burgundy-600 text-cream px-6 py-3 rounded-full hover:from-burgundy-600 hover:to-burgundy-700 transition-all duration-300 font-medium text-lg shadow-lg shadow-burgundy-900/50 backdrop-blur-sm border border-gold-500/30 inline-block"
         >
           Réserver votre place
-        </motion.button>
+        </motion.a>
       </div>
 
       {/* Hero Section */}
