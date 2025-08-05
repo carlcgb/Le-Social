@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 export default function HangingSign() {
   return (
-    <div className="fixed top-16 right-6 z-30">
+    <div className="fixed top-16 left-6 z-30">
       <Link href="/du-rire">
         <motion.div
           initial={{ rotate: -3, y: -20, opacity: 0 }}
