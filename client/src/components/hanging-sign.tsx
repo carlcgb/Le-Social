@@ -15,7 +15,7 @@ export default function HangingSign() {
   }, []);
 
   return (
-    <div className="fixed top-16 left-6 z-20">
+    <div className="fixed top-12 left-2 md:top-16 md:left-6 z-20">
       <Link href="/du-rire">
         <motion.div
           initial={{ rotate: -3, y: -20, opacity: 0 }}
@@ -23,7 +23,7 @@ export default function HangingSign() {
             rotate: [-3, -5, -1, -3], 
             y: [0, 3, -1, 0],
             opacity: 1,
-            scale: isScrolled ? 0.7 : 1
+            scale: isScrolled ? 0.5 : 0.75
           }}
           transition={{ 
             duration: 5,
@@ -45,16 +45,16 @@ export default function HangingSign() {
           {/* Main red marquee sign */}
           <div className="relative">
             {/* Main red panel */}
-            <div className="bg-gradient-to-br from-red-800 via-red-900 to-red-950 border-4 border-red-700 rounded-lg px-8 py-6 relative overflow-hidden shadow-2xl min-w-[220px]">
+            <div className="bg-gradient-to-br from-red-800 via-red-900 to-red-950 border-2 md:border-4 border-red-700 rounded-lg px-4 py-3 md:px-8 md:py-6 relative overflow-hidden shadow-2xl min-w-[160px] md:min-w-[220px]">
               {/* Background texture */}
               <div className="absolute inset-0 bg-gradient-to-br from-red-700/20 to-transparent"></div>
               
               {/* Text content */}
               <div className="relative text-center space-y-1">
-                <div className="text-yellow-200 font-bold text-lg leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                <div className="text-yellow-200 font-bold text-sm md:text-lg leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                   La Soirée du Rire
                 </div>
-                <div className="text-yellow-100 font-extrabold text-xl leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                <div className="text-yellow-100 font-extrabold text-base md:text-xl leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                   de GRANBY
                 </div>
               </div>
