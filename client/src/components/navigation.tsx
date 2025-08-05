@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
-import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754397077208.jpg";
+import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
 interface NavigationProps {
   onMobileMenuToggle: () => void;
@@ -46,7 +46,7 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
             <img 
               src={logoPath} 
               alt="Social Logo" 
-              className="h-12 w-auto rounded"
+              className="h-16 w-auto filter brightness-0 invert"
             />
           </div>
           

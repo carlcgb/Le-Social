@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Sparkles, Theater, Users } from "lucide-react";
+import BrickWall from "./brick-wall";
+import Chandelier from "./chandelier";
+import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
 interface HeroSectionProps {
   showCurtain: boolean;
@@ -13,13 +16,18 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
 
   return (
     <section id="accueil" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1594736797933-d0c6f3de6bec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')`
-        }}
-      />
+      {/* Background with brick wall texture */}
+      <div className="absolute inset-0 bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800">
+        <BrickWall />
+      </div>
+      
+      {/* Additional atmospheric lighting */}
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60" />
+      
+      {/* Chandeliers */}
+      <Chandelier className="top-10 left-20 hidden lg:block" size="large" />
+      <Chandelier className="top-16 right-24 hidden lg:block" size="medium" />
+      <Chandelier className="top-32 left-1/2 transform -translate-x-1/2 hidden md:block" size="small" />
       
       {/* Curtain Effect */}
       {showCurtain && (
@@ -45,20 +53,15 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 2.5 }}
         >
-          <motion.div
-            animate={{ scale: [1, 1.1, 1], opacity: [0.3, 1, 0.3] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="mb-8"
-          >
-            <Sparkles className="w-16 h-16 text-gold-500 mx-auto" />
-          </motion.div>
           
-          <h1 className="text-7xl md:text-8xl font-playfair font-bold text-cream mb-6 leading-tight">
-            <span className="block text-gold-500">Social</span>
-            <span className="text-2xl md:text-3xl font-inter font-light tracking-wider">
-              Par Attelier Archibald
-            </span>
-          </h1>
+          
+          <div className="mb-8">
+            <img 
+              src={logoPath} 
+              alt="Social - Par Attelier Archibald" 
+              className="h-32 md:h-40 w-auto mx-auto filter brightness-0 invert"
+            />
+          </div>
           
           <p className="text-xl md:text-2xl text-cream/90 mb-8 font-light leading-relaxed">
             Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque style, chaque histoire.
