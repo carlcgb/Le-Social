@@ -4,7 +4,7 @@ import galleryImage1 from "@assets/523852904_122213781302128593_1046532013144842
 import galleryImage2 from "@assets/images_1754399318468.jpg";
 import galleryImage3 from "@assets/image_1754399805103.png";
 import galleryImage4 from "@assets/image_1754399907307.png";
-import soireeRireLogo from "@assets/1644940442207271865intro-soire-unscreen_1754401846626.gif";
+import soireeRireLogo from "@assets/1644940442207271865intro-soire-unscreen_1754402025281.gif";
 
 export default function GallerySection() {
   const facebookPage = "social.bar.cie";
