@@ -29,18 +29,61 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
       {/* Curtain Effect */}
       {showCurtain && (
         <>
+          {/* Left Curtain */}
           <motion.div
             initial={{ scaleX: 1 }}
             animate={{ scaleX: 0 }}
             transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-1/2 h-full bg-burgundy-500 z-30 transform-origin-left"
-          />
+            className="absolute top-0 left-0 w-1/2 h-full z-30 transform-origin-left"
+            style={{
+              background: `linear-gradient(90deg, 
+                #7f1d1d 0%, 
+                #991b1b 8%, 
+                #7f1d1d 16%, 
+                #991b1b 24%, 
+                #7f1d1d 32%, 
+                #991b1b 40%, 
+                #7f1d1d 48%, 
+                #991b1b 56%, 
+                #7f1d1d 64%, 
+                #991b1b 72%, 
+                #7f1d1d 80%, 
+                #991b1b 88%, 
+                #7f1d1d 100%)`
+            }}
+          >
+            {/* Shadow effects for depth */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+          </motion.div>
+          
+          {/* Right Curtain */}
           <motion.div
             initial={{ scaleX: 1 }}
             animate={{ scaleX: 0 }}
             transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-1/2 h-full bg-burgundy-500 z-30 transform-origin-right"
-          />
+            className="absolute top-0 right-0 w-1/2 h-full z-30 transform-origin-right"
+            style={{
+              background: `linear-gradient(270deg, 
+                #7f1d1d 0%, 
+                #991b1b 8%, 
+                #7f1d1d 16%, 
+                #991b1b 24%, 
+                #7f1d1d 32%, 
+                #991b1b 40%, 
+                #7f1d1d 48%, 
+                #991b1b 56%, 
+                #7f1d1d 64%, 
+                #991b1b 72%, 
+                #7f1d1d 80%, 
+                #991b1b 88%, 
+                #7f1d1d 100%)`
+            }}
+          >
+            {/* Shadow effects for depth */}
+            <div className="absolute inset-0 bg-gradient-to-l from-black/30 via-transparent to-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+          </motion.div>
         </>
       )}
       
