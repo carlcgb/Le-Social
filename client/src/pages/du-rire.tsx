@@ -57,7 +57,7 @@ export default function DuRirePage() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-[#c71724] text-white px-6 py-3 rounded-full hover:bg-[#b0141f] transition-all duration-300 font-bold text-lg shadow-lg shadow-red-900/50 border-2 border-white/20 inline-block animate-pulse hover:animate-none"
+          className="relative bg-black/80 text-[#c71724] px-8 py-4 rounded-full font-bold text-lg border-2 border-[#c71724] inline-block transition-all duration-300 hover:scale-105 neon-button"
         >
           Réserver votre place
         </motion.a>

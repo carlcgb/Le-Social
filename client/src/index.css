@@ -143,6 +143,63 @@
   animation: sparkle 3s infinite;
 }
 
+/* Neon button effect */
+@keyframes neonFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 
+      0 0 5px #c71724,
+      0 0 10px #c71724,
+      0 0 15px #c71724,
+      0 0 20px #c71724;
+    box-shadow: 
+      0 0 10px #c71724,
+      0 0 20px #c71724,
+      0 0 30px #c71724,
+      inset 0 0 10px rgba(199, 23, 36, 0.1);
+  }
+  20%, 24%, 55% {
+    text-shadow: 
+      0 0 2px #c71724,
+      0 0 5px #c71724,
+      0 0 8px #c71724,
+      0 0 12px #c71724;
+    box-shadow: 
+      0 0 5px #c71724,
+      0 0 10px #c71724,
+      0 0 15px #c71724,
+      inset 0 0 5px rgba(199, 23, 36, 0.05);
+  }
+}
+
+.neon-button {
+  text-shadow: 
+    0 0 5px #c71724,
+    0 0 10px #c71724,
+    0 0 15px #c71724,
+    0 0 20px #c71724;
+  box-shadow: 
+    0 0 10px #c71724,
+    0 0 20px #c71724,
+    0 0 30px #c71724,
+    inset 0 0 10px rgba(199, 23, 36, 0.1);
+  animation: neonFlicker 2s infinite alternate;
+}
+
+.neon-button:hover {
+  animation-play-state: paused;
+  transform: scale(1.05);
+  text-shadow: 
+    0 0 8px #c71724,
+    0 0 15px #c71724,
+    0 0 25px #c71724,
+    0 0 35px #c71724;
+  box-shadow: 
+    0 0 15px #c71724,
+    0 0 30px #c71724,
+    0 0 45px #c71724,
+    inset 0 0 15px rgba(199, 23, 36, 0.15);
+}
+
 .animate-fadeInUp {
   animation: fadeInUp 1s ease-out forwards;
 }
