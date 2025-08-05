@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
-import DuRireLogo from "@/components/du-rire-logo";
 
 export default function DuRirePage() {
   return (
@@ -25,13 +24,7 @@ export default function DuRirePage() {
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-burgundy-900/30 to-black/80" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <DuRireLogo className="w-64 h-64 mx-auto mb-8" />
-          </motion.div>
+
           
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -63,7 +56,7 @@ export default function DuRirePage() {
             </div>
             <div className="bg-burgundy-500/20 backdrop-blur-sm border border-burgundy-500/30 rounded-full px-6 py-3 flex items-center">
               <Clock className="w-5 h-5 mr-2 text-gold-500" />
-              <span className="text-cream">20h - 23h</span>
+              <span className="text-cream">17h - 23h</span>
             </div>
           </motion.div>
         </div>
@@ -193,7 +186,7 @@ export default function DuRirePage() {
                 <div>
                   <h3 className="text-xl font-semibold text-cream mb-2">Horaires</h3>
                   <p className="text-cream/80">
-                    Ouverture des portes : 19h<br />
+                    Ouverture pour souper : 17h<br />
                     Début du spectacle : 20h<br />
                     Fin de soirée : 23h
                   </p>
@@ -205,8 +198,8 @@ export default function DuRirePage() {
                 <div>
                   <h3 className="text-xl font-semibold text-cream mb-2">Tarifs</h3>
                   <p className="text-cream/80">
-                    Entrée : 25$ par personne<br />
-                    Incluant spectacle et cocktail de bienvenue<br />
+                    Prévente : 15$ par personne<br />
+                    À la porte : 20$ par personne<br />
                     Réservation recommandée
                   </p>
                 </div>
