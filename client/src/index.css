@@ -15,7 +15,7 @@
   --card-foreground: hsl(48, 46%, 87%);
   --border: hsl(45, 30%, 25%);
   --input: hsl(0, 0%, 10%);
-  --primary: hsl(345, 75%, 30%);
+  --primary: hsl(355, 70%, 45%);
   --primary-foreground: hsl(48, 46%, 87%);
   --secondary: hsl(0, 0%, 10%);
   --secondary-foreground: hsl(48, 46%, 87%);
@@ -27,13 +27,13 @@
   --radius: 0.5rem;
   
   /* Burlesque color palette */
-  --burgundy-50: hsl(345, 100%, 97%);
-  --burgundy-100: hsl(345, 92%, 95%);
-  --burgundy-500: hsl(345, 75%, 30%);
-  --burgundy-600: hsl(345, 75%, 25%);
-  --burgundy-700: hsl(345, 75%, 20%);
-  --burgundy-800: hsl(345, 75%, 15%);
-  --burgundy-900: hsl(345, 75%, 10%);
+  --burgundy-50: hsl(355, 100%, 97%);
+  --burgundy-100: hsl(355, 92%, 95%);
+  --burgundy-500: hsl(355, 70%, 45%);
+  --burgundy-600: hsl(355, 70%, 40%);
+  --burgundy-700: hsl(355, 70%, 35%);
+  --burgundy-800: hsl(355, 70%, 25%);
+  --burgundy-900: hsl(355, 70%, 15%);
   
   --gold-400: hsl(45, 70%, 65%);
   --gold-500: hsl(45, 80%, 45%);
@@ -53,7 +53,7 @@
   --card-foreground: hsl(48, 46%, 87%);
   --border: hsl(45, 30%, 25%);
   --input: hsl(0, 0%, 10%);
-  --primary: hsl(345, 75%, 30%);
+  --primary: hsl(355, 70%, 45%);
   --primary-foreground: hsl(48, 46%, 87%);
   --secondary: hsl(0, 0%, 10%);
   --secondary-foreground: hsl(48, 46%, 87%);

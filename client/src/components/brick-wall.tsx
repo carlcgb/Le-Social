@@ -26,13 +26,13 @@ export default function BrickWall() {
             patternUnits="userSpaceOnUse"
           >
             {/* First row of bricks */}
-            <rect x="0" y="0" width="58" height="28" fill="#8B1538" opacity="0.3" stroke="#5D0F26" strokeWidth="0.5" />
-            <rect x="62" y="0" width="58" height="28" fill="#8B1538" opacity="0.25" stroke="#5D0F26" strokeWidth="0.5" />
+            <rect x="0" y="0" width="58" height="28" fill="#c71724" opacity="0.3" stroke="#8B1018" strokeWidth="0.5" />
+            <rect x="62" y="0" width="58" height="28" fill="#c71724" opacity="0.25" stroke="#8B1018" strokeWidth="0.5" />
             
             {/* Second row of bricks - offset */}
-            <rect x="-29" y="30" width="58" height="28" fill="#8B1538" opacity="0.2" stroke="#5D0F26" strokeWidth="0.5" />
-            <rect x="33" y="30" width="58" height="28" fill="#8B1538" opacity="0.35" stroke="#5D0F26" strokeWidth="0.5" />
-            <rect x="95" y="30" width="58" height="28" fill="#8B1538" opacity="0.3" stroke="#5D0F26" strokeWidth="0.5" />
+            <rect x="-29" y="30" width="58" height="28" fill="#c71724" opacity="0.2" stroke="#8B1018" strokeWidth="0.5" />
+            <rect x="33" y="30" width="58" height="28" fill="#c71724" opacity="0.35" stroke="#8B1018" strokeWidth="0.5" />
+            <rect x="95" y="30" width="58" height="28" fill="#c71724" opacity="0.3" stroke="#8B1018" strokeWidth="0.5" />
           </pattern>
         </defs>
         
@@ -46,7 +46,7 @@ export default function BrickWall() {
             y={Math.random() * 500}
             width="58"
             height="28"
-            fill="#A0153E"
+            fill="#c71724"
             opacity={brick.opacity}
             initial={{ opacity: 0 }}
             animate={{ opacity: brick.opacity }}
