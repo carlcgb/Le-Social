@@ -13,6 +13,7 @@ import {
   LoadingCurtain,
   MobileMenu
 } from "@/components";
+import HangingSign from "@/components/hanging-sign";
 
 export default function Home() {
   const [showCurtain, setShowCurtain] = useState(true);
@@ -36,6 +37,7 @@ export default function Home() {
         isOpen={mobileMenuOpen} 
         onClose={() => setMobileMenuOpen(false)} 
       />
+      <HangingSign />
       
       <main>
         <HeroSection showCurtain={!showCurtain} />
