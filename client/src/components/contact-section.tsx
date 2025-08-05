@@ -61,29 +61,23 @@ export default function ContactSection() {
     {
       icon: MapPin,
       title: "Adresse",
-      content: "123 Rue Saint-Paul, Vieux-Montréal, QC H2Y 1H4"
+      content: "150 Rue Saint-Jacques, Granby, QC J2G 3V3"
     },
     {
       icon: Phone,
       title: "Téléphone",
-      content: "(514) 555-SOCIAL"
+      content: "(450) 991-3336"
     },
     {
       icon: Mail,
       title: "Email",
-      content: "reservation@socialbar.ca"
-    },
-    {
-      icon: Clock,
-      title: "Horaires",
-      content: "Mar-Sam: 17h-2h\nDim-Lun: Fermé"
+      content: "info@socialbar.ca"
     }
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://www.facebook.com/SocialBarEtCie", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" }
+    { icon: Facebook, href: "https://facebook.com/SocialBarEtCie", label: "Facebook" },
+    { icon: Instagram, href: "https://instagram.com/social_par_attelier_archibald", label: "Instagram" }
   ];
 
   return (
