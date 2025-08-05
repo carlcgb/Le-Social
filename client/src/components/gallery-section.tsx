@@ -4,6 +4,7 @@ import galleryImage1 from "@assets/523852904_122213781302128593_1046532013144842
 import galleryImage2 from "@assets/images_1754399318468.jpg";
 import galleryImage3 from "@assets/image_1754399805103.png";
 import galleryImage4 from "@assets/image_1754399907307.png";
+import soireeRireLogo from "@assets/1644940442207271865intro-soire-unscreen_1754401846626.gif";
 
 export default function GallerySection() {
   const facebookPage = "social.bar.cie";
@@ -45,11 +46,11 @@ export default function GallerySection() {
     },
     {
       id: 4,
-      image: galleryImage4,
+      image: soireeRireLogo,
       title: "La Soirée du Rire de Granby",
-      description: "Spectacle d'humour exceptionnel dans l'ambiance burlesque du Social. Réservations recommandées.",
+      description: "Ouverture pour souper: 17h • Spectacle: 20h • Fin: 23h • Tarifs: 15$ prévente / 20$ porte",
       date: "8 Mars 2025",
-      time: "20h30",
+      time: "17h00 - 23h00",
       attending: 67,
       interested: 203,
       type: "Spectacle"
