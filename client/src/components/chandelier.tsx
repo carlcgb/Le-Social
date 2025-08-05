@@ -71,17 +71,17 @@ export default function Chandelier({ className = "", size = "medium" }: Chandeli
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 1.5, repeat: Infinity, staggerChildren: 0.2 }}
             >
-              <circle cx="30" cy="40" r="2" fill="#F5F5DC" opacity="0.9" />
-              <circle cx="50" cy="35" r="2" fill="#F5F5DC" opacity="0.9" />
-              <circle cx="70" cy="40" r="2" fill="#F5F5DC" opacity="0.9" />
+              <circle cx="30" cy="40" r="2" fill="#32a5bf" opacity="0.9" />
+              <circle cx="50" cy="35" r="2" fill="#32a5bf" opacity="0.9" />
+              <circle cx="70" cy="40" r="2" fill="#32a5bf" opacity="0.9" />
             </motion.g>
             
             {/* Gradient definitions */}
             <defs>
               <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#F5F5DC" />
-                <stop offset="50%" stopColor="#E8E4C9" />
-                <stop offset="100%" stopColor="#DDD8B8" />
+                <stop offset="0%" stopColor="#5BBDD9" />
+                <stop offset="50%" stopColor="#32a5bf" />
+                <stop offset="100%" stopColor="#2A8FA5" />
               </linearGradient>
               
               <linearGradient id="crystalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
