@@ -43,7 +43,7 @@ export default function DuRirePage() {
             <img 
               src={logoAnimated} 
               alt="La Soirée du Rire de Granby - Logo animé" 
-              className="max-w-xs md:max-w-md lg:max-w-lg h-auto"
+              className="max-w-xs md:max-w-md lg:max-w-lg h-auto opacity-75"
             />
           </motion.div>
           
