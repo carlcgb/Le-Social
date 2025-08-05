@@ -26,14 +26,18 @@ export default function DuRirePage() {
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
 
           
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-4xl md:text-6xl font-playfair text-cream mb-6"
+            className="mb-6 flex justify-center"
           >
-            La Soirée du Rire de Granby
-          </motion.h1>
+            <img 
+              src="/attached_assets/1644940442207271865intro-soire-unscreen_1754402335262.gif" 
+              alt="La Soirée du Rire de Granby - Logo animé" 
+              className="max-w-xs md:max-w-md lg:max-w-lg h-auto"
+            />
+          </motion.div>
           
           <motion.p
             initial={{ opacity: 0, y: 30 }}
