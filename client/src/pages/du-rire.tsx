@@ -1,10 +1,38 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft, Facebook, Instagram } from "lucide-react";
 import { Link } from "wouter";
+import { useState, useEffect } from "react";
 import logoAnimated from "@assets/1644940442207271865intro-soire-unscreen_1754402335262.gif";
 import BrickWall from "@/components/brick-wall";
 
 export default function DuRirePage() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const targetDate = new Date('2025-09-20T20:00:00').getTime();
+    
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-cream font-inter">
       {/* Back button */}
@@ -62,9 +90,32 @@ export default function DuRirePage() {
             transition={{ duration: 1, delay: 0.9 }}
             className="flex flex-wrap gap-4 justify-center"
           >
-            <div className="bg-burgundy-500/20 backdrop-blur-sm rounded-full px-6 py-3 flex items-center">
-              <Calendar className="w-5 h-5 mr-2 text-gold-500" />
-              <span className="text-cream">Événement mensuel</span>
+            <div className="bg-burgundy-500/20 backdrop-blur-sm rounded-full px-6 py-3 flex flex-col items-center">
+              <div className="flex items-center mb-2">
+                <Calendar className="w-5 h-5 mr-2 text-gold-500" />
+                <span className="text-cream">Prochain Spectacle</span>
+              </div>
+              <div className="text-xs text-gold-400">
+                20 septembre 2025 - 20h
+              </div>
+              <div className="flex gap-2 mt-2">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-gold-500">{timeLeft.days}</div>
+                  <div className="text-xs text-cream/70">jours</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-gold-500">{timeLeft.hours}</div>
+                  <div className="text-xs text-cream/70">h</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-gold-500">{timeLeft.minutes}</div>
+                  <div className="text-xs text-cream/70">min</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-gold-500">{timeLeft.seconds}</div>
+                  <div className="text-xs text-cream/70">sec</div>
+                </div>
+              </div>
             </div>
             <div className="bg-burgundy-500/20 backdrop-blur-sm rounded-full px-6 py-3 flex items-center">
               <Clock className="w-5 h-5 mr-2 text-gold-500" />
