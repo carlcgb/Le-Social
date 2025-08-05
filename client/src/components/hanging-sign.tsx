@@ -1,7 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useState, useEffect } from "react";
 
 export default function HangingSign() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="fixed top-16 left-6 z-30">
       <Link href="/du-rire">
@@ -10,15 +22,17 @@ export default function HangingSign() {
           animate={{ 
             rotate: [-3, -5, -1, -3], 
             y: [0, 3, -1, 0],
-            opacity: 1
+            opacity: 1,
+            scale: isScrolled ? 0.7 : 1
           }}
           transition={{ 
             duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
-            opacity: { duration: 1, delay: 2 }
+            opacity: { duration: 1, delay: 2 },
+            scale: { duration: 0.3, ease: "easeOut" }
           }}
-          whileHover={{ scale: 1.02, rotate: -2 }}
+          whileHover={{ scale: 1, rotate: -2 }}
           className="cursor-pointer group"
         >
           {/* Hanging cables */}
