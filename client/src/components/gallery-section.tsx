@@ -1,46 +1,58 @@
 import { motion } from "framer-motion";
-import { Instagram, ExternalLink, Heart, MessageCircle } from "lucide-react";
+import { Facebook, ExternalLink, Heart, MessageCircle, Calendar, Users } from "lucide-react";
 import galleryImage1 from "@assets/523852904_122213781302128593_1046532013144842213_n_1754398633265.jpg";
 import galleryImage2 from "@assets/images_1754399318468.jpg";
 import galleryImage3 from "@assets/image_1754399805103.png";
 import galleryImage4 from "@assets/image_1754399907307.png";
 
 export default function GallerySection() {
-  const instagramHandle = "social_par_attelier_archibald";
-  const instagramUrl = `https://instagram.com/${instagramHandle}`;
+  const facebookPage = "social.bar.cie";
+  const facebookUrl = `https://facebook.com/${facebookPage}`;
 
-  const instagramPosts = [
+  const facebookEvents = [
     {
       id: 1,
       image: galleryImage1,
-      caption: "Soirée burlesque inoubliable au Social 🎭✨ #BurlesqueNight #SocialBar",
-      likes: 127,
-      comments: 23,
-      time: "2h"
+      title: "Soirée Burlesque - Spectacle Exclusif",
+      description: "Une soirée inoubliable dans l'ambiance raffinée du Social. Spectacle burlesque avec nos artistes invités.",
+      date: "15 Février 2025",
+      time: "20h00",
+      attending: 45,
+      interested: 127,
+      type: "Spectacle"
     },
     {
       id: 2,
       image: galleryImage2,
-      caption: "L'ambiance sophistiquée qui fait notre réputation 🍷 #AttelerArchibald",
-      likes: 89,
-      comments: 15,
-      time: "1j"
+      title: "Événement Corporatif - Soirée Networking",
+      description: "Organisez votre événement d'entreprise dans nos salons privés. Ambiance sophistiquée garantie.",
+      date: "22 Février 2025",
+      time: "18h30",
+      attending: 32,
+      interested: 89,
+      type: "Corporatif"
     },
     {
       id: 3,
       image: galleryImage3,
-      caption: "Événement privé dans nos salons d'exception 🎉 #EventPrive #Social",
-      likes: 156,
-      comments: 31,
-      time: "2j"
+      title: "Célébration Privée - Location Exclusive",
+      description: "Privatisez le Social pour vos occasions spéciales. Service personnalisé et ambiance unique.",
+      date: "28 Février 2025",
+      time: "19h00",
+      attending: 28,
+      interested: 156,
+      type: "Privé"
     },
     {
       id: 4,
       image: galleryImage4,
-      caption: "Spectacle exclusif - une soirée magique 🌟 #Spectacle #Burlesque",
-      likes: 203,
-      comments: 42,
-      time: "3j"
+      title: "La Soirée du Rire de Granby",
+      description: "Spectacle d'humour exceptionnel dans l'ambiance burlesque du Social. Réservations recommandées.",
+      date: "8 Mars 2025",
+      time: "20h30",
+      attending: 67,
+      interested: 203,
+      type: "Spectacle"
     }
   ];
 
@@ -56,22 +68,22 @@ export default function GallerySection() {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <Instagram className="w-12 h-12 text-gold-500 mr-4" />
-            <h2 className="text-5xl font-playfair text-cream">Notre Instagram</h2>
+            <Facebook className="w-12 h-12 text-gold-500 mr-4" />
+            <h2 className="text-5xl font-playfair text-cream">Nos Événements</h2>
           </div>
           <p className="text-xl text-cream/80 mb-8">
-            Suivez-nous pour découvrir l'atmosphère unique du Social en temps réel
+            Découvrez nos prochains événements et réservez votre place au Social
           </p>
           <motion.a
-            href={instagramUrl}
+            href={facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            <Instagram className="w-6 h-6 mr-3" />
-            @{instagramHandle}
+            <Facebook className="w-6 h-6 mr-3" />
+            Social Bar & Cie
             <ExternalLink className="w-5 h-5 ml-3" />
           </motion.a>
         </motion.div>
@@ -86,10 +98,10 @@ export default function GallerySection() {
             className="mb-8"
           >
             <h3 className="text-3xl font-playfair text-cream mb-4">
-              Découvrez nos dernières actualités
+              Événements à venir
             </h3>
             <p className="text-cream/80 text-lg mb-8">
-              Ambiance burlesque, spectacles exclusifs, événements privés et moments uniques au Social Bar & Cie
+              Spectacles burlesque, événements privés, soirées corporatives - Réservez dès maintenant
             </p>
           </motion.div>
 
@@ -101,71 +113,68 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="w-full max-w-4xl mx-auto"
           >
-            {/* Instagram Posts Grid */}
+            {/* Facebook Events Grid */}
             <div className="grid md:grid-cols-2 gap-6">
-              {instagramPosts.map((post, index) => (
+              {facebookEvents.map((event, index) => (
                 <motion.div
-                  key={post.id}
+                  key={event.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
                 >
-                  {/* Instagram Post Header */}
+                  {/* Facebook Event Header */}
                   <div className="flex items-center p-4 border-b border-gold-500/20">
-                    <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
-                      <Instagram className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-3">
+                      <Facebook className="w-5 h-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h5 className="text-cream font-semibold text-sm">@{instagramHandle}</h5>
-                      <p className="text-cream/60 text-xs">{post.time}</p>
+                      <h5 className="text-cream font-semibold text-sm">Social Bar & Cie</h5>
+                      <p className="text-cream/60 text-xs flex items-center">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {event.date} • {event.time}
+                      </p>
                     </div>
-                    <motion.a
-                      href={instagramUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className="text-gold-500 hover:text-gold-400"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </motion.a>
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      event.type === 'Spectacle' ? 'bg-purple-600 text-white' :
+                      event.type === 'Corporatif' ? 'bg-blue-600 text-white' :
+                      'bg-pink-600 text-white'
+                    }`}>
+                      {event.type}
+                    </span>
                   </div>
 
-                  {/* Instagram Post Image */}
-                  <div className="aspect-square relative overflow-hidden">
+                  {/* Facebook Event Image */}
+                  <div className="aspect-video relative overflow-hidden">
                     <img 
-                      src={post.image} 
-                      alt={`Instagram post ${post.id}`}
+                      src={event.image} 
+                      alt={event.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
 
-                  {/* Instagram Post Footer */}
+                  {/* Facebook Event Details */}
                   <div className="p-4">
-                    <div className="flex items-center justify-between mb-3">
+                    <h4 className="text-cream font-playfair text-lg mb-2 leading-tight">
+                      {event.title}
+                    </h4>
+                    <p className="text-cream/80 text-sm mb-4 leading-relaxed">
+                      {event.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
-                        <motion.button
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          className="flex items-center text-gold-500 hover:text-red-500 transition-colors"
-                        >
-                          <Heart className="w-5 h-5 mr-1" />
-                          <span className="text-sm">{post.likes}</span>
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          className="flex items-center text-gold-500 hover:text-blue-400 transition-colors"
-                        >
-                          <MessageCircle className="w-5 h-5 mr-1" />
-                          <span className="text-sm">{post.comments}</span>
-                        </motion.button>
+                        <div className="flex items-center text-gold-500">
+                          <Users className="w-4 h-4 mr-1" />
+                          <span className="text-sm">{event.attending} participants</span>
+                        </div>
+                        <div className="flex items-center text-gold-500/70">
+                          <Heart className="w-4 h-4 mr-1" />
+                          <span className="text-sm">{event.interested} intéressés</span>
+                        </div>
                       </div>
                     </div>
-                    <p className="text-cream/80 text-sm leading-relaxed">
-                      {post.caption}
-                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -181,29 +190,28 @@ export default function GallerySection() {
             className="mt-12 pt-8 border-t border-gold-500/20"
           >
             <p className="text-cream/80 text-lg mb-4">
-              Ne manquez aucun de nos moments magiques
+              Réservez votre place pour nos prochains événements
             </p>
             <div className="flex justify-center space-x-4">
               <motion.a
-                href={instagramUrl}
+                href={facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full font-medium inline-flex items-center shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-full font-medium inline-flex items-center shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <Instagram className="w-5 h-5 mr-2" />
-                Suivre
+                <Facebook className="w-5 h-5 mr-2" />
+                Voir les événements
               </motion.a>
               <motion.a
-                href={`${instagramUrl}/tagged`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="border-2 border-gold-500 text-gold-500 px-6 py-3 rounded-full font-medium inline-flex items-center hover:bg-gold-500 hover:text-black transition-all duration-300"
               >
-                Voir plus
+                <Calendar className="w-5 h-5 mr-2" />
+                Réserver
               </motion.a>
             </div>
           </motion.div>
