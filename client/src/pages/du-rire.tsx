@@ -23,13 +23,13 @@ export default function DuRirePage() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with brick wall texture - now fixed for parallax */}
-        <div className="fixed inset-0 bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
+        {/* Background with brick wall texture - 100% viewport height */}
+        <div className="fixed inset-0 w-full h-screen bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
           <BrickWall />
         </div>
         
-        {/* Additional atmospheric lighting - also fixed */}
-        <div className="fixed inset-0 bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60 z-0" />
+        {/* Additional atmospheric lighting - 100% viewport height */}
+        <div className="fixed inset-0 w-full h-screen bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60 z-0" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
 
