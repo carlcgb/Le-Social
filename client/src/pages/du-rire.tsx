@@ -41,7 +41,7 @@ export default function DuRirePage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-burgundy-500/20 backdrop-blur-sm border border-[#c71724] rounded-full p-3 hover:bg-burgundy-500/30 transition-all duration-300 text-cream"
+            className="bg-burgundy-500/20 backdrop-blur-sm border border-[#32a2bd] rounded-full p-3 hover:bg-burgundy-500/30 transition-all duration-300 text-cream"
           >
             <ArrowLeft className="w-6 h-6" />
           </motion.button>
@@ -158,7 +158,7 @@ export default function DuRirePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#c71724] rounded-lg p-8 text-center"
+              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#32a2bd] rounded-lg p-8 text-center"
             >
               <Mic className="w-12 h-12 text-gold-500 mx-auto mb-4" />
               <h3 className="text-2xl font-playfair text-cream mb-4">Humoristes locaux</h3>
@@ -172,7 +172,7 @@ export default function DuRirePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#c71724] rounded-lg p-8 text-center"
+              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#32a2bd] rounded-lg p-8 text-center"
             >
               <Users className="w-12 h-12 text-gold-500 mx-auto mb-4" />
               <h3 className="text-2xl font-playfair text-cream mb-4">Ambiance intimiste</h3>
@@ -186,7 +186,7 @@ export default function DuRirePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#c71724] rounded-lg p-8 text-center"
+              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#32a2bd] rounded-lg p-8 text-center"
             >
               <Heart className="w-12 h-12 text-gold-500 mx-auto mb-4" />
               <h3 className="text-2xl font-playfair text-cream mb-4">Expérience complète</h3>
