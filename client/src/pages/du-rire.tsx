@@ -53,8 +53,7 @@ export default function DuRirePage() {
         {/* Background gradient - 100% viewport height */}
         <div className="fixed inset-0 w-full h-screen bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0"></div>
         
-        {/* Additional atmospheric lighting - 100% viewport height */}
-        <div className="fixed inset-0 w-full h-screen bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60 z-0" />
+
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
 
