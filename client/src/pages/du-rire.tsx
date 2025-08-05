@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft, Facebook, Instagram } from "lucide-react";
 import { Link } from "wouter";
+import logoAnimated from "@assets/1644940442207271865intro-soire-unscreen_1754402335262.gif";
 
 export default function DuRirePage() {
   return (
@@ -33,7 +34,7 @@ export default function DuRirePage() {
             className="mb-6 flex justify-center"
           >
             <img 
-              src="/attached_assets/1644940442207271865intro-soire-unscreen_1754402335262.gif" 
+              src={logoAnimated} 
               alt="La Soirée du Rire de Granby - Logo animé" 
               className="max-w-xs md:max-w-md lg:max-w-lg h-auto"
             />
