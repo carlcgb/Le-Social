@@ -15,7 +15,7 @@ export default function HangingSign() {
   }, []);
 
   return (
-    <div className="fixed top-12 left-2 md:top-16 md:left-6 z-[10000]">
+    <div className="fixed top-12 left-2 md:top-16 md:left-6 z-[100]">
       <Link href="/du-rire">
         <motion.div
           initial={{ rotate: -3, y: -20, opacity: 0 }}
