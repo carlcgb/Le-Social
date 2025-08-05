@@ -3,8 +3,8 @@ import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black border-t border-gold-500/20 py-12 z-10">
-      <div className="absolute inset-0 bg-black backdrop-blur-sm" />
+    <footer className="relative bg-black py-12 z-10">
+      <div className="absolute inset-0 bg-black" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -32,7 +32,7 @@ export default function Footer() {
             Le Social vous offre trois expériences uniques dans une ambiance burlesque raffinée.
           </p>
           
-          <div className="mt-8 pt-8 border-t border-gold-500/20">
+          <div className="mt-8">
             <p className="text-cream/60 text-sm">
               © 2024 Social Bar & Cie. Tous droits réservés.
             </p>
