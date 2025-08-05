@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
 export default function Footer() {
   return (
@@ -14,13 +14,15 @@ export default function Footer() {
           className="text-center"
         >
           <div className="flex justify-center items-center mb-6">
-            <motion.div
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
-              <Sparkles className="w-8 h-8 text-gold-500 mr-3" />
-            </motion.div>
-            <h3 className="text-3xl font-playfair text-cream">Social</h3>
+            <motion.img 
+              src={logoPath} 
+              alt="Social Logo" 
+              className="h-16 w-auto filter brightness-0 invert"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            />
           </div>
           
           <p className="text-cream/60 mb-6">Par Attelier Archibald</p>
