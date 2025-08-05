@@ -21,50 +21,148 @@ export default function HangingSign() {
           whileHover={{ scale: 1.05, rotate: -5 }}
           className="cursor-pointer group"
         >
-          {/* Hanging rope/chain */}
+          {/* Hanging chain */}
           <div className="flex justify-center mb-2">
-            <div className="w-0.5 h-8 bg-gradient-to-b from-yellow-600 to-yellow-800 shadow-lg"></div>
+            <div className="w-1 h-8 bg-gradient-to-b from-gray-400 via-gray-500 to-gray-600 shadow-lg rounded"></div>
           </div>
           
-          {/* Wooden sign */}
+          {/* Vintage Arrow Sign */}
           <div className="relative">
-            {/* Wood texture background */}
-            <div className="bg-gradient-to-br from-yellow-800 via-yellow-700 to-amber-900 rounded-lg shadow-2xl border-2 border-yellow-900 p-4 min-w-[200px]">
-              {/* Wood grain lines */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="h-full w-full bg-gradient-to-r from-transparent via-yellow-900 to-transparent"></div>
-                <div className="absolute top-2 left-0 right-0 h-0.5 bg-amber-900 opacity-50"></div>
-                <div className="absolute top-6 left-0 right-0 h-0.5 bg-amber-900 opacity-30"></div>
-                <div className="absolute bottom-4 left-0 right-0 h-0.5 bg-amber-900 opacity-40"></div>
-              </div>
-              
-              {/* Arrow pointing left */}
-              <div className="absolute -left-3 top-1/2 transform -translate-y-1/2">
-                <div className="w-0 h-0 border-t-[8px] border-t-transparent border-r-[12px] border-r-red-600 border-b-[8px] border-b-transparent group-hover:border-r-red-500 transition-colors"></div>
-              </div>
-              
-              {/* Sign content */}
-              <div className="relative z-10 text-center">
-                <div className="text-red-700 font-bold text-sm leading-tight mb-1">
-                  La Soirée
+            {/* Main arrow shape */}
+            <div className="relative bg-gradient-to-br from-red-800 via-red-900 to-burgundy-900 shadow-2xl">
+              {/* Arrow body */}
+              <div className="flex items-center">
+                {/* Left rectangle part */}
+                <div className="bg-gradient-to-br from-red-800 via-red-900 to-burgundy-900 px-8 py-6 rounded-l-lg border-4 border-red-700 min-w-[180px]">
+                  <div className="text-center">
+                    <div className="text-white font-bold text-sm leading-tight mb-1 drop-shadow-lg">
+                      La Soirée
+                    </div>
+                    <div className="text-white font-extrabold text-lg leading-tight mb-1 drop-shadow-lg">
+                      Du Rire
+                    </div>
+                    <div className="text-white font-bold text-sm leading-tight drop-shadow-lg">
+                      de Granby
+                    </div>
+                  </div>
                 </div>
-                <div className="text-red-800 font-extrabold text-base leading-tight mb-1">
-                  Du Rire
-                </div>
-                <div className="text-red-700 font-bold text-sm leading-tight">
-                  de Granby
+                
+                {/* Arrow point */}
+                <div className="relative">
+                  <div className="w-0 h-0 border-t-[40px] border-t-transparent border-l-[40px] border-l-red-800 border-b-[40px] border-b-transparent drop-shadow-xl"></div>
+                  <div className="absolute top-0 left-0 w-0 h-0 border-t-[36px] border-t-transparent border-l-[36px] border-l-red-900 border-b-[36px] border-b-transparent transform translate-x-1 translate-y-1"></div>
                 </div>
               </div>
               
-              {/* Nails/screws */}
-              <div className="absolute top-2 left-2 w-1.5 h-1.5 bg-gray-700 rounded-full shadow-inner"></div>
-              <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-gray-700 rounded-full shadow-inner"></div>
-              <div className="absolute bottom-2 left-2 w-1.5 h-1.5 bg-gray-700 rounded-full shadow-inner"></div>
-              <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-gray-700 rounded-full shadow-inner"></div>
+              {/* Light bulbs around the border */}
+              <div className="absolute -inset-2">
+                {/* Top bulbs */}
+                {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+                  <motion.div
+                    key={`top-${i}`}
+                    className="absolute w-3 h-3 rounded-full"
+                    style={{
+                      left: `${15 + i * 12}%`,
+                      top: '-6px',
+                    }}
+                    animate={{
+                      backgroundColor: ['#FFD700', '#FFA500', '#FFD700'],
+                      boxShadow: [
+                        '0 0 8px #FFD700, 0 0 16px #FFD700',
+                        '0 0 12px #FFA500, 0 0 24px #FFA500',
+                        '0 0 8px #FFD700, 0 0 16px #FFD700'
+                      ]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.1
+                    }}
+                  />
+                ))}
+                
+                {/* Bottom bulbs */}
+                {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+                  <motion.div
+                    key={`bottom-${i}`}
+                    className="absolute w-3 h-3 rounded-full"
+                    style={{
+                      left: `${15 + i * 12}%`,
+                      bottom: '-6px',
+                    }}
+                    animate={{
+                      backgroundColor: ['#FFD700', '#FFA500', '#FFD700'],
+                      boxShadow: [
+                        '0 0 8px #FFD700, 0 0 16px #FFD700',
+                        '0 0 12px #FFA500, 0 0 24px #FFA500',
+                        '0 0 8px #FFD700, 0 0 16px #FFD700'
+                      ]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.1 + 0.5
+                    }}
+                  />
+                ))}
+                
+                {/* Left side bulbs */}
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={`left-${i}`}
+                    className="absolute w-3 h-3 rounded-full"
+                    style={{
+                      left: '-6px',
+                      top: `${25 + i * 20}%`,
+                    }}
+                    animate={{
+                      backgroundColor: ['#FFD700', '#FFA500', '#FFD700'],
+                      boxShadow: [
+                        '0 0 8px #FFD700, 0 0 16px #FFD700',
+                        '0 0 12px #FFA500, 0 0 24px #FFA500',
+                        '0 0 8px #FFD700, 0 0 16px #FFD700'
+                      ]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.15
+                    }}
+                  />
+                ))}
+                
+                {/* Arrow point bulbs */}
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={`arrow-${i}`}
+                    className="absolute w-3 h-3 rounded-full"
+                    style={{
+                      right: `${-15 + i * 8}px`,
+                      top: `${35 + i * 10}%`,
+                    }}
+                    animate={{
+                      backgroundColor: ['#FFD700', '#FFA500', '#FFD700'],
+                      boxShadow: [
+                        '0 0 8px #FFD700, 0 0 16px #FFD700',
+                        '0 0 12px #FFA500, 0 0 24px #FFA500',
+                        '0 0 8px #FFD700, 0 0 16px #FFD700'
+                      ]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.2 + 0.3
+                    }}
+                  />
+                ))}
+              </div>
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-l-lg pointer-events-none"></div>
             </div>
             
             {/* Shadow */}
-            <div className="absolute top-1 left-1 right-1 bottom-1 bg-black/20 rounded-lg -z-10"></div>
+            <div className="absolute inset-0 bg-black/30 transform translate-x-2 translate-y-2 rounded-l-lg -z-10"></div>
           </div>
         </motion.div>
       </Link>
