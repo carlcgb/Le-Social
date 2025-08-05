@@ -51,26 +51,11 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
           transition={{ duration: 1, delay: 2.5 }}
         >
           <div className="mb-12 relative">
-            {/* Brick background behind logo with fade effect */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5, delay: 3 }}
-              className="absolute inset-0 -m-8 rounded-2xl overflow-hidden"
-            >
-              <div className="w-full h-full relative">
-                <BrickWall />
-                <div className="absolute inset-0 bg-gradient-radial from-black/80 via-black/50 to-transparent" />
-              </div>
-            </motion.div>
-            
-            <div className="relative z-10">
-              <img 
-                src={logoPath} 
-                alt="Social - Par Attelier Archibald" 
-                className="h-48 md:h-56 lg:h-64 w-auto mx-auto filter brightness-0 invert"
-              />
-            </div>
+            <img 
+              src={logoPath} 
+              alt="Social - Par Attelier Archibald" 
+              className="h-48 md:h-56 lg:h-64 w-auto mx-auto filter brightness-0 invert relative z-10"
+            />
           </div>
           
           <p className="text-xl md:text-2xl text-cream/90 mb-8 font-light leading-relaxed">
