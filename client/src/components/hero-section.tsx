@@ -33,13 +33,13 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
             initial={{ scaleX: 1 }}
             animate={{ scaleX: 0 }}
             transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-1/2 h-full bg-burgundy-500 z-30 transform-origin-left"
+            className="absolute top-0 left-0 w-1/2 h-full bg-burgundy-500 z-[9999] transform-origin-left"
           />
           <motion.div
             initial={{ scaleX: 1 }}
             animate={{ scaleX: 0 }}
             transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-1/2 h-full bg-burgundy-500 z-30 transform-origin-right"
+            className="absolute top-0 right-0 w-1/2 h-full bg-burgundy-500 z-[9999] transform-origin-right"
           />
         </>
       )}
