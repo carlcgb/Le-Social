@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft, Facebook, Instagram } from "lucide-react";
 import { Link } from "wouter";
 
 export default function DuRirePage() {
@@ -163,13 +163,31 @@ export default function DuRirePage() {
               </div>
 
               <div className="flex items-start">
-                <Calendar className="w-6 h-6 text-gold-500 mr-4 mt-1" />
+                <Users className="w-6 h-6 text-gold-500 mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold text-cream mb-2">Fréquence</h3>
-                  <p className="text-cream/80">
-                    Chaque dernier samedi du mois<br />
-                    Vérifiez nos réseaux sociaux pour les dates exactes
-                  </p>
+                  <h3 className="text-xl font-semibold text-cream mb-2">Suivez-nous</h3>
+                  <div className="flex space-x-4 mt-3">
+                    <motion.a
+                      href="https://facebook.com/social.bar.cie"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors duration-300 inline-flex items-center"
+                    >
+                      <Facebook className="w-5 h-5" />
+                    </motion.a>
+                    <motion.a
+                      href="https://instagram.com/social_par_attelier_archibald"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-3 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 inline-flex items-center"
+                    >
+                      <Instagram className="w-5 h-5" />
+                    </motion.a>
+                  </div>
                 </div>
               </div>
             </motion.div>
