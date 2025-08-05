@@ -19,11 +19,11 @@
   --primary-foreground: hsl(48, 46%, 87%);
   --secondary: hsl(0, 0%, 10%);
   --secondary-foreground: hsl(48, 46%, 87%);
-  --accent: hsl(45, 80%, 45%);
-  --accent-foreground: hsl(0, 0%, 0%);
+  --accent: hsl(48, 20%, 90%);
+  --accent-foreground: hsl(0, 0%, 10%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(48, 46%, 87%);
-  --ring: hsl(45, 80%, 45%);
+  --ring: hsl(48, 20%, 90%);
   --radius: 0.5rem;
   
   /* Burlesque color palette */
@@ -35,9 +35,9 @@
   --burgundy-800: hsl(355, 70%, 25%);
   --burgundy-900: hsl(355, 70%, 15%);
   
-  --gold-400: hsl(45, 70%, 65%);
-  --gold-500: hsl(45, 80%, 45%);
-  --gold-600: hsl(45, 80%, 35%);
+  --gold-400: hsl(48, 15%, 85%);
+  --gold-500: hsl(48, 20%, 90%);
+  --gold-600: hsl(48, 25%, 80%);
   
   --cream: hsl(48, 46%, 87%);
 }
@@ -57,11 +57,11 @@
   --primary-foreground: hsl(48, 46%, 87%);
   --secondary: hsl(0, 0%, 10%);
   --secondary-foreground: hsl(48, 46%, 87%);
-  --accent: hsl(45, 80%, 45%);
-  --accent-foreground: hsl(0, 0%, 0%);
+  --accent: hsl(48, 20%, 90%);
+  --accent-foreground: hsl(0, 0%, 10%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(48, 46%, 87%);
-  --ring: hsl(45, 80%, 45%);
+  --ring: hsl(48, 20%, 90%);
 }
 
 @layer base {
