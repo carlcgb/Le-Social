@@ -48,6 +48,18 @@ export default function DuRirePage() {
         </Link>
       </div>
 
+      {/* Reserve button - fixed top right */}
+      <div className="fixed top-8 right-8 z-50">
+        <motion.button
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-gradient-to-r from-burgundy-500 to-burgundy-600 text-cream px-6 py-3 rounded-full hover:from-burgundy-600 hover:to-burgundy-700 transition-all duration-300 font-medium text-lg shadow-lg shadow-burgundy-900/50 backdrop-blur-sm border border-gold-500/30"
+        >
+          Réserver votre place
+        </motion.button>
+      </div>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background gradient - 100% viewport height */}
@@ -310,17 +322,7 @@ export default function DuRirePage() {
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <button className="bg-burgundy-500 text-cream px-8 py-4 rounded-full hover:bg-burgundy-600 transition-all duration-300 font-medium text-lg">
-              Réserver votre place
-            </button>
-          </motion.div>
+
         </div>
       </section>
     </div>
