@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft, Facebook, Instagram } from "lucide-react";
 import { Link } from "wouter";
 import logoAnimated from "@assets/1644940442207271865intro-soire-unscreen_1754402335262.gif";
+import BrickWall from "@/components/brick-wall";
 
 export default function DuRirePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800">
+    <div className="min-h-screen bg-black text-cream font-inter">
       {/* Back button */}
       <div className="fixed top-8 left-8 z-50">
         <Link href="/">
@@ -22,7 +23,13 @@ export default function DuRirePage() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-burgundy-900/30 to-black/80" />
+        {/* Background with brick wall texture - now fixed for parallax */}
+        <div className="fixed inset-0 bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
+          <BrickWall />
+        </div>
+        
+        {/* Additional atmospheric lighting - also fixed */}
+        <div className="fixed inset-0 bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60 z-0" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
 
