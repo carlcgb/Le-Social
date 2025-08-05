@@ -98,61 +98,32 @@ export default function DuRirePage() {
             transition={{ duration: 1, delay: 0.9 }}
             className="flex flex-wrap gap-4 justify-center"
           >
-            <div className="relative bg-gradient-to-br from-burgundy-800/40 via-burgundy-900/30 to-black/40 backdrop-blur-md border-2 border-gold-500/30 rounded-3xl px-10 py-8 flex flex-col items-center max-w-3xl shadow-2xl shadow-burgundy-900/50">
-              {/* Decorative corners */}
-              <div className="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-gold-500/60"></div>
-              <div className="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-gold-500/60"></div>
-              <div className="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-gold-500/60"></div>
-              <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-gold-500/60"></div>
-              
-              {/* Ornamental flourish at top */}
-              <div className="mb-4 text-gold-500/40 text-4xl">✦</div>
-              
-              <div className="flex items-center mb-6">
-                <Calendar className="w-10 h-10 mr-4 text-gold-500 drop-shadow-lg" />
-                <span className="text-cream text-3xl font-playfair font-bold tracking-wide">Prochain Spectacle</span>
+            <div className="bg-burgundy-500/20 backdrop-blur-sm rounded-2xl px-8 py-6 flex flex-col items-center max-w-2xl">
+              <div className="flex items-center mb-4">
+                <Calendar className="w-8 h-8 mr-3 text-gold-500" />
+                <span className="text-cream text-2xl font-semibold">Prochain Spectacle</span>
               </div>
-              
-              <div className="text-xl text-gold-300 mb-8 font-playfair italic tracking-wider border-b border-gold-500/30 pb-4">
+              <div className="text-lg text-gold-400 mb-6 font-medium">
                 20 septembre 2025 - 20h
               </div>
-              
-              <div className="flex gap-8 md:gap-12">
-                <div className="text-center relative">
-                  <div className="relative bg-gradient-to-b from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent text-6xl md:text-7xl font-black mb-3 drop-shadow-2xl font-playfair">
-                    {timeLeft.days}
-                  </div>
-                  <div className="text-lg text-cream/80 font-playfair font-semibold uppercase tracking-widest">jours</div>
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent"></div>
+              <div className="flex gap-6">
+                <div className="text-center">
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.days}</div>
+                  <div className="text-lg text-cream/70 font-medium">jours</div>
                 </div>
-                
-                <div className="text-center relative">
-                  <div className="relative bg-gradient-to-b from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent text-6xl md:text-7xl font-black mb-3 drop-shadow-2xl font-playfair">
-                    {timeLeft.hours}
-                  </div>
-                  <div className="text-lg text-cream/80 font-playfair font-semibold uppercase tracking-widest">heures</div>
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent"></div>
+                <div className="text-center">
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.hours}</div>
+                  <div className="text-lg text-cream/70 font-medium">heures</div>
                 </div>
-                
-                <div className="text-center relative">
-                  <div className="relative bg-gradient-to-b from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent text-6xl md:text-7xl font-black mb-3 drop-shadow-2xl font-playfair">
-                    {timeLeft.minutes}
-                  </div>
-                  <div className="text-lg text-cream/80 font-playfair font-semibold uppercase tracking-widest">min</div>
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent"></div>
+                <div className="text-center">
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.minutes}</div>
+                  <div className="text-lg text-cream/70 font-medium">min</div>
                 </div>
-                
-                <div className="text-center relative">
-                  <div className="relative bg-gradient-to-b from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent text-6xl md:text-7xl font-black mb-3 drop-shadow-2xl font-playfair">
-                    {timeLeft.seconds}
-                  </div>
-                  <div className="text-lg text-cream/80 font-playfair font-semibold uppercase tracking-widest">sec</div>
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent"></div>
+                <div className="text-center">
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.seconds}</div>
+                  <div className="text-lg text-cream/70 font-medium">sec</div>
                 </div>
               </div>
-              
-              {/* Ornamental flourish at bottom */}
-              <div className="mt-6 text-gold-500/40 text-2xl">✦ ✦ ✦</div>
             </div>
 
           </motion.div>
