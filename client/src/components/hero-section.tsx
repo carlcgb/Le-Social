@@ -24,10 +24,7 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
       {/* Additional atmospheric lighting */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60" />
       
-      {/* Chandeliers */}
-      <Chandelier className="top-10 left-20 hidden lg:block" size="large" />
-      <Chandelier className="top-16 right-24 hidden lg:block" size="medium" />
-      <Chandelier className="top-32 left-1/2 transform -translate-x-1/2 hidden md:block" size="small" />
+
       
       {/* Curtain Effect */}
       {showCurtain && (
