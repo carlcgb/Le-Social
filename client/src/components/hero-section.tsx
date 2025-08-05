@@ -55,11 +55,11 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
         >
           
           
-          <div className="mb-8">
+          <div className="mb-12">
             <img 
               src={logoPath} 
               alt="Social - Par Attelier Archibald" 
-              className="h-32 md:h-40 w-auto mx-auto filter brightness-0 invert"
+              className="h-48 md:h-56 lg:h-64 w-auto mx-auto filter brightness-0 invert"
             />
           </div>
           
