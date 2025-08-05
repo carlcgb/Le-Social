@@ -61,7 +61,7 @@ export default function SpectaclesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="bg-burgundy-800/30 border border-gold-500/30 rounded-xl p-6 mb-8"
+              className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-xl p-6 mb-8"
             >
               <h4 className="text-xl font-playfair text-gold-500 mb-3">Prochains spectacles</h4>
               <div className="space-y-3">

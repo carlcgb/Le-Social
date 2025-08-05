@@ -46,7 +46,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-b from-burgundy-800/30 to-black border border-gold-500/20 rounded-2xl p-8"
+              className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8"
             >
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (

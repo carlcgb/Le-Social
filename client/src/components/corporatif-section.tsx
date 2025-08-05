@@ -65,7 +65,7 @@ export default function CorporatifSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-burgundy-800/30 border border-gold-500/30 rounded-xl p-4"
+                  className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-xl p-4"
                 >
                   <type.icon className="w-8 h-8 text-gold-500 mb-2" />
                   <h4 className="text-lg font-playfair text-cream mb-2">{type.title}</h4>

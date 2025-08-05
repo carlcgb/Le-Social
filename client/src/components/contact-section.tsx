@@ -102,7 +102,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-b from-burgundy-800/30 to-black border border-gold-500/20 rounded-2xl p-8">
+            <div className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8">
               <h3 className="text-2xl font-playfair text-cream mb-6">Informations de contact</h3>
               
               <div className="space-y-6">
@@ -151,7 +151,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-b from-burgundy-800/30 to-black border border-gold-500/20 rounded-2xl p-8">
+            <div className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8">
               <h3 className="text-2xl font-playfair text-cream mb-6">Demande de réservation</h3>
               
               <Form {...form}>
