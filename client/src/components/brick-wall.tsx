@@ -13,7 +13,7 @@ export default function BrickWall() {
   ];
 
   return (
-    <div className="absolute inset-0 opacity-25 overflow-hidden">
+    <div className="fixed inset-0 opacity-25 overflow-hidden z-0">
       <svg
         className="w-full h-full"
         viewBox="0 0 1200 800"

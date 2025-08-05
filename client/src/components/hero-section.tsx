@@ -16,13 +16,13 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
 
   return (
     <section id="accueil" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with brick wall texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800">
+      {/* Background with brick wall texture - now fixed for parallax */}
+      <div className="fixed inset-0 bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
         <BrickWall />
       </div>
       
-      {/* Additional atmospheric lighting */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60" />
+      {/* Additional atmospheric lighting - also fixed */}
+      <div className="fixed inset-0 bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60 z-0" />
       
 
       
@@ -44,7 +44,7 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
         </>
       )}
       
-      <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
+      <div className="relative z-30 text-center max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

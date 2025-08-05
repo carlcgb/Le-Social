@@ -38,8 +38,9 @@ export default function CorporatifSection() {
   ];
 
   return (
-    <section id="corporatif" className="py-20 bg-gradient-to-r from-burgundy-900/30 to-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="corporatif" className="relative py-20 z-10">
+      <div className="absolute inset-0 bg-gradient-to-r from-burgundy-900/30 to-black backdrop-blur-sm" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}

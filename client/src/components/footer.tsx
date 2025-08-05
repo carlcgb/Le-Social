@@ -3,8 +3,9 @@ import { Sparkles } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-gold-500/20 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative bg-black border-t border-gold-500/20 py-12 z-10">
+      <div className="absolute inset-0 bg-black backdrop-blur-sm" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

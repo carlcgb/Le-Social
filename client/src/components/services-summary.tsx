@@ -29,8 +29,10 @@ export default function ServicesSummary() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-burgundy-900/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 z-10">
+      {/* Section background that covers the brick wall */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-burgundy-900/20 backdrop-blur-sm" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
