@@ -17,7 +17,7 @@ export default function Footer() {
             <motion.img 
               src={logoPath} 
               alt="Social Logo" 
-              className="h-16 w-auto filter brightness-0 invert"
+              className="h-24 w-auto filter brightness-0 invert"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
