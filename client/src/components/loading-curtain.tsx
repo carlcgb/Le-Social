@@ -8,12 +8,13 @@ export default function LoadingCurtain() {
         {/* Rideau avec logo noir */}
         <motion.div
           initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, delay: 2.5 }}
-          className="fixed inset-0 z-[9999] bg-burgundy-500 flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-burgundy-500"
         >
           <div className="text-center">
-            {/* Logo noir qui disparaît */}
+            {/* Logo noir qui disparaît - position exacte du hero */}
             <motion.div
               initial={{ opacity: 1 }}
               animate={{ opacity: 0 }}
@@ -22,18 +23,22 @@ export default function LoadingCurtain() {
                 delay: 1.0,
                 ease: "easeInOut"
               }}
-              className="absolute inset-0 flex items-center justify-center"
+              className="absolute inset-0"
             >
-              <img 
-                src={logoPath} 
-                alt="Social Logo" 
-                className="h-56 md:h-64 lg:h-72 w-auto filter brightness-0"
-              />
+              <div className="relative z-30 text-center max-w-4xl mx-auto px-4 min-h-screen flex items-center justify-center">
+                <div className="mb-12 relative">
+                  <img 
+                    src={logoPath} 
+                    alt="Social Logo" 
+                    className="h-56 md:h-64 lg:h-72 w-auto mx-auto filter brightness-0 relative z-10"
+                  />
+                </div>
+              </div>
             </motion.div>
           </div>
         </motion.div>
         
-        {/* Logo blanc qui reste après le rideau */}
+        {/* Logo blanc qui reste toujours visible - position exacte du hero */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -42,13 +47,18 @@ export default function LoadingCurtain() {
             delay: 1.0,
             ease: "easeInOut"
           }}
-          className="fixed inset-0 z-[9998] flex items-center justify-center pointer-events-none"
+          className="fixed inset-0 z-[9998] pointer-events-none"
+          style={{ willChange: 'opacity' }}
         >
-          <img 
-            src={logoPath} 
-            alt="Social Logo" 
-            className="h-56 md:h-64 lg:h-72 w-auto filter brightness-0 invert"
-          />
+          <div className="relative z-30 text-center max-w-4xl mx-auto px-4 min-h-screen flex items-center justify-center">
+            <div className="mb-12 relative">
+              <img 
+                src={logoPath} 
+                alt="Social Logo" 
+                className="h-56 md:h-64 lg:h-72 w-auto mx-auto filter brightness-0 invert relative z-10"
+              />
+            </div>
+          </div>
         </motion.div>
       </>
     </AnimatePresence>
