@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(48, 46%, 87%);
+  --muted: hsl(0, 0%, 10%);
+  --muted-foreground: hsl(48, 20%, 60%);
+  --popover: hsl(0, 0%, 5%);
+  --popover-foreground: hsl(48, 46%, 87%);
+  --card: hsl(0, 0%, 5%);
+  --card-foreground: hsl(48, 46%, 87%);
+  --border: hsl(45, 30%, 25%);
+  --input: hsl(0, 0%, 10%);
+  --primary: hsl(345, 75%, 30%);
+  --primary-foreground: hsl(48, 46%, 87%);
+  --secondary: hsl(0, 0%, 10%);
+  --secondary-foreground: hsl(48, 46%, 87%);
+  --accent: hsl(45, 80%, 45%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(48, 46%, 87%);
+  --ring: hsl(45, 80%, 45%);
+  --radius: 0.5rem;
+  
+  /* Burlesque color palette */
+  --burgundy-50: hsl(345, 100%, 97%);
+  --burgundy-100: hsl(345, 92%, 95%);
+  --burgundy-500: hsl(345, 75%, 30%);
+  --burgundy-600: hsl(345, 75%, 25%);
+  --burgundy-700: hsl(345, 75%, 20%);
+  --burgundy-800: hsl(345, 75%, 15%);
+  --burgundy-900: hsl(345, 75%, 10%);
+  
+  --gold-400: hsl(45, 70%, 65%);
+  --gold-500: hsl(45, 80%, 45%);
+  --gold-600: hsl(45, 80%, 35%);
+  
+  --cream: hsl(48, 46%, 87%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(48, 46%, 87%);
+  --muted: hsl(0, 0%, 10%);
+  --muted-foreground: hsl(48, 20%, 60%);
+  --popover: hsl(0, 0%, 5%);
+  --popover-foreground: hsl(48, 46%, 87%);
+  --card: hsl(0, 0%, 5%);
+  --card-foreground: hsl(48, 46%, 87%);
+  --border: hsl(45, 30%, 25%);
+  --input: hsl(0, 0%, 10%);
+  --primary: hsl(345, 75%, 30%);
+  --primary-foreground: hsl(48, 46%, 87%);
+  --secondary: hsl(0, 0%, 10%);
+  --secondary-foreground: hsl(48, 46%, 87%);
+  --accent: hsl(45, 80%, 45%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(48, 46%, 87%);
+  --ring: hsl(45, 80%, 45%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .burgundy-50 { color: var(--burgundy-50); }
+  .burgundy-100 { color: var(--burgundy-100); }
+  .burgundy-500 { color: var(--burgundy-500); }
+  .burgundy-600 { color: var(--burgundy-600); }
+  .burgundy-700 { color: var(--burgundy-700); }
+  .burgundy-800 { color: var(--burgundy-800); }
+  .burgundy-900 { color: var(--burgundy-900); }
+  
+  .bg-burgundy-50 { background-color: var(--burgundy-50); }
+  .bg-burgundy-100 { background-color: var(--burgundy-100); }
+  .bg-burgundy-500 { background-color: var(--burgundy-500); }
+  .bg-burgundy-600 { background-color: var(--burgundy-600); }
+  .bg-burgundy-700 { background-color: var(--burgundy-700); }
+  .bg-burgundy-800 { background-color: var(--burgundy-800); }
+  .bg-burgundy-900 { background-color: var(--burgundy-900); }
+  
+  .border-burgundy-500 { border-color: var(--burgundy-500); }
+  .border-burgundy-600 { border-color: var(--burgundy-600); }
+  
+  .gold-400 { color: var(--gold-400); }
+  .gold-500 { color: var(--gold-500); }
+  .gold-600 { color: var(--gold-600); }
+  
+  .bg-gold-400 { background-color: var(--gold-400); }
+  .bg-gold-500 { background-color: var(--gold-500); }
+  .bg-gold-600 { background-color: var(--gold-600); }
+  
+  .border-gold-500 { border-color: var(--gold-500); }
+  
+  .text-cream { color: var(--cream); }
+  .bg-cream { background-color: var(--cream); }
+  
+  .font-playfair { font-family: 'Playfair Display', serif; }
+  .font-inter { font-family: 'Inter', sans-serif; }
+}
+
+@keyframes curtain {
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.animate-curtain {
+  animation: curtain 2s ease-in-out forwards;
+}
+
+.animate-sparkle {
+  animation: sparkle 3s infinite;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-swing {
+  animation: swing 2s ease-in-out infinite;
+}
+
+.animate-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animate-delay-2500 {
+  animation-delay: 2.5s;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--burgundy-500);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burgundy-600);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-burgundy {
+  background: linear-gradient(135deg, var(--burgundy-900) 0%, transparent 100%);
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, var(--gold-500) 0%, transparent 100%);
+}
+
+/* Transform origin utilities */
+.transform-origin-left {
+  transform-origin: left;
+}
+
+.transform-origin-right {
+  transform-origin: right;
+}
