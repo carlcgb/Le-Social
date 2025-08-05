@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
+import { Link } from "wouter";
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
+import DuRireLogo from "./du-rire-logo";
 
 interface NavigationProps {
   onMobileMenuToggle: () => void;
@@ -42,12 +44,19 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <div className="flex items-center">
-            <img 
-              src={logoPath} 
-              alt="Social Logo" 
-              className="h-20 w-auto filter brightness-0 invert"
-            />
+          <div className="flex items-center space-x-4">
+            <Link href="/">
+              <img 
+                src={logoPath} 
+                alt="Social Logo" 
+                className="h-20 w-auto filter brightness-0 invert hover:opacity-80 transition-opacity cursor-pointer"
+              />
+            </Link>
+            <Link href="/du-rire">
+              <div className="hover:scale-110 transition-transform cursor-pointer">
+                <DuRireLogo className="w-14 h-14" />
+              </div>
+            </Link>
           </div>
           
           <div className="hidden md:flex space-x-8">
