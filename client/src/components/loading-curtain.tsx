@@ -11,21 +11,39 @@ export default function LoadingCurtain() {
         className="fixed inset-0 z-[9999] bg-burgundy-500 flex items-center justify-center"
       >
         <div className="text-center">
+          {/* Logo noir qui disparaît */}
           <motion.div
             initial={{ opacity: 1 }}
-            animate={{ 
-              filter: ["brightness(0)", "brightness(0) invert(1)"]
-            }}
+            animate={{ opacity: 0 }}
             transition={{ 
-              duration: 2.5, 
+              duration: 0.8, 
+              delay: 1.7,
               ease: "easeInOut"
             }}
-            className="mb-4"
+            className="absolute inset-0 flex items-center justify-center"
           >
             <img 
               src={logoPath} 
               alt="Social Logo" 
-              className="h-32 md:h-40 w-auto mx-auto"
+              className="h-56 md:h-64 lg:h-72 w-auto filter brightness-0"
+            />
+          </motion.div>
+          
+          {/* Logo blanc qui apparaît */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 1.7,
+              ease: "easeInOut"
+            }}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <img 
+              src={logoPath} 
+              alt="Social Logo" 
+              className="h-56 md:h-64 lg:h-72 w-auto filter brightness-0 invert"
             />
           </motion.div>
         </div>
