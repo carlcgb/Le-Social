@@ -31,7 +31,6 @@ export default function LoadingCurtain() {
               className="h-32 md:h-40 w-auto mx-auto"
             />
           </motion.div>
-          <div className="text-2xl font-playfair text-cream">Le plaisir d'être...</div>
         </div>
       </motion.div>
     </AnimatePresence>
