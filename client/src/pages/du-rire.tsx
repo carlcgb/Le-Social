@@ -3,6 +3,7 @@ import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft, Facebook, 
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import logoAnimated from "@assets/1644940442207271865intro-soire-unscreen_1754402335262.gif";
+import { BrickWall } from "@/components";
 
 export default function DuRirePage() {
   const [timeLeft, setTimeLeft] = useState({
@@ -65,8 +66,10 @@ export default function DuRirePage() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient - 100% viewport height */}
-        <div className="fixed inset-0 w-full h-screen bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0"></div>
+        {/* Background gradient with brick wall - 100% viewport height */}
+        <div className="fixed inset-0 w-full h-screen bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
+          <BrickWall />
+        </div>
         
 
         
@@ -82,7 +85,7 @@ export default function DuRirePage() {
             <img 
               src={logoAnimated} 
               alt="La Soirée du Rire de Granby - Logo animé" 
-              className="max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl h-auto opacity-50 brightness-[0.85] contrast-125 saturate-110"
+              className="max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl h-auto opacity-100 brightness-[0.85] contrast-125 saturate-110"
             />
           </motion.div>
           
