@@ -62,7 +62,7 @@ export default function SpectaclesSection() {
               viewport={{ once: true }}
               className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-6 mb-8"
             >
-              <h4 className="text-xl font-playfair text-gold-500 mb-3" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
+              <h4 className="text-xl font-playfair mb-3 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
               <div className="space-y-3">
                 {upcomingShows.map((show, index) => (
                   <div key={index} className="flex justify-between items-center border-b border-gold-500/20 pb-2 last:border-b-0">
