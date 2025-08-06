@@ -25,6 +25,7 @@ Preferred communication style: Simple, everyday language.
 ### Backend Architecture
 - **Express.js** server with TypeScript
 - **RESTful API** design with JSON request/response handling
+- **Facebook Graph API integration** for real-time social media content
 - **In-memory storage** implementation with interface abstraction for future database migration
 - **Zod schemas** for request validation and type safety
 - **Custom middleware** for request logging and error handling
@@ -72,7 +73,8 @@ The application uses Drizzle ORM with PostgreSQL schema definitions:
 
 ### Data Fetching
 - **@tanstack/react-query** for server state management
-- **axios** or native fetch for HTTP requests
+- **Facebook Graph API** integration for real-time posts and events
+- **date-fns** for date formatting and manipulation
 
 ### Database and ORM
 - **drizzle-orm** for database operations and migrations

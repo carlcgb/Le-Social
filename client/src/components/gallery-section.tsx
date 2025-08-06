@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-import { Facebook, ExternalLink, Heart, MessageCircle, Calendar, Users } from "lucide-react";
+import { Facebook, ExternalLink, Heart, MessageCircle, Calendar, Users, AlertCircle, Loader2 } from "lucide-react";
+import { useFacebookFeed } from "@/hooks/useFacebookFeed";
+import FacebookPostComponent from "@/components/facebook-post";
+import FacebookEventComponent from "@/components/facebook-event";
 import galleryImage1 from "@assets/523852904_122213781302128593_1046532013144842213_n_1754398633265.jpg";
 import galleryImage2 from "@assets/images_1754399318468.jpg";
 import galleryImage3 from "@assets/image_1754399805103.png";
@@ -10,7 +13,11 @@ export default function GallerySection() {
   const facebookPage = "social.bar.cie";
   const facebookUrl = `https://facebook.com/${facebookPage}`;
 
-  const facebookEvents = [
+  // Fetch real Facebook data
+  const { data: facebookFeed, isLoading, error, isError } = useFacebookFeed();
+
+  // Fallback data for when Facebook API is not available
+  const fallbackEvents = [
     {
       id: 1,
       image: galleryImage1,
@@ -114,9 +121,41 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="w-full max-w-4xl mx-auto"
           >
-            {/* Facebook Events Grid */}
+            {/* Loading State */}
+            {isLoading && (
+              <div className="flex flex-col items-center justify-center py-12">
+                <Loader2 className="w-8 h-8 text-gold-500 animate-spin mb-4" />
+                <p className="text-cream/80">Chargement des données Facebook...</p>
+              </div>
+            )}
+
+            {/* Error State */}
+            {isError && (
+              <div className="flex flex-col items-center justify-center py-12">
+                <AlertCircle className="w-8 h-8 text-red-500 mb-4" />
+                <p className="text-cream/80 text-center mb-4">
+                  Connexion à Facebook temporairement indisponible
+                </p>
+                <p className="text-cream/60 text-sm text-center">
+                  Affichage des événements de démonstration
+                </p>
+              </div>
+            )}
+
+            {/* Facebook Events and Posts Grid */}
             <div className="grid md:grid-cols-2 gap-6">
-              {facebookEvents.map((event, index) => (
+              {/* Display real Facebook events if available */}
+              {facebookFeed?.events?.map((event, index) => (
+                <FacebookEventComponent key={event.id} event={event} index={index} />
+              ))}
+              
+              {/* Display real Facebook posts if available */}
+              {facebookFeed?.posts?.slice(0, 4).map((post, index) => (
+                <FacebookPostComponent key={post.id} post={post} index={index + (facebookFeed?.events?.length || 0)} />
+              ))}
+
+              {/* Display fallback events if no Facebook data or error */}
+              {(!facebookFeed || (facebookFeed.events.length === 0 && facebookFeed.posts.length === 0) || isError) && fallbackEvents.map((event, index) => (
                 <motion.div
                   key={event.id}
                   initial={{ opacity: 0, y: 20 }}
