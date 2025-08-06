@@ -63,23 +63,27 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff]">
-            <button
+            <motion.button
               onClick={() => scrollToSection("#spectacles")}
-              className="bg-burgundy-500 px-8 py-4 rounded-full font-medium flex items-center justify-center"
+              className="bg-burgundy-500 px-8 py-4 rounded-full font-medium flex items-center justify-center transition-all duration-300"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              whileHover={{ scale: 1.05, backgroundColor: '#7c2d12' }}
+              whileTap={{ scale: 0.95 }}
             >
               <Theater className="w-5 h-5 mr-2" />
               Découvrir nos spectacles
-            </button>
+            </motion.button>
 
-            <button
+            <motion.button
               onClick={() => scrollToSection("#evenements")}
-              className="border-2 border-gold-500 text-gold-500 px-8 py-4 rounded-full font-medium flex items-center justify-center"
+              className="border-2 border-gold-500 text-gold-500 px-8 py-4 rounded-full font-medium flex items-center justify-center transition-all duration-300"
               style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              whileHover={{ scale: 1.05, borderColor: '#fbbf24', backgroundColor: 'rgba(251, 191, 36, 0.1)' }}
+              whileTap={{ scale: 0.95 }}
             >
               <Users className="w-5 h-5 mr-2" />
               Événements privés
-            </button>
+            </motion.button>
           </div>
         </motion.div>
       </div>

@@ -32,29 +32,38 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm md:hidden"
         >
           <div className="flex flex-col items-center justify-center h-full space-y-8 text-xl">
-            <button
+            <motion.button
               onClick={onClose}
-              className="absolute top-8 right-8 text-cream hover:text-gold-500"
+              className="absolute top-8 right-8 hover:text-gold-500 transition-colors duration-200"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               <X className="w-8 h-8" />
-            </button>
+            </motion.button>
             
             {navItems.map((item) => (
-              <button
+              <motion.button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-cream hover:text-gold-500 transition-colors"
+                className="hover:text-gold-500 transition-colors duration-200"
+                style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {item.label}
-              </button>
+              </motion.button>
             ))}
             
-            <button
+            <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="bg-burgundy-500 text-cream px-8 py-3 rounded-full hover:bg-burgundy-600 transition-colors"
+              className="bg-burgundy-500 px-8 py-3 rounded-full hover:bg-burgundy-600 transition-all duration-300"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              whileHover={{ scale: 1.05, backgroundColor: '#7c2d12' }}
+              whileTap={{ scale: 0.95 }}
             >
               Réserver
-            </button>
+            </motion.button>
           </div>
         </motion.div>
       )}

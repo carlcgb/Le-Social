@@ -38,7 +38,7 @@ export default function DuRirePage() {
       <div className="fixed top-8 left-8 z-50">
         <Link href="/">
           <button
-            className="bg-burgundy-500/20 backdrop-blur-sm border border-[#32a2bd] rounded-full p-3 hover:bg-burgundy-500/30"
+            className="bg-burgundy-500/20 backdrop-blur-sm border border-[#c71724] rounded-full p-3 hover:bg-burgundy-500/30"
             style={{color: '#ffffff'}}
           >
             <ArrowLeft className="w-6 h-6" />

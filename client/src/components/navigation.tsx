@@ -55,32 +55,38 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
           
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <button
+              <motion.button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 className="hover:text-gold-500 transition-colors font-medium"
                 style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {item.label}
-              </button>
+              </motion.button>
             ))}
-            <button
+            <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="bg-burgundy-500 px-6 py-2 rounded-full hover:bg-burgundy-600 transition-colors"
+              className="bg-burgundy-500 px-6 py-2 rounded-full hover:bg-burgundy-600 transition-all duration-300"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              whileHover={{ scale: 1.05, backgroundColor: '#7c2d12' }}
+              whileTap={{ scale: 0.95 }}
             >
               Réserver
-            </button>
+            </motion.button>
           </div>
           
           <div className="md:hidden">
-            <button
+            <motion.button
               onClick={onMobileMenuToggle}
-              className="hover:text-gold-500"
+              className="hover:text-gold-500 transition-colors duration-200"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Menu className="w-6 h-6" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

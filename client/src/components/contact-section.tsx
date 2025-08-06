@@ -342,15 +342,20 @@ export default function ContactSection() {
                     )}
                   />
                   
-                  <Button
-                    type="submit"
-                    disabled={reservationMutation.isPending}
-                    className="w-full bg-burgundy-500 py-4 rounded-full font-medium"
-                    style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <Send className="w-5 h-5 mr-2" />
-                    {reservationMutation.isPending ? "Envoi en cours..." : "Envoyer ma demande"}
-                  </Button>
+                    <Button
+                      type="submit"
+                      disabled={reservationMutation.isPending}
+                      className="w-full bg-burgundy-500 py-4 rounded-full font-medium hover:bg-burgundy-600 transition-all duration-300"
+                      style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+                    >
+                      <Send className="w-5 h-5 mr-2" />
+                      {reservationMutation.isPending ? "Envoi en cours..." : "Envoyer ma demande"}
+                    </Button>
+                  </motion.div>
                 </form>
               </Form>
             </div>
