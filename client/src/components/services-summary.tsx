@@ -53,7 +53,7 @@ export default function ServicesSummary() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
-              className="group bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 cursor-pointer"
+              className="group bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 cursor-pointer text-[#ffffff]"
               onClick={() => scrollToSection(service.href)}
             >
               <div className="text-center">
