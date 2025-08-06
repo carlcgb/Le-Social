@@ -4,11 +4,7 @@ import BrickWall from "./brick-wall";
 
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
-interface HeroSectionProps {
-  showCurtain: boolean;
-}
-
-export default function HeroSection({ showCurtain }: HeroSectionProps) {
+export default function HeroSection() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -23,28 +19,12 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
       <div className="fixed inset-0 w-full h-screen bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
         <BrickWall />
       </div>
-      {/* Curtain Effect */}
-      {showCurtain && (
-        <>
-          <motion.div
-            initial={{ scaleX: 1 }}
-            animate={{ scaleX: 0 }}
-            transition={{ duration: 1.5, delay: 0.75, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-1/2 h-full bg-burgundy-500 z-[9999] transform-origin-left"
-          />
-          <motion.div
-            initial={{ scaleX: 1 }}
-            animate={{ scaleX: 0 }}
-            transition={{ duration: 1.5, delay: 0.75, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-1/2 h-full bg-burgundy-500 z-[9999] transform-origin-right"
-          />
-        </>
-      )}
+      
       <div className="relative z-40 text-center max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2.5 }}
+          transition={{ duration: 0.8 }}
         >
           <div className="mb-12 relative">
             <img
