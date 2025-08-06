@@ -150,7 +150,7 @@ export default function GallerySection() {
                   className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
                 >
                   {/* Facebook Event Header */}
-                  <div className="flex items-center backdrop-blur-md p-4 border-b border-gold-500/20 bg-[#00000000] text-[#ffffff]">
+                  <div className="flex items-center backdrop-blur-md p-4 border-b border-gold-500/20">
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-3">
                       <Facebook className="w-5 h-5 text-white" />
                     </div>
@@ -212,7 +212,7 @@ export default function GallerySection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="mt-12 pt-8 border-t border-gold-500/20"
+            className="mt-12 pt-8"
           >
             <p className="text-lg mb-4 text-[#ffffff]">
               Réservez votre place pour nos prochains événements
