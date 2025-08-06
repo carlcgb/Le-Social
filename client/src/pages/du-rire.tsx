@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft, Facebook, Instagram } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
@@ -38,29 +37,25 @@ export default function DuRirePage() {
       {/* Back button */}
       <div className="fixed top-8 left-8 z-50">
         <Link href="/">
-          <motion.button
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-burgundy-500/20 backdrop-blur-sm border border-[#32a2bd] rounded-full p-3 hover:bg-burgundy-500/30 transition-all duration-300 text-white"
+          <button
+            className="bg-burgundy-500/20 backdrop-blur-sm border border-[#32a2bd] rounded-full p-3 hover:bg-burgundy-500/30"
+            style={{color: '#ffffff'}}
           >
             <ArrowLeft className="w-6 h-6" />
-          </motion.button>
+          </button>
         </Link>
       </div>
       {/* Reserve button - fixed top right */}
       <div className="fixed top-8 right-8 z-50">
-        <motion.a
+        <a
           href="https://app.tixigo.com/TOffice?token=sNozI5aN0tE7QVy3zaUxCFBQFtB%2Bg7sW0cWMhItujXo%3D&fbclid=IwY2xjawL-8z9leHRuA2FlbQIxMABicmlkETFibFdFQ0doVVFTOVdnSVc3AR4ABF-vM7_NsRFZfEUztGTJ5NL1YxibJpbmV3i3GVeE7IhiCy3inGDwReJMdw_aem_-7nVUgUJXOxeZJvH2oiH5Q"
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative bg-black/80 text-white px-8 py-4 rounded-full font-bold text-lg border-2 border-[#c71724] inline-block transition-all duration-300 hover:scale-105 neon-button"
+          className="relative bg-black/80 px-8 py-4 rounded-full font-bold text-lg border-2 border-[#c71724] inline-block neon-button"
+          style={{color: '#ffffff'}}
         >
           Réserver votre place
-        </motion.a>
+        </a>
       </div>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -74,151 +69,103 @@ export default function DuRirePage() {
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
 
           
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="mb-6 flex justify-center"
-          >
+          <div className="mb-6 flex justify-center">
             <img 
               src={logoAnimated} 
               alt="La Soirée du Rire de Granby - Logo néon animé"
               className="max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl h-auto opacity-90"
             />
-          </motion.div>
+          </div>
           
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="text-xl md:text-2xl text-white mb-8 font-light"
+          <p
+            className="text-xl md:text-2xl mb-8 font-light"
+            style={{color: '#ffffff'}}
           >
             L'événement signature du Social Bar & Cie
-          </motion.p>
+          </p>
           
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.9 }}
-            className="flex flex-wrap gap-4 justify-center"
-          >
+          <div className="flex flex-wrap gap-4 justify-center">
             <div className="bg-burgundy-500/20 backdrop-blur-md border border-gold-500/30 rounded-2xl px-8 py-6 flex flex-col items-center max-w-2xl">
               <div className="flex items-center mb-4">
                 <Calendar className="w-8 h-8 mr-3 text-gold-500" />
-                <span className="text-white text-2xl font-semibold">Prochain Spectacle</span>
+                <span className="text-2xl font-semibold" style={{color: '#ffffff'}}>Prochain Spectacle</span>
               </div>
-              <div className="text-lg text-white mb-6 font-medium">20 septembre 2025 - 20h
+              <div className="text-lg mb-6 font-medium" style={{color: '#ffffff'}}>20 septembre 2025 - 20h
 </div>
               <div className="flex gap-6">
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.days}</div>
-                  <div className="text-lg text-white font-medium">jours</div>
+                  <div className="text-lg font-medium" style={{color: '#ffffff'}}>jours</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.hours}</div>
-                  <div className="text-lg text-white font-medium">heures</div>
+                  <div className="text-lg font-medium" style={{color: '#ffffff'}}>heures</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.minutes}</div>
-                  <div className="text-lg text-white font-medium">min</div>
+                  <div className="text-lg font-medium" style={{color: '#ffffff'}}>min</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.seconds}</div>
-                  <div className="text-lg text-white font-medium">sec</div>
+                  <div className="text-lg font-medium" style={{color: '#ffffff'}}>sec</div>
                 </div>
               </div>
             </div>
 
-          </motion.div>
+          </div>
         </div>
       </section>
       {/* About the Event */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-playfair text-white mb-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-playfair mb-6" style={{color: '#ffffff'}}>
               Une soirée d'humour unique
             </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto" style={{color: '#ffffff'}}>
               Chaque mois, le Social Bar & Cie se transforme en scène de comédie pour accueillir 
               les meilleurs humoristes de la région dans une ambiance burlesque incomparable.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
-            >
+            <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center">
               <Mic className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair text-white mb-4">Humoristes locaux</h3>
-              <p className="text-white">
+              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff'}}>Humoristes locaux</h3>
+              <p style={{color: '#ffffff'}}>
                 Découvrez les talents émergents et confirmés de la scène humoristique québécoise
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
-            >
+            <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center">
               <Users className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair text-white mb-4">Ambiance intimiste</h3>
-              <p className="text-white">
+              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff'}}>Ambiance intimiste</h3>
+              <p style={{color: '#ffffff'}}>
                 Une proximité unique avec les artistes dans notre cadre burlesque authentique
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
-            >
+            <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center">
               <Heart className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair text-white mb-4">Expérience complète</h3>
-              <p className="text-white">
+              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff'}}>Expérience complète</h3>
+              <p style={{color: '#ffffff'}}>
                 Spectacle, cocktails signature et ambiance festive pour une soirée mémorable
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
       {/* Event Details */}
       <section className="py-20 px-4 bg-black/50">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-playfair text-white mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-playfair mb-6" style={{color: '#ffffff'}}>
               Informations pratiques
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 1, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <div className="space-y-6">
               <div className="flex items-start">
                 <MapPin className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
@@ -236,38 +183,30 @@ export default function DuRirePage() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff'}}>Suivez-nous</h3>
                   <div className="flex space-x-4 mt-3">
-                    <motion.a
+                    <a
                       href="https://facebook.com/social.bar.cie"
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors duration-300 inline-flex items-center"
+                      className="bg-blue-600 p-3 rounded-full inline-flex items-center"
+                      style={{color: '#ffffff'}}
                     >
                       <Facebook className="w-5 h-5" />
-                    </motion.a>
-                    <motion.a
+                    </a>
+                    <a
                       href="https://instagram.com/social_par_attelier_archibald"
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-3 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 inline-flex items-center"
+                      className="bg-gradient-to-r from-pink-500 to-purple-600 p-3 rounded-full inline-flex items-center"
+                      style={{color: '#ffffff'}}
                     >
                       <Instagram className="w-5 h-5" />
-                    </motion.a>
+                    </a>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ x: 50 }}
-              whileInView={{ x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <div className="space-y-6">
               <div className="flex items-start">
                 <Clock className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
@@ -291,7 +230,7 @@ export default function DuRirePage() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
 
