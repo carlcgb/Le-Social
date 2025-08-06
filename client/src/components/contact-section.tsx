@@ -242,13 +242,11 @@ export default function ContactSection() {
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger 
-                              className="bg-burgundy-900/30 border-2 border-gold-500/50 rounded-lg focus:border-gold-400 focus:ring-2 focus:ring-gold-500/30 hover:bg-burgundy-900/40 transition-all duration-200 min-h-[44px]"
-                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
+                              className="bg-white/90 border-2 border-gold-500/50 rounded-lg focus:border-gold-400 focus:ring-2 focus:ring-gold-500/30 hover:bg-white transition-all duration-200 min-h-[44px] text-gray-900"
                             >
                               <SelectValue 
                                 placeholder="Sélectionnez un type" 
-                                className="text-white/80"
-                                style={{color: '#ffffff', opacity: 0.8}} 
+                                className="text-gray-700"
                               />
                             </SelectTrigger>
                           </FormControl>
