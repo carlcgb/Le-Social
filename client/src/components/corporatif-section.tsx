@@ -118,7 +118,7 @@ export default function CorporatifSection() {
               alt="Événement corporatif au Social" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
-            <div className="absolute -top-4 -right-4 bg-gold-500 text-black px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold">
+            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-[#32bd57] text-[#fffafa]">
               Excellence professionnelle
             </div>
           </motion.div>
