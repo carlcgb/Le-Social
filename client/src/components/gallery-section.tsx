@@ -77,7 +77,7 @@ export default function GallerySection() {
         >
           <div className="flex items-center justify-center mb-6">
             <Facebook className="w-12 h-12 text-gold-500 mr-4" />
-            <h2 className="text-5xl font-playfair text-cream">Nos Événements</h2>
+            <h2 className="text-5xl font-playfair text-[#ffffff]">Nos Événements</h2>
           </div>
           <p className="text-xl text-cream/80 mb-8">
             Découvrez nos prochains événements et réservez votre place au Social
