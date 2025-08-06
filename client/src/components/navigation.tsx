@@ -37,7 +37,7 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-40 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-black" : "bg-black/90"
       } backdrop-blur-sm border-b border-gold-500/20`}
     >
@@ -58,14 +58,16 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-cream hover:text-gold-500 transition-colors font-medium"
+                className="hover:text-gold-500 transition-colors font-medium"
+                style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               >
                 {item.label}
               </button>
             ))}
             <button
               onClick={() => scrollToSection("#contact")}
-              className="bg-burgundy-500 text-cream px-6 py-2 rounded-full hover:bg-burgundy-600 transition-colors"
+              className="bg-burgundy-500 px-6 py-2 rounded-full hover:bg-burgundy-600 transition-colors"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             >
               Réserver
             </button>
@@ -74,7 +76,8 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
           <div className="md:hidden">
             <button
               onClick={onMobileMenuToggle}
-              className="text-cream hover:text-gold-500"
+              className="hover:text-gold-500"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             >
               <Menu className="w-6 h-6" />
             </button>
