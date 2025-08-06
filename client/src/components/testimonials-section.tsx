@@ -24,9 +24,8 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="relative py-20 z-10">
-      <div className="absolute inset-0/20 backdrop-blur-sm text-[#ffffff]" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 z-40">
+      <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,8 +33,8 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-playfair mb-6 text-[#ffffff]">Témoignages</h2>
-          <p className="text-xl text-cream/80">Ce que nos clients disent de leurs expériences</p>
+          <h2 className="text-5xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Témoignages</h2>
+          <p className="text-xl" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Ce que nos clients disent de leurs expériences</p>
         </motion.div>
         
         <div className="grid md:grid-cols-3 gap-8">
@@ -46,7 +45,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8"
+              className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8"
             >
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -54,15 +53,15 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               
-              <p className="text-cream/90 mb-6 italic">"{testimonial.text}"</p>
+              <p className="mb-6 italic" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>"{testimonial.text}"</p>
               
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center mr-4">
                   <span className="text-black font-bold">{testimonial.initials}</span>
                 </div>
                 <div>
-                  <h4 className="text-cream font-medium">{testimonial.name}</h4>
-                  <p className="text-cream/60 text-sm">{testimonial.role}</p>
+                  <h4 className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{testimonial.name}</h4>
+                  <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>

@@ -72,11 +72,11 @@ export default function EvenementsSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-xl p-4"
+                  className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-4"
                 >
                   <type.icon className="w-8 h-8 text-gold-500 mb-2" />
-                  <h4 className="text-lg font-playfair text-cream mb-2">{type.title}</h4>
-                  <p className="text-cream/70 text-sm">{type.description}</p>
+                  <h4 className="text-lg font-playfair mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.title}</h4>
+                  <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -92,20 +92,19 @@ export default function EvenementsSection() {
                   className="flex items-center"
                 >
                   <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
-                  <span className="text-cream">{feature.text}</span>
+                  <span style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
                 </motion.div>
               ))}
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => scrollToSection("#contact")}
-              className="inline-flex items-center bg-burgundy-500 text-cream px-8 py-4 rounded-full hover:bg-burgundy-600 transition-all duration-300"
+              className="inline-flex items-center bg-burgundy-500 px-8 py-4 rounded-full"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             >
               <Heart className="w-5 h-5 mr-2" />
               Planifier mon événement
-            </motion.button>
+            </button>
           </motion.div>
         </div>
       </div>

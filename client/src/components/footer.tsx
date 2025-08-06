@@ -3,9 +3,8 @@ import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black py-12 z-10">
-      <div className="absolute inset-0 bg-black" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative bg-black py-12 z-40">
+      <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,12 +24,12 @@ export default function Footer() {
             />
           </div>
           
-          <p className="text-cream/60 mb-6">Par Attelier Archibald</p>
+          <p className="mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Par Attelier Archibald</p>
           
           
           
           <div className="mt-8">
-            <p className="text-cream/60 text-sm">
+            <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               © 2024 Social Bar & Cie. Tous droits réservés.
             </p>
           </div>
