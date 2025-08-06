@@ -105,7 +105,7 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <h3 className="text-3xl font-playfair text-cream mb-4">
+            <h3 className="text-3xl font-playfair mb-4 text-[#ffffff]">
               Événements à venir
             </h3>
             <p className="text-cream/80 text-lg mb-8">
