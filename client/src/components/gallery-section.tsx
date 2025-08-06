@@ -97,7 +97,7 @@ export default function GallerySection() {
         </motion.div>
         
         {/* Instagram Feed Container */}
-        <div className="backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8 text-center bg-[#00000000]">
+        <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
