@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, Theater, Users } from "lucide-react";
 import BrickWall from "./brick-wall";
-import Chandelier from "./chandelier";
+
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
 interface HeroSectionProps {
@@ -15,35 +15,36 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
   };
 
   return (
-    <section id="accueil" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="accueil"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background with brick wall texture - now fixed for parallax */}
       <div className="fixed inset-0 bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
         <BrickWall />
       </div>
-      
+
       {/* Additional atmospheric lighting - also fixed */}
       <div className="fixed inset-0 bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60 z-0" />
-      
 
-      
       {/* Curtain Effect */}
       {showCurtain && (
         <>
           <motion.div
             initial={{ scaleX: 1 }}
             animate={{ scaleX: 0 }}
-            transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
+            transition={{ duration: 1.5, delay: 0.75, ease: "easeInOut" }}
             className="absolute top-0 left-0 w-1/2 h-full bg-burgundy-500 z-[9999] transform-origin-left"
           />
           <motion.div
             initial={{ scaleX: 1 }}
             animate={{ scaleX: 0 }}
-            transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
+            transition={{ duration: 1.5, delay: 0.75, ease: "easeInOut" }}
             className="absolute top-0 right-0 w-1/2 h-full bg-burgundy-500 z-[9999] transform-origin-right"
           />
         </>
       )}
-      
+
       <div className="relative z-30 text-center max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -51,17 +52,18 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
           transition={{ duration: 1, delay: 2.5 }}
         >
           <div className="mb-12 relative">
-            <img 
-              src={logoPath} 
-              alt="Social - Par Attelier Archibald" 
+            <img
+              src={logoPath}
+              alt="Social - Par Attelier Archibald"
               className="h-56 md:h-64 lg:h-72 w-auto mx-auto filter brightness-0 invert relative z-10"
             />
           </div>
-          
+
           <p className="text-xl md:text-2xl text-cream/90 mb-8 font-light leading-relaxed">
-            Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque style, chaque histoire.
+            Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
+            style, chaque histoire.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -72,7 +74,7 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
               <Theater className="w-5 h-5 mr-2" />
               Découvrir nos spectacles
             </motion.button>
-            
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
