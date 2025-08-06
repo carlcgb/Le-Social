@@ -65,10 +65,15 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff]">
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
-              className="bg-burgundy-500 px-8 py-4 rounded-full font-medium flex items-center justify-center transition-all duration-300"
+              className="bg-burgundy-500 px-8 py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              whileHover={{ scale: 1.05, backgroundColor: '#7c2d12' }}
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: '#7c2d12',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.4)'
+              }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.15 }}
             >
               <Theater className="w-5 h-5 mr-2" />
               Découvrir nos spectacles
@@ -76,10 +81,16 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
 
             <motion.button
               onClick={() => scrollToSection("#evenements")}
-              className="border-2 border-gold-500 text-gold-500 px-8 py-4 rounded-full font-medium flex items-center justify-center transition-all duration-300"
+              className="border-2 border-gold-500 text-gold-500 px-8 py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150"
               style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              whileHover={{ scale: 1.05, borderColor: '#fbbf24', backgroundColor: 'rgba(251, 191, 36, 0.1)' }}
+              whileHover={{ 
+                scale: 1.05, 
+                borderColor: '#fbbf24', 
+                backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                boxShadow: '0 8px 25px rgba(251, 191, 36, 0.3)'
+              }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.15 }}
             >
               <Users className="w-5 h-5 mr-2" />
               Événements privés

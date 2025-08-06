@@ -60,18 +60,27 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
                 onClick={() => scrollToSection(item.href)}
                 className="hover:text-gold-500 transition-colors font-medium"
                 style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ 
+                  scale: 1.1,
+                  textShadow: '0 0 8px rgba(251, 191, 36, 0.6)'
+                }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.12 }}
               >
                 {item.label}
               </motion.button>
             ))}
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="bg-burgundy-500 px-6 py-2 rounded-full hover:bg-burgundy-600 transition-all duration-300"
+              className="bg-burgundy-500 px-6 py-2 rounded-full hover:bg-burgundy-600 transition-all duration-150"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              whileHover={{ scale: 1.05, backgroundColor: '#7c2d12' }}
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: '#7c2d12',
+                boxShadow: '0 6px 20px rgba(0, 0, 0, 0.4)'
+              }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.15 }}
             >
               Réserver
             </motion.button>
@@ -80,10 +89,14 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
           <div className="md:hidden">
             <motion.button
               onClick={onMobileMenuToggle}
-              className="hover:text-gold-500 transition-colors duration-200"
+              className="hover:text-gold-500 transition-colors duration-150"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ 
+                scale: 1.1,
+                filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.6))'
+              }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.12 }}
             >
               <Menu className="w-6 h-6" />
             </motion.button>

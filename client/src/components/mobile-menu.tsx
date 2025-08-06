@@ -34,10 +34,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className="flex flex-col items-center justify-center h-full space-y-8 text-xl">
             <motion.button
               onClick={onClose}
-              className="absolute top-8 right-8 hover:text-gold-500 transition-colors duration-200"
+              className="absolute top-8 right-8 hover:text-gold-500 transition-colors duration-150"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ 
+                scale: 1.1,
+                filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.6))'
+              }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.12 }}
             >
               <X className="w-8 h-8" />
             </motion.button>
@@ -46,10 +50,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <motion.button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="hover:text-gold-500 transition-colors duration-200"
+                className="hover:text-gold-500 transition-colors duration-150"
                 style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ 
+                  scale: 1.1,
+                  textShadow: '0 0 8px rgba(251, 191, 36, 0.6)'
+                }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.12 }}
               >
                 {item.label}
               </motion.button>
@@ -57,10 +65,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="bg-burgundy-500 px-8 py-3 rounded-full hover:bg-burgundy-600 transition-all duration-300"
+              className="bg-burgundy-500 px-8 py-3 rounded-full hover:bg-burgundy-600 transition-all duration-150"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              whileHover={{ scale: 1.05, backgroundColor: '#7c2d12' }}
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: '#7c2d12',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.4)'
+              }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.15 }}
             >
               Réserver
             </motion.button>

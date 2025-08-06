@@ -343,13 +343,17 @@ export default function ContactSection() {
                   />
                   
                   <motion.div
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ 
+                      scale: 1.02,
+                      boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)'
+                    }}
                     whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
                   >
                     <Button
                       type="submit"
                       disabled={reservationMutation.isPending}
-                      className="w-full bg-burgundy-500 py-4 rounded-full font-medium hover:bg-burgundy-600 transition-all duration-300"
+                      className="w-full bg-burgundy-500 py-4 rounded-full font-medium hover:bg-burgundy-600 transition-all duration-150"
                       style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
                     >
                       <Send className="w-5 h-5 mr-2" />
