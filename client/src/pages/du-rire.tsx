@@ -66,7 +66,7 @@ export default function DuRirePage() {
         
 
         
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-50 text-center max-w-4xl mx-auto px-4">
 
           
           <div className="mb-6 flex justify-center">
@@ -79,7 +79,7 @@ export default function DuRirePage() {
           
           <p
             className="text-xl md:text-2xl mb-8 font-light"
-            style={{color: '#ffffff'}}
+            style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
           >
             L'événement signature du Social Bar & Cie
           </p>
@@ -88,26 +88,26 @@ export default function DuRirePage() {
             <div className="bg-burgundy-500/20 backdrop-blur-md border border-gold-500/30 rounded-2xl px-8 py-6 flex flex-col items-center max-w-2xl">
               <div className="flex items-center mb-4">
                 <Calendar className="w-8 h-8 mr-3 text-gold-500" />
-                <span className="text-2xl font-semibold" style={{color: '#ffffff'}}>Prochain Spectacle</span>
+                <span className="text-2xl font-semibold" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochain Spectacle</span>
               </div>
-              <div className="text-lg mb-6 font-medium" style={{color: '#ffffff'}}>20 septembre 2025 - 20h
+              <div className="text-lg mb-6 font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>20 septembre 2025 - 20h
 </div>
               <div className="flex gap-6">
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.days}</div>
-                  <div className="text-lg font-medium" style={{color: '#ffffff'}}>jours</div>
+                  <div className="text-lg font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>jours</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.hours}</div>
-                  <div className="text-lg font-medium" style={{color: '#ffffff'}}>heures</div>
+                  <div className="text-lg font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>heures</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.minutes}</div>
-                  <div className="text-lg font-medium" style={{color: '#ffffff'}}>min</div>
+                  <div className="text-lg font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>min</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.seconds}</div>
-                  <div className="text-lg font-medium" style={{color: '#ffffff'}}>sec</div>
+                  <div className="text-lg font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>sec</div>
                 </div>
               </div>
             </div>
@@ -116,13 +116,13 @@ export default function DuRirePage() {
         </div>
       </section>
       {/* About the Event */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 relative z-40">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-playfair mb-6" style={{color: '#ffffff'}}>
+            <h2 className="text-4xl md:text-5xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Une soirée d'humour unique
             </h2>
-            <p className="text-xl max-w-3xl mx-auto" style={{color: '#ffffff'}}>
+            <p className="text-xl max-w-3xl mx-auto" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Chaque mois, le Social Bar & Cie se transforme en scène de comédie pour accueillir 
               les meilleurs humoristes de la région dans une ambiance burlesque incomparable.
             </p>
@@ -131,24 +131,24 @@ export default function DuRirePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center">
               <Mic className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff'}}>Humoristes locaux</h3>
-              <p style={{color: '#ffffff'}}>
+              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Humoristes locaux</h3>
+              <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                 Découvrez les talents émergents et confirmés de la scène humoristique québécoise
               </p>
             </div>
 
             <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center">
               <Users className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff'}}>Ambiance intimiste</h3>
-              <p style={{color: '#ffffff'}}>
+              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Ambiance intimiste</h3>
+              <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                 Une proximité unique avec les artistes dans notre cadre burlesque authentique
               </p>
             </div>
 
             <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center">
               <Heart className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff'}}>Expérience complète</h3>
-              <p style={{color: '#ffffff'}}>
+              <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Expérience complète</h3>
+              <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                 Spectacle, cocktails signature et ambiance festive pour une soirée mémorable
               </p>
             </div>
@@ -156,10 +156,10 @@ export default function DuRirePage() {
         </div>
       </section>
       {/* Event Details */}
-      <section className="py-20 px-4 bg-black/50">
+      <section className="py-20 px-4 bg-black/50 relative z-40">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-playfair mb-6" style={{color: '#ffffff'}}>
+            <h2 className="text-4xl md:text-5xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Informations pratiques
             </h2>
           </div>
@@ -169,8 +169,8 @@ export default function DuRirePage() {
               <div className="flex items-start">
                 <MapPin className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff'}}>Lieu</h3>
-                  <p style={{color: '#ffffff'}}>
+                  <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Lieu</h3>
+                  <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                     Social Bar & Cie<br />
                     150 Rue Saint-Jacques<br />
                     Granby, QC J2G 3V3
@@ -181,7 +181,7 @@ export default function DuRirePage() {
               <div className="flex items-start">
                 <Users className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff'}}>Suivez-nous</h3>
+                  <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Suivez-nous</h3>
                   <div className="flex space-x-4 mt-3">
                     <a
                       href="https://facebook.com/social.bar.cie"
@@ -210,8 +210,8 @@ export default function DuRirePage() {
               <div className="flex items-start">
                 <Clock className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff'}}>Horaires</h3>
-                  <p style={{color: '#ffffff'}}>
+                  <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Horaires</h3>
+                  <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                     Ouverture pour souper : 17h<br />
                     Début du spectacle : 20h<br />
                     Fin de soirée : 23h
@@ -222,8 +222,8 @@ export default function DuRirePage() {
               <div className="flex items-start">
                 <Star className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff'}}>Tarifs</h3>
-                  <p style={{color: '#ffffff'}}>
+                  <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Tarifs</h3>
+                  <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                     Prévente : 15$ par personne<br />
                     À la porte : 20$ par personne<br />
                     Réservation recommandée
