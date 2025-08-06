@@ -23,7 +23,6 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
       <div className="fixed inset-0 w-full h-screen bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
         <BrickWall />
       </div>
-
       {/* Curtain Effect */}
       {showCurtain && (
         <>
@@ -41,7 +40,6 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
           />
         </>
       )}
-
       <div className="relative z-50 text-center max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -64,7 +62,7 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
             style, chaque histoire.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff]">
             <button
               onClick={() => scrollToSection("#spectacles")}
               className="bg-burgundy-500 px-8 py-4 rounded-full font-medium flex items-center justify-center"
