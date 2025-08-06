@@ -229,7 +229,7 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="mt-12 pt-8 border-t border-gold-500/20"
           >
-            <p className="text-cream/80 text-lg mb-4">
+            <p className="text-lg mb-4 text-[#ffffff]">
               Réservez votre place pour nos prochains événements
             </p>
             <div className="flex justify-center space-x-4">
