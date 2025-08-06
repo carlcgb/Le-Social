@@ -68,7 +68,7 @@ export default function ServicesSummary() {
                 <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{service.title}</h3>
                 <p className="mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{service.description}</p>
                 
-                <button className="inline-flex items-center text-gold-500" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+                <button className="inline-flex items-center text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                   En savoir plus 
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
