@@ -34,7 +34,7 @@ export default function DuRirePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-cream font-inter">
+    <div className="min-h-screen bg-black text-white font-inter">
       {/* Back button */}
       <div className="fixed top-8 left-8 z-50">
         <Link href="/">
@@ -42,7 +42,7 @@ export default function DuRirePage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-burgundy-500/20 backdrop-blur-sm border border-[#32a2bd] rounded-full p-3 hover:bg-burgundy-500/30 transition-all duration-300 text-cream"
+            className="bg-burgundy-500/20 backdrop-blur-sm border border-[#32a2bd] rounded-full p-3 hover:bg-burgundy-500/30 transition-all duration-300 text-white"
           >
             <ArrowLeft className="w-6 h-6" />
           </motion.button>
@@ -94,7 +94,7 @@ export default function DuRirePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-xl md:text-2xl text-cream/90 mb-8 font-light"
+            className="text-xl md:text-2xl text-white mb-8 font-light"
           >
             L'événement signature du Social Bar & Cie
           </motion.p>
@@ -108,26 +108,26 @@ export default function DuRirePage() {
             <div className="bg-burgundy-500/20 backdrop-blur-md border border-gold-500/30 rounded-2xl px-8 py-6 flex flex-col items-center max-w-2xl">
               <div className="flex items-center mb-4">
                 <Calendar className="w-8 h-8 mr-3 text-gold-500" />
-                <span className="text-cream text-2xl font-semibold">Prochain Spectacle</span>
+                <span className="text-white text-2xl font-semibold">Prochain Spectacle</span>
               </div>
               <div className="text-lg text-gold-400 mb-6 font-medium">20 septembre 2025
 </div>
               <div className="flex gap-6">
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.days}</div>
-                  <div className="text-lg text-cream/70 font-medium">jours</div>
+                  <div className="text-lg text-white font-medium">jours</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.hours}</div>
-                  <div className="text-lg text-cream/70 font-medium">heures</div>
+                  <div className="text-lg text-white font-medium">heures</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.minutes}</div>
-                  <div className="text-lg text-cream/70 font-medium">min</div>
+                  <div className="text-lg text-white font-medium">min</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.seconds}</div>
-                  <div className="text-lg text-cream/70 font-medium">sec</div>
+                  <div className="text-lg text-white font-medium">sec</div>
                 </div>
               </div>
             </div>
@@ -145,10 +145,10 @@ export default function DuRirePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-playfair text-cream mb-6">
+            <h2 className="text-4xl md:text-5xl font-playfair text-white mb-6">
               Une soirée d'humour unique
             </h2>
-            <p className="text-xl text-cream/80 max-w-3xl mx-auto">
+            <p className="text-xl text-white max-w-3xl mx-auto">
               Chaque mois, le Social Bar & Cie se transforme en scène de comédie pour accueillir 
               les meilleurs humoristes de la région dans une ambiance burlesque incomparable.
             </p>
@@ -163,8 +163,8 @@ export default function DuRirePage() {
               className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
             >
               <Mic className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair text-cream mb-4">Humoristes locaux</h3>
-              <p className="text-cream/80">
+              <h3 className="text-2xl font-playfair text-white mb-4">Humoristes locaux</h3>
+              <p className="text-white">
                 Découvrez les talents émergents et confirmés de la scène humoristique québécoise
               </p>
             </motion.div>
@@ -177,8 +177,8 @@ export default function DuRirePage() {
               className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
             >
               <Users className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair text-cream mb-4">Ambiance intimiste</h3>
-              <p className="text-cream/80">
+              <h3 className="text-2xl font-playfair text-white mb-4">Ambiance intimiste</h3>
+              <p className="text-white">
                 Une proximité unique avec les artistes dans notre cadre burlesque authentique
               </p>
             </motion.div>
@@ -191,8 +191,8 @@ export default function DuRirePage() {
               className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
             >
               <Heart className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-playfair text-cream mb-4">Expérience complète</h3>
-              <p className="text-cream/80">
+              <h3 className="text-2xl font-playfair text-white mb-4">Expérience complète</h3>
+              <p className="text-white">
                 Spectacle, cocktails signature et ambiance festive pour une soirée mémorable
               </p>
             </motion.div>
@@ -209,7 +209,7 @@ export default function DuRirePage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-playfair text-cream mb-6">
+            <h2 className="text-4xl md:text-5xl font-playfair text-white mb-6">
               Informations pratiques
             </h2>
           </motion.div>
@@ -225,8 +225,8 @@ export default function DuRirePage() {
               <div className="flex items-start">
                 <MapPin className="w-6 h-6 text-gold-500 mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold text-cream mb-2">Lieu</h3>
-                  <p className="text-cream/80">
+                  <h3 className="text-xl font-semibold text-white mb-2">Lieu</h3>
+                  <p className="text-white">
                     Social Bar & Cie<br />
                     150 Rue Saint-Jacques<br />
                     Granby, QC J2G 3V3
@@ -237,7 +237,7 @@ export default function DuRirePage() {
               <div className="flex items-start">
                 <Users className="w-6 h-6 text-gold-500 mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold text-cream mb-2">Suivez-nous</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">Suivez-nous</h3>
                   <div className="flex space-x-4 mt-3">
                     <motion.a
                       href="https://facebook.com/social.bar.cie"
@@ -274,8 +274,8 @@ export default function DuRirePage() {
               <div className="flex items-start">
                 <Clock className="w-6 h-6 text-gold-500 mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold text-cream mb-2">Horaires</h3>
-                  <p className="text-cream/80">
+                  <h3 className="text-xl font-semibold text-white mb-2">Horaires</h3>
+                  <p className="text-white">
                     Ouverture pour souper : 17h<br />
                     Début du spectacle : 20h<br />
                     Fin de soirée : 23h
@@ -286,8 +286,8 @@ export default function DuRirePage() {
               <div className="flex items-start">
                 <Star className="w-6 h-6 text-gold-500 mr-4 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold text-cream mb-2">Tarifs</h3>
-                  <p className="text-cream/80">
+                  <h3 className="text-xl font-semibold text-white mb-2">Tarifs</h3>
+                  <p className="text-white">
                     Prévente : 15$ par personne<br />
                     À la porte : 20$ par personne<br />
                     Réservation recommandée
