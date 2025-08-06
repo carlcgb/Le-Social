@@ -242,16 +242,38 @@ export default function ContactSection() {
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger 
-                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20"
+                              className="bg-burgundy-900/30 border-2 border-gold-500/50 rounded-lg focus:border-gold-400 focus:ring-2 focus:ring-gold-500/30 hover:bg-burgundy-900/40 transition-all duration-200 min-h-[44px]"
                               style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
                             >
-                              <SelectValue placeholder="Sélectionnez un type" style={{color: '#ffffff'}} />
+                              <SelectValue 
+                                placeholder="Sélectionnez un type" 
+                                className="text-white/80"
+                                style={{color: '#ffffff', opacity: 0.8}} 
+                              />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-burgundy-900/90 border border-gold-500/30 rounded-lg">
-                            <SelectItem value="spectacle" className="text-white hover:bg-burgundy-800/50">Spectacle</SelectItem>
-                            <SelectItem value="prive" className="text-white hover:bg-burgundy-800/50">Événement Privé</SelectItem>
-                            <SelectItem value="corporatif" className="text-white hover:bg-burgundy-800/50">Événement Corporatif</SelectItem>
+                          <SelectContent className="bg-burgundy-900/95 border-2 border-gold-500/50 rounded-lg shadow-2xl backdrop-blur-sm">
+                            <SelectItem 
+                              value="spectacle" 
+                              className="text-white hover:bg-burgundy-700/60 focus:bg-burgundy-700/60 cursor-pointer px-4 py-3"
+                              style={{color: '#ffffff', textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
+                            >
+                              Spectacle
+                            </SelectItem>
+                            <SelectItem 
+                              value="prive" 
+                              className="text-white hover:bg-burgundy-700/60 focus:bg-burgundy-700/60 cursor-pointer px-4 py-3"
+                              style={{color: '#ffffff', textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
+                            >
+                              Événement Privé
+                            </SelectItem>
+                            <SelectItem 
+                              value="corporatif" 
+                              className="text-white hover:bg-burgundy-700/60 focus:bg-burgundy-700/60 cursor-pointer px-4 py-3"
+                              style={{color: '#ffffff', textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
+                            >
+                              Événement Corporatif
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
