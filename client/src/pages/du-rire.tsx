@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, Users, Mic, Star, Heart, ArrowLeft, Facebook, Instagram } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
-import logoAnimated from "@assets/Logo - LOOP - Videobolt_1754504476390.webm";
+import logoAnimated from "@assets/Logo-LOOP-Videobolt-unscreen_1754505801632.gif";
 import { BrickWall } from "@/components";
 
 export default function DuRirePage() {
@@ -80,13 +80,10 @@ export default function DuRirePage() {
             transition={{ duration: 1, delay: 0.3 }}
             className="mb-6 flex justify-center"
           >
-            <video 
+            <img 
               src={logoAnimated} 
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl h-auto opacity-100 brightness-[0.85] contrast-125 saturate-110"
+              alt="La Soirée du Rire de Granby - Logo néon animé"
+              className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl h-auto opacity-100"
             />
           </motion.div>
           
