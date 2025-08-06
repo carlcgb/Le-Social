@@ -43,7 +43,7 @@ export default function EvenementsSection() {
               alt="Événement privé au Social" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
-            <div className="absolute -bottom-4 -left-4 bg-gold-500 text-black px-6 py-3 rounded-xl transform -rotate-12 font-playfair font-bold">
+            <div className="absolute -bottom-4 -left-4 bg-gold-500 px-6 py-3 rounded-xl transform -rotate-12 font-playfair font-bold text-[#ffffff]">
               Moments précieux
             </div>
           </motion.div>
