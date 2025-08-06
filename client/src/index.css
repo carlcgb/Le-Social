@@ -174,30 +174,6 @@
   .bg-gradient-radial { 
     background: radial-gradient(circle, var(--tw-gradient-stops)); 
   }
-  
-  /* Animation glamour pour le logo */
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%) skewX(-12deg);
-    }
-    50% {
-      transform: translateX(0%) skewX(-12deg);
-    }
-    100% {
-      transform: translateX(100%) skewX(-12deg);
-    }
-  }
-  
-  @keyframes sparkle {
-    0%, 100% {
-      opacity: 0;
-      transform: scale(0) rotate(0deg);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1) rotate(180deg);
-    }
-  }
 }
 
 @keyframes curtain {
