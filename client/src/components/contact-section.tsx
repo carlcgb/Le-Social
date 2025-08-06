@@ -165,7 +165,8 @@ export default function ContactSection() {
                           <FormControl>
                             <Input 
                               {...field} 
-                              className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500" 
+                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 placeholder:text-white/50"
+                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
                             />
                           </FormControl>
                           <FormMessage />
@@ -182,7 +183,8 @@ export default function ContactSection() {
                           <FormControl>
                             <Input 
                               {...field} 
-                              className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500" 
+                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 placeholder:text-white/50"
+                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
                             />
                           </FormControl>
                           <FormMessage />
@@ -202,7 +204,8 @@ export default function ContactSection() {
                             <Input 
                               {...field} 
                               type="email"
-                              className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500" 
+                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 placeholder:text-white/50"
+                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
                             />
                           </FormControl>
                           <FormMessage />
@@ -220,7 +223,8 @@ export default function ContactSection() {
                             <Input 
                               {...field} 
                               type="tel"
-                              className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500" 
+                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 placeholder:text-white/50"
+                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
                             />
                           </FormControl>
                           <FormMessage />
@@ -237,14 +241,17 @@ export default function ContactSection() {
                         <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Type d'événement *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500">
-                              <SelectValue placeholder="Sélectionnez un type" />
+                            <SelectTrigger 
+                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20"
+                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
+                            >
+                              <SelectValue placeholder="Sélectionnez un type" style={{color: '#ffffff'}} />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="spectacle">Spectacle</SelectItem>
-                            <SelectItem value="prive">Événement Privé</SelectItem>
-                            <SelectItem value="corporatif">Événement Corporatif</SelectItem>
+                          <SelectContent className="bg-burgundy-900/90 border border-gold-500/30 rounded-lg">
+                            <SelectItem value="spectacle" className="text-white hover:bg-burgundy-800/50">Spectacle</SelectItem>
+                            <SelectItem value="prive" className="text-white hover:bg-burgundy-800/50">Événement Privé</SelectItem>
+                            <SelectItem value="corporatif" className="text-white hover:bg-burgundy-800/50">Événement Corporatif</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -263,7 +270,8 @@ export default function ContactSection() {
                             <Input 
                               {...field} 
                               type="date"
-                              className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500" 
+                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20"
+                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
                             />
                           </FormControl>
                           <FormMessage />
@@ -282,7 +290,8 @@ export default function ContactSection() {
                               {...field} 
                               type="number"
                               placeholder="Ex: 30"
-                              className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500" 
+                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 placeholder:text-white/50"
+                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
                             />
                           </FormControl>
                           <FormMessage />
@@ -302,7 +311,8 @@ export default function ContactSection() {
                             {...field} 
                             rows={4}
                             placeholder="Décrivez votre vision de l'événement..."
-                            className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500 resize-none" 
+                            className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 resize-none placeholder:text-white/50"
+                            style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
                           />
                         </FormControl>
                         <FormMessage />
