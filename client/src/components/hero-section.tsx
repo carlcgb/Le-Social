@@ -8,6 +8,7 @@ import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1
 export default function HeroSection() {
   const [spotlightActive, setSpotlightActive] = useState(true);
   const [spotlightIntensity, setSpotlightIntensity] = useState(1);
+  const [spotlightPosition, setSpotlightPosition] = useState({ x: 50, y: 50 });
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -64,6 +65,20 @@ export default function HeroSection() {
     };
   }, []);
 
+  // Animation subtile du mouvement du spotlight
+  useEffect(() => {
+    if (!spotlightActive) return;
+
+    const interval = setInterval(() => {
+      setSpotlightPosition(prev => ({
+        x: 50 + Math.sin(Date.now() * 0.001) * 3,
+        y: 50 + Math.cos(Date.now() * 0.0008) * 2
+      }));
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [spotlightActive]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -80,41 +95,58 @@ export default function HeroSection() {
         <BrickWall />
       </div>
 
-      {/* Spotlight effect overlay */}
+      {/* Ombrage général qui s'intensifie */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: spotlightActive ? spotlightIntensity * 0.8 : 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="fixed inset-0 z-25 pointer-events-none"
+        style={{
+          backgroundColor: `rgba(0, 0, 0, ${0.6 * spotlightIntensity})`,
+        }}
+      />
+
+      {/* Spotlight effect overlay avec mouvement */}
       <motion.div
         initial={{ opacity: 1 }}
-        animate={{ opacity: spotlightActive ? spotlightIntensity : 0 }}
+        animate={{ 
+          opacity: spotlightActive ? spotlightIntensity : 0,
+          x: spotlightActive ? (spotlightPosition.x - 50) * 4 : 0,
+          y: spotlightActive ? (spotlightPosition.y - 50) * 3 : 0
+        }}
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="fixed inset-0 z-30 pointer-events-none"
         style={{
           background: spotlightActive && spotlightIntensity > 0
-            ? `radial-gradient(circle at center, 
+            ? `radial-gradient(circle at ${spotlightPosition.x}% ${spotlightPosition.y}%, 
                 transparent 0%, 
-                transparent 20%, 
-                rgba(0, 0, 0, ${0.4 * spotlightIntensity}) 35%, 
-                rgba(0, 0, 0, ${0.7 * spotlightIntensity}) 50%, 
-                rgba(0, 0, 0, ${0.9 * spotlightIntensity}) 70%, 
+                transparent 18%, 
+                rgba(0, 0, 0, ${0.3 * spotlightIntensity}) 32%, 
+                rgba(0, 0, 0, ${0.6 * spotlightIntensity}) 45%, 
+                rgba(0, 0, 0, ${0.85 * spotlightIntensity}) 65%, 
                 rgba(0, 0, 0, ${0.95 * spotlightIntensity}) 100%)`
             : 'transparent',
         }}
       />
 
-      {/* Bright spotlight center */}
+      {/* Bright spotlight center avec mouvement */}
       <motion.div
         initial={{ opacity: 1, scale: 1 }}
         animate={{ 
           opacity: spotlightActive ? spotlightIntensity : 0,
-          scale: spotlightActive ? 1 : 0.8 
+          scale: spotlightActive ? 1 : 0.8,
+          x: spotlightActive ? (spotlightPosition.x - 50) * 4 : 0,
+          y: spotlightActive ? (spotlightPosition.y - 50) * 3 : 0
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="fixed inset-0 z-20 pointer-events-none"
         style={{
           background: spotlightActive && spotlightIntensity > 0
-            ? `radial-gradient(ellipse 600px 800px at center, 
-                rgba(255, 255, 255, ${0.12 * spotlightIntensity}) 0%, 
-                rgba(255, 255, 255, ${0.06 * spotlightIntensity}) 20%, 
-                rgba(255, 255, 255, ${0.02 * spotlightIntensity}) 40%, 
-                transparent 60%)`
+            ? `radial-gradient(ellipse 600px 800px at ${spotlightPosition.x}% ${spotlightPosition.y}%, 
+                rgba(255, 255, 255, ${0.15 * spotlightIntensity}) 0%, 
+                rgba(255, 255, 255, ${0.08 * spotlightIntensity}) 25%, 
+                rgba(255, 255, 255, ${0.03 * spotlightIntensity}) 45%, 
+                transparent 65%)`
             : 'transparent',
         }}
       />
@@ -151,12 +183,14 @@ export default function HeroSection() {
               />
             </motion.div>
             
-            {/* Cercle de lumière derrière le logo */}
+            {/* Cercle de lumière derrière le logo avec mouvement */}
             <motion.div
               initial={{ opacity: 1, scale: 0.8 }}
               animate={{ 
                 opacity: spotlightActive ? 0.6 * spotlightIntensity : 0,
-                scale: spotlightActive ? 1.2 : 0.8
+                scale: spotlightActive ? 1.2 : 0.8,
+                x: spotlightActive ? (spotlightPosition.x - 50) * 2 : 0,
+                y: spotlightActive ? (spotlightPosition.y - 50) * 1.5 : 0
               }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
@@ -164,7 +198,28 @@ export default function HeroSection() {
               <div 
                 className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-gradient-radial blur-sm" 
                 style={{
-                  background: `radial-gradient(circle, rgba(255,255,255,${0.1 * spotlightIntensity}) 0%, rgba(255,255,255,${0.05 * spotlightIntensity}) 50%, transparent 100%)`
+                  background: `radial-gradient(circle, rgba(255,255,255,${0.12 * spotlightIntensity}) 0%, rgba(255,255,255,${0.06 * spotlightIntensity}) 50%, transparent 100%)`
+                }}
+              />
+            </motion.div>
+
+            {/* Ombre projetée du logo */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: spotlightActive ? spotlightIntensity * 0.4 : 0,
+                x: spotlightActive ? -(spotlightPosition.x - 50) * 1.5 : 0,
+                y: spotlightActive ? -(spotlightPosition.y - 50) * 1 + 20 : 20,
+                scaleX: spotlightActive ? 1 + (spotlightPosition.y - 50) * 0.01 : 1,
+                scaleY: spotlightActive ? 0.6 + (spotlightPosition.y - 50) * 0.005 : 0.6
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="absolute top-full left-1/2 transform -translate-x-1/2 z-0 pointer-events-none"
+            >
+              <div 
+                className="w-64 h-32 md:w-80 md:h-40 lg:w-96 lg:h-48 rounded-full blur-xl"
+                style={{
+                  background: `radial-gradient(ellipse, rgba(0,0,0,${0.6 * spotlightIntensity}) 0%, rgba(0,0,0,${0.3 * spotlightIntensity}) 40%, transparent 70%)`,
                 }}
               />
             </motion.div>
