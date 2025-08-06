@@ -82,7 +82,6 @@ export default function DuRirePage() {
           >
             <video 
               src={logoAnimated} 
-              alt="La Soirée du Rire de Granby - Logo animé"
               autoPlay
               muted
               loop
@@ -106,7 +105,7 @@ export default function DuRirePage() {
             transition={{ duration: 1, delay: 0.9 }}
             className="flex flex-wrap gap-4 justify-center"
           >
-            <div className="bg-burgundy-500/20 backdrop-blur-sm rounded-2xl px-8 py-6 flex flex-col items-center max-w-2xl">
+            <div className="bg-burgundy-500/20 backdrop-blur-md border border-gold-500/30 rounded-2xl px-8 py-6 flex flex-col items-center max-w-2xl">
               <div className="flex items-center mb-4">
                 <Calendar className="w-8 h-8 mr-3 text-gold-500" />
                 <span className="text-cream text-2xl font-semibold">Prochain Spectacle</span>
@@ -161,7 +160,7 @@ export default function DuRirePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#32a2bd] rounded-lg p-8 text-center"
+              className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
             >
               <Mic className="w-12 h-12 text-gold-500 mx-auto mb-4" />
               <h3 className="text-2xl font-playfair text-cream mb-4">Humoristes locaux</h3>
@@ -175,7 +174,7 @@ export default function DuRirePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#32a2bd] rounded-lg p-8 text-center"
+              className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
             >
               <Users className="w-12 h-12 text-gold-500 mx-auto mb-4" />
               <h3 className="text-2xl font-playfair text-cream mb-4">Ambiance intimiste</h3>
@@ -189,7 +188,7 @@ export default function DuRirePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-burgundy-900/30 backdrop-blur-sm border border-[#32a2bd] rounded-lg p-8 text-center"
+              className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center"
             >
               <Heart className="w-12 h-12 text-gold-500 mx-auto mb-4" />
               <h3 className="text-2xl font-playfair text-cream mb-4">Expérience complète</h3>
