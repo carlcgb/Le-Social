@@ -134,7 +134,6 @@
   html {
     scroll-behavior: smooth;
   }
-}
 
 @layer utilities {
   .burgundy-50 { color: var(--burgundy-50); }
