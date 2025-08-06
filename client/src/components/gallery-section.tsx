@@ -106,9 +106,7 @@ export default function GallerySection() {
             <h3 className="text-3xl font-playfair mb-4 text-[#ffffff]">
               Événements à venir
             </h3>
-            <p className="text-cream/80 text-lg mb-8">
-              Spectacles burlesque, événements privés, soirées corporatives - Réservez dès maintenant
-            </p>
+            
           </motion.div>
 
           {/* Instagram Embed Widget */}
