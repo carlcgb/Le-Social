@@ -252,7 +252,7 @@ export default function ContactSection() {
                               />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-burgundy-900/95 border-2 border-gold-500/50 rounded-lg shadow-2xl backdrop-blur-sm">
+                          <SelectContent className="bg-black/90 border-2 border-gold-500/50 rounded-lg shadow-2xl backdrop-blur-sm">
                             <SelectItem 
                               value="spectacle" 
                               className="text-white hover:bg-burgundy-700/60 focus:bg-burgundy-700/60 cursor-pointer px-4 py-3"
