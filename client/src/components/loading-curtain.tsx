@@ -28,7 +28,7 @@ export default function LoadingCurtain() {
                 <img 
                   src={logoPath} 
                   alt="Social Logo" 
-                  className="h-56 md:h-64 lg:h-72 w-auto mx-auto filter brightness-0 relative z-10"
+                  className="h-64 md:h-80 lg:h-96 xl:h-[28rem] w-auto mx-auto filter brightness-0 relative z-10"
                 />
               </div>
             </div>

@@ -48,7 +48,7 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
               <img 
                 src={logoPath} 
                 alt="Social Logo" 
-                className="h-20 w-auto filter brightness-0 invert hover:opacity-80 transition-opacity cursor-pointer"
+                className="h-24 w-auto filter brightness-0 invert hover:opacity-80 transition-opacity cursor-pointer"
               />
             </Link>
           </div>
