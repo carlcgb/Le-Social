@@ -6,7 +6,7 @@
 
 :root {
   --background: hsl(0, 0%, 0%);
-  --foreground: hsl(48, 46%, 87%);
+  --foreground: hsl(0, 0%, 100%);
   --muted: hsl(0, 0%, 10%);
   --muted-foreground: hsl(48, 20%, 60%);
   --popover: hsl(0, 0%, 5%);
@@ -44,7 +44,7 @@
 
 .dark {
   --background: hsl(0, 0%, 0%);
-  --foreground: hsl(48, 46%, 87%);
+  --foreground: hsl(0, 0%, 100%);
   --muted: hsl(0, 0%, 10%);
   --muted-foreground: hsl(48, 20%, 60%);
   --popover: hsl(0, 0%, 5%);
