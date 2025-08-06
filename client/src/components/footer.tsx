@@ -27,10 +27,7 @@ export default function Footer() {
           
           <p className="text-cream/60 mb-6">Par Attelier Archibald</p>
           
-          <p className="text-cream/80 text-sm max-w-2xl mx-auto">
-            Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque style, chaque histoire. 
-            Le Social vous offre trois expériences uniques dans une ambiance burlesque raffinée.
-          </p>
+          
           
           <div className="mt-8">
             <p className="text-cream/60 text-sm">
