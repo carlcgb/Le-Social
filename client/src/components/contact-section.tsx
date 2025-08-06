@@ -292,8 +292,7 @@ export default function ContactSection() {
                             <Input 
                               {...field} 
                               type="date"
-                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20"
-                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
+                              className="bg-white/90 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 text-gray-900"
                             />
                           </FormControl>
                           <FormMessage />
@@ -312,8 +311,7 @@ export default function ContactSection() {
                               {...field} 
                               type="number"
                               placeholder="Ex: 30"
-                              className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 placeholder:text-white/50"
-                              style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
+                              className="bg-white/90 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 placeholder:text-gray-500 text-gray-900"
                             />
                           </FormControl>
                           <FormMessage />
@@ -333,8 +331,7 @@ export default function ContactSection() {
                             {...field} 
                             rows={4}
                             placeholder="Décrivez votre vision de l'événement..."
-                            className="bg-burgundy-900/20 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 resize-none placeholder:text-white/50"
-                            style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}
+                            className="bg-white/90 border border-gold-500/30 rounded-lg focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 resize-none placeholder:text-gray-500 text-gray-900"
                           />
                         </FormControl>
                         <FormMessage />
