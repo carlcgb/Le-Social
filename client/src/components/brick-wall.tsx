@@ -11,8 +11,7 @@ export default function BrickWall() {
         backgroundRepeat: 'repeat'
       }}
     >
-      {/* Additional dimming overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+
     </div>
   );
 }
