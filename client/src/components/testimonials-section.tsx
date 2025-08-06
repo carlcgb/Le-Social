@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
               viewport={{ once: true }}
               className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8"
             >
-              <div className="flex mb-4">
+              <div className="flex mb-4 text-[#fbbf24]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-gold-500 fill-current" />
                 ))}

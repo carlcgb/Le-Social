@@ -17,8 +17,8 @@ export default function Footer() {
               src={logoPath} 
               alt="Social Logo" 
               className="h-32 w-auto filter brightness-0 invert"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 1.3 }}
+              whileInView={{ opacity: 1, scale: 1.3 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             />
@@ -30,7 +30,7 @@ export default function Footer() {
           
           <div className="mt-8">
             <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
-              © 2024 Social Bar & Cie. Tous droits réservés.
+              © 2025 CGB - Tous droits réservés
             </p>
           </div>
         </motion.div>
