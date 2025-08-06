@@ -79,9 +79,7 @@ export default function GallerySection() {
             <Facebook className="w-12 h-12 text-gold-500 mr-4" />
             <h2 className="text-5xl font-playfair text-[#ffffff]">Nos Événements</h2>
           </div>
-          <p className="text-xl mb-8 text-[#ffffff]">
-            Découvrez nos prochains événements et réservez votre place au Social
-          </p>
+          
           <motion.a
             href={facebookUrl}
             target="_blank"
@@ -97,7 +95,7 @@ export default function GallerySection() {
         </motion.div>
         
         {/* Instagram Feed Container */}
-        <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 text-center">
+        <div className="rounded-lg p-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
