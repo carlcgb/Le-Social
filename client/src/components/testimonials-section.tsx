@@ -34,7 +34,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-playfair text-cream mb-6">Témoignages</h2>
+          <h2 className="text-5xl font-playfair mb-6 text-[#ffffff]">Témoignages</h2>
           <p className="text-xl text-cream/80">Ce que nos clients disent de leurs expériences</p>
         </motion.div>
         
