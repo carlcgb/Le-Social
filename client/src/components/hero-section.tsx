@@ -119,13 +119,21 @@ export default function HeroSection() {
         }}
       />
       
-      <div className="relative z-40 text-center max-w-5xl mx-auto px-4">
+      <motion.div 
+        className="relative z-40 text-center max-w-5xl mx-auto px-4"
+        animate={{
+          filter: spotlightActive && spotlightIntensity > 0 
+            ? `brightness(${1 + 0.15 * spotlightIntensity}) contrast(${1 + 0.1 * spotlightIntensity})`
+            : 'brightness(1) contrast(1)'
+        }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div ref={logoRef} className="mb-16 relative">
+          <div ref={logoRef} className="mb-8 relative">
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
               animate={{ 
@@ -163,7 +171,7 @@ export default function HeroSection() {
           </div>
 
           <motion.p 
-            className="text-xl md:text-2xl mb-12 font-light leading-relaxed"
+            className="text-xl md:text-2xl mb-8 font-light leading-relaxed"
             style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             animate={{
               textShadow: spotlightActive && spotlightIntensity > 0
@@ -176,14 +184,7 @@ export default function HeroSection() {
             style, chaque histoire.
           </motion.p>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff]"
-            animate={{
-              opacity: spotlightActive ? (0.9 + 0.1 * spotlightIntensity) : 1,
-              filter: spotlightActive && spotlightIntensity > 0 ? `brightness(${1 + 0.1 * spotlightIntensity})` : 'brightness(1)'
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff]">
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
               className="bg-burgundy-500 px-8 py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150"
@@ -220,9 +221,9 @@ export default function HeroSection() {
               <Users className="w-5 h-5 mr-2" />
               Événements privés
             </motion.button>
-          </motion.div>
+          </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
