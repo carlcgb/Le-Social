@@ -96,18 +96,7 @@ export default function GallerySection() {
         
         {/* Instagram Feed Container */}
         <div className="rounded-lg p-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <h3 className="text-3xl font-playfair mb-4 text-[#ffffff]">
-              Événements à venir
-            </h3>
-            
-          </motion.div>
+          
 
           {/* Instagram Embed Widget */}
           <motion.div
