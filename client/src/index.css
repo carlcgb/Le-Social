@@ -170,6 +170,10 @@
   
   .font-playfair { font-family: 'Playfair Display', serif; }
   .font-inter { font-family: 'Inter', sans-serif; }
+  
+  .bg-gradient-radial { 
+    background: radial-gradient(circle, var(--tw-gradient-stops)); 
+  }
 }
 
 @keyframes curtain {
