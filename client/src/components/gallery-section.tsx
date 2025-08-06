@@ -66,7 +66,7 @@ export default function GallerySection() {
 
   return (
     <section id="galerie" className="relative py-20 z-10">
-      <div className="absolute inset-0 backdrop-blur-sm bg-[#00000000]" />
+      <div className="absolute inset-0 bg-[#00000000]" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -97,7 +97,7 @@ export default function GallerySection() {
         </motion.div>
         
         {/* Instagram Feed Container */}
-        <div className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8 text-center">
+        <div className="backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8 text-center bg-[#00000000]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
