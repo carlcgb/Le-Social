@@ -48,7 +48,6 @@ export default function DuRirePage() {
           </motion.button>
         </Link>
       </div>
-
       {/* Reserve button - fixed top right */}
       <div className="fixed top-8 right-8 z-50">
         <motion.a
@@ -63,7 +62,6 @@ export default function DuRirePage() {
           Réserver votre place
         </motion.a>
       </div>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background gradient with brick wall - 100% viewport height */}
@@ -109,9 +107,8 @@ export default function DuRirePage() {
                 <Calendar className="w-8 h-8 mr-3 text-gold-500" />
                 <span className="text-cream text-2xl font-semibold">Prochain Spectacle</span>
               </div>
-              <div className="text-lg text-gold-400 mb-6 font-medium">
-                20 septembre 2025 - 20h
-              </div>
+              <div className="text-lg text-gold-400 mb-6 font-medium">20 septembre 2025
+</div>
               <div className="flex gap-6">
                 <div className="text-center">
                   <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">{timeLeft.days}</div>
@@ -135,7 +132,6 @@ export default function DuRirePage() {
           </motion.div>
         </div>
       </section>
-
       {/* About the Event */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
@@ -200,7 +196,6 @@ export default function DuRirePage() {
           </div>
         </div>
       </section>
-
       {/* Event Details */}
       <section className="py-20 px-4 bg-black/50">
         <div className="max-w-4xl mx-auto">
