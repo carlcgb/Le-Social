@@ -156,7 +156,7 @@ export default function DuRirePage() {
         </div>
       </section>
       {/* Event Details */}
-      <section className="py-20 px-4 bg-black/50 relative z-40">
+      <section className="py-20 px-4 relative z-40 bg-[#00000000]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
