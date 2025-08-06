@@ -73,7 +73,7 @@ export default function CorporatifSection() {
               ))}
             </div>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4 mb-8 text-[#ffffff]">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
