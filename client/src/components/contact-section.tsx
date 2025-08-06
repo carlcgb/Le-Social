@@ -150,8 +150,8 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8">
-              <h3 className="text-2xl font-playfair text-cream mb-6">Demande de réservation</h3>
+            <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
+              <h3 className="text-2xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Demande de réservation</h3>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -161,7 +161,7 @@ export default function ContactSection() {
                       name="firstName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-cream font-medium">Prénom *</FormLabel>
+                          <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prénom *</FormLabel>
                           <FormControl>
                             <Input 
                               {...field} 
@@ -178,7 +178,7 @@ export default function ContactSection() {
                       name="lastName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-cream font-medium">Nom *</FormLabel>
+                          <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Nom *</FormLabel>
                           <FormControl>
                             <Input 
                               {...field} 
@@ -197,7 +197,7 @@ export default function ContactSection() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-cream font-medium">Email *</FormLabel>
+                          <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Email *</FormLabel>
                           <FormControl>
                             <Input 
                               {...field} 
@@ -215,7 +215,7 @@ export default function ContactSection() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-cream font-medium">Téléphone</FormLabel>
+                          <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Téléphone</FormLabel>
                           <FormControl>
                             <Input 
                               {...field} 
@@ -234,7 +234,7 @@ export default function ContactSection() {
                     name="eventType"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-cream font-medium">Type d'événement *</FormLabel>
+                        <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Type d'événement *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger className="bg-black/50 border-gold-500/30 text-cream focus:border-gold-500">
@@ -258,7 +258,7 @@ export default function ContactSection() {
                       name="eventDate"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-cream font-medium">Date souhaitée *</FormLabel>
+                          <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Date souhaitée *</FormLabel>
                           <FormControl>
                             <Input 
                               {...field} 
@@ -276,7 +276,7 @@ export default function ContactSection() {
                       name="guestCount"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-cream font-medium">Nombre d'invités</FormLabel>
+                          <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Nombre d'invités</FormLabel>
                           <FormControl>
                             <Input 
                               {...field} 
@@ -296,7 +296,7 @@ export default function ContactSection() {
                     name="details"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-cream font-medium">Détails de votre événement</FormLabel>
+                        <FormLabel className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Détails de votre événement</FormLabel>
                         <FormControl>
                           <Textarea 
                             {...field} 
@@ -313,7 +313,8 @@ export default function ContactSection() {
                   <Button
                     type="submit"
                     disabled={reservationMutation.isPending}
-                    className="w-full bg-burgundy-500 text-cream py-4 rounded-full hover:bg-burgundy-600 transition-all duration-300 transform hover:scale-105 font-medium"
+                    className="w-full bg-burgundy-500 py-4 rounded-full font-medium"
+                    style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
                   >
                     <Send className="w-5 h-5 mr-2" />
                     {reservationMutation.isPending ? "Envoi en cours..." : "Envoyer ma demande"}
