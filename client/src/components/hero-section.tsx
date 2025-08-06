@@ -1,24 +1,68 @@
 import { motion } from "framer-motion";
 import { Sparkles, Theater, Users } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BrickWall from "./brick-wall";
 
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
 export default function HeroSection() {
   const [spotlightActive, setSpotlightActive] = useState(true);
+  const [spotlightIntensity, setSpotlightIntensity] = useState(1);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      if (scrollY > 100 && spotlightActive) {
+      const windowHeight = window.innerHeight;
+      
+      // Calcul progressif de l'intensité basé sur le scroll
+      if (scrollY <= windowHeight * 0.1) {
+        // Dans les premiers 10% de scroll, garde l'effet complet
+        setSpotlightIntensity(1);
+        setSpotlightActive(true);
+      } else if (scrollY <= windowHeight * 0.8) {
+        // Entre 10% et 80%, dissipe progressivement
+        const progress = (scrollY - windowHeight * 0.1) / (windowHeight * 0.7);
+        setSpotlightIntensity(1 - progress);
+        setSpotlightActive(true);
+      } else {
+        // Au-delà de 80%, éteint complètement
+        setSpotlightIntensity(0);
         setSpotlightActive(false);
       }
     };
 
+    // Intersection Observer pour détecter quand le logo rentre dans la vue
+    const observerOptions = {
+      threshold: [0, 0.1, 0.5, 1],
+      rootMargin: '-10% 0px -10% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === logoRef.current) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+            // Le logo est visible, réactive le spotlight
+            setSpotlightActive(true);
+            setSpotlightIntensity(Math.min(entry.intersectionRatio * 1.5, 1));
+          }
+        }
+      });
+    }, observerOptions);
+
+    if (logoRef.current) {
+      observer.observe(logoRef.current);
+    }
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [spotlightActive]);
+    handleScroll(); // Initial call
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
+  }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -27,6 +71,7 @@ export default function HeroSection() {
 
   return (
     <section
+      ref={heroRef}
       id="accueil"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
@@ -38,18 +83,18 @@ export default function HeroSection() {
       {/* Spotlight effect overlay */}
       <motion.div
         initial={{ opacity: 1 }}
-        animate={{ opacity: spotlightActive ? 1 : 0 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
+        animate={{ opacity: spotlightActive ? spotlightIntensity : 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className="fixed inset-0 z-30 pointer-events-none"
         style={{
-          background: spotlightActive
+          background: spotlightActive && spotlightIntensity > 0
             ? `radial-gradient(circle at center, 
                 transparent 0%, 
                 transparent 20%, 
-                rgba(0, 0, 0, 0.4) 35%, 
-                rgba(0, 0, 0, 0.7) 50%, 
-                rgba(0, 0, 0, 0.9) 70%, 
-                rgba(0, 0, 0, 0.95) 100%)`
+                rgba(0, 0, 0, ${0.4 * spotlightIntensity}) 35%, 
+                rgba(0, 0, 0, ${0.7 * spotlightIntensity}) 50%, 
+                rgba(0, 0, 0, ${0.9 * spotlightIntensity}) 70%, 
+                rgba(0, 0, 0, ${0.95 * spotlightIntensity}) 100%)`
             : 'transparent',
         }}
       />
@@ -58,17 +103,17 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 1, scale: 1 }}
         animate={{ 
-          opacity: spotlightActive ? 1 : 0,
+          opacity: spotlightActive ? spotlightIntensity : 0,
           scale: spotlightActive ? 1 : 0.8 
         }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className="fixed inset-0 z-20 pointer-events-none"
         style={{
-          background: spotlightActive
+          background: spotlightActive && spotlightIntensity > 0
             ? `radial-gradient(ellipse 600px 800px at center, 
-                rgba(255, 255, 255, 0.12) 0%, 
-                rgba(255, 255, 255, 0.06) 20%, 
-                rgba(255, 255, 255, 0.02) 40%, 
+                rgba(255, 255, 255, ${0.12 * spotlightIntensity}) 0%, 
+                rgba(255, 255, 255, ${0.06 * spotlightIntensity}) 20%, 
+                rgba(255, 255, 255, ${0.02 * spotlightIntensity}) 40%, 
                 transparent 60%)`
             : 'transparent',
         }}
@@ -80,15 +125,15 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="mb-16 relative">
+          <div ref={logoRef} className="mb-16 relative">
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
               animate={{ 
-                filter: spotlightActive 
-                  ? "brightness(0) invert(1) drop-shadow(0 0 60px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 100px rgba(255, 255, 255, 0.2))"
+                filter: spotlightActive && spotlightIntensity > 0
+                  ? `brightness(0) invert(1) drop-shadow(0 0 ${60 * spotlightIntensity}px rgba(255, 255, 255, ${0.4 * spotlightIntensity})) drop-shadow(0 0 ${100 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity}))`
                   : "brightness(0) invert(1)"
               }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative z-10"
             >
               <img
@@ -102,13 +147,18 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 1, scale: 0.8 }}
               animate={{ 
-                opacity: spotlightActive ? 0.6 : 0,
+                opacity: spotlightActive ? 0.6 * spotlightIntensity : 0,
                 scale: spotlightActive ? 1.2 : 0.8
               }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
             >
-              <div className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-gradient-radial from-white/10 via-white/5 to-transparent blur-sm" />
+              <div 
+                className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-gradient-radial blur-sm" 
+                style={{
+                  background: `radial-gradient(circle, rgba(255,255,255,${0.1 * spotlightIntensity}) 0%, rgba(255,255,255,${0.05 * spotlightIntensity}) 50%, transparent 100%)`
+                }}
+              />
             </motion.div>
           </div>
 
@@ -116,11 +166,11 @@ export default function HeroSection() {
             className="text-xl md:text-2xl mb-12 font-light leading-relaxed"
             style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             animate={{
-              textShadow: spotlightActive 
-                ? '2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.1)'
+              textShadow: spotlightActive && spotlightIntensity > 0
+                ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
                 : '2px 2px 4px rgba(0,0,0,0.8)'
             }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
             style, chaque histoire.
@@ -129,10 +179,10 @@ export default function HeroSection() {
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff]"
             animate={{
-              opacity: spotlightActive ? 0.9 : 1,
-              filter: spotlightActive ? 'brightness(1.1)' : 'brightness(1)'
+              opacity: spotlightActive ? (0.9 + 0.1 * spotlightIntensity) : 1,
+              filter: spotlightActive && spotlightIntensity > 0 ? `brightness(${1 + 0.1 * spotlightIntensity})` : 'brightness(1)'
             }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
