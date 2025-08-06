@@ -84,7 +84,7 @@ export default function CorporatifSection() {
                   className="flex items-center"
                 >
                   <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
-                  <span className="text-cream">{feature.text}</span>
+                  <span className="text-[#ffffff]">{feature.text}</span>
                 </motion.div>
               ))}
             </div>
