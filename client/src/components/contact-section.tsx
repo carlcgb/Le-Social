@@ -124,7 +124,7 @@ export default function ContactSection() {
               </div>
               
               <div className="mt-8 pt-8 border-t border-gold-500/20">
-                <h4 className="text-lg font-playfair text-gold-500 mb-4" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Suivez-nous</h4>
+                <h4 className="text-lg font-playfair mb-4 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Suivez-nous</h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
