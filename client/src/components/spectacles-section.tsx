@@ -67,7 +67,7 @@ export default function SpectaclesSection() {
                 {upcomingShows.map((show, index) => (
                   <div key={index} className="flex justify-between items-center border-b border-gold-500/20 pb-2 last:border-b-0">
                     <span style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.name}</span>
-                    <span className="text-gold-500" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.date}</span>
+                    <span className="text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.date}</span>
                   </div>
                 ))}
               </div>
