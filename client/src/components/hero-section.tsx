@@ -40,7 +40,7 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
           />
         </>
       )}
-      <div className="relative z-50 text-center max-w-4xl mx-auto px-4">
+      <div className="relative z-40 text-center max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
