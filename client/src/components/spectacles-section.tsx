@@ -39,7 +39,7 @@ export default function SpectaclesSection() {
               Plongez dans une ambiance feutrée où chaque note résonne autrement. Notre salle privée accueille des spectacles intimistes qui font vibrer vos soirées. Une expérience artistique à vivre autrement.
             </p>
             
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4 mb-8 text-[#ffffff]">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
