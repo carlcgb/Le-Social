@@ -38,9 +38,8 @@ export default function CorporatifSection() {
   ];
 
   return (
-    <section id="corporatif" className="relative py-20 z-10">
-      <div className="absolute inset-0 bg-gradient-to-r from-burgundy-900/30 to-black backdrop-blur-sm" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="corporatif" className="relative py-20 z-40">
+      <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -50,10 +49,10 @@ export default function CorporatifSection() {
           >
             <div className="flex items-center mb-6">
               <Handshake className="w-10 h-10 text-gold-500 mr-4" />
-              <h2 className="text-5xl font-playfair text-cream">Volet Corporatif</h2>
+              <h2 className="text-5xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Corporatif</h2>
             </div>
             
-            <p className="text-xl text-cream/90 mb-8 leading-relaxed">
+            <p className="text-xl mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Transformez vos événements professionnels en expériences mémorables. Notre salle privée allie sophistication, discrétion et flexibilité pour accueillir vos clients, partenaires ou collaborateurs.
             </p>
             
@@ -65,11 +64,11 @@ export default function CorporatifSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-xl p-4"
+                  className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-4"
                 >
                   <type.icon className="w-8 h-8 text-gold-500 mb-2" />
-                  <h4 className="text-lg font-playfair text-cream mb-2">{type.title}</h4>
-                  <p className="text-cream/70 text-sm">{type.description}</p>
+                  <h4 className="text-lg font-playfair mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.title}</h4>
+                  <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.description}</p>
                 </motion.div>
               ))}
             </div>

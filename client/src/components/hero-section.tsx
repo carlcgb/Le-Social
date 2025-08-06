@@ -19,13 +19,10 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
       id="accueil"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background with brick wall texture - now fixed for parallax */}
-      <div className="fixed inset-0 bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
+      {/* Background with brick wall texture - same as du-rire */}
+      <div className="fixed inset-0 w-full h-screen bg-gradient-to-br from-burgundy-900 via-black to-burgundy-800 z-0">
         <BrickWall />
       </div>
-
-      {/* Additional atmospheric lighting - also fixed */}
-      <div className="fixed inset-0 bg-gradient-radial from-transparent via-burgundy-900/20 to-black/60 z-0" />
 
       {/* Curtain Effect */}
       {showCurtain && (
@@ -45,7 +42,7 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
         </>
       )}
 
-      <div className="relative z-30 text-center max-w-4xl mx-auto px-4">
+      <div className="relative z-50 text-center max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,31 +56,32 @@ export default function HeroSection({ showCurtain }: HeroSectionProps) {
             />
           </div>
 
-          <p className="text-xl md:text-2xl text-cream/90 mb-8 font-light leading-relaxed">
+          <p 
+            className="text-xl md:text-2xl mb-8 font-light leading-relaxed"
+            style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+          >
             Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
             style, chaque histoire.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => scrollToSection("#spectacles")}
-              className="bg-burgundy-500 text-cream px-8 py-4 rounded-full hover:bg-burgundy-600 transition-all duration-300 font-medium flex items-center justify-center"
+              className="bg-burgundy-500 px-8 py-4 rounded-full font-medium flex items-center justify-center"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             >
               <Theater className="w-5 h-5 mr-2" />
               Découvrir nos spectacles
-            </motion.button>
+            </button>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => scrollToSection("#evenements")}
-              className="border-2 border-gold-500 text-gold-500 px-8 py-4 rounded-full hover:bg-gold-500 hover:text-black transition-all duration-300 font-medium flex items-center justify-center"
+              className="border-2 border-gold-500 text-gold-500 px-8 py-4 rounded-full font-medium flex items-center justify-center"
+              style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             >
               <Users className="w-5 h-5 mr-2" />
               Événements privés
-            </motion.button>
+            </button>
           </div>
         </motion.div>
       </div>

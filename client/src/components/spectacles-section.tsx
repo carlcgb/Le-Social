@@ -21,9 +21,8 @@ export default function SpectaclesSection() {
   ];
 
   return (
-    <section id="spectacles" className="relative py-20 z-10">
-      <div className="absolute inset-0 bg-gradient-to-r from-burgundy-900/30 to-black backdrop-blur-sm" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="spectacles" className="relative py-20 z-40">
+      <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -33,10 +32,10 @@ export default function SpectaclesSection() {
           >
             <div className="flex items-center mb-6">
               <Theater className="w-10 h-10 text-gold-500 mr-4" />
-              <h2 className="text-5xl font-playfair text-cream">Volet Spectacles</h2>
+              <h2 className="text-5xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Spectacles</h2>
             </div>
             
-            <p className="text-xl text-cream/90 mb-8 leading-relaxed">
+            <p className="text-xl mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Plongez dans une ambiance feutrée où chaque note résonne autrement. Notre salle privée accueille des spectacles intimistes qui font vibrer vos soirées. Une expérience artistique à vivre autrement.
             </p>
             
@@ -51,7 +50,7 @@ export default function SpectaclesSection() {
                   className="flex items-center"
                 >
                   <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
-                  <span className="text-cream">{feature.text}</span>
+                  <span style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
                 </motion.div>
               ))}
             </div>
@@ -61,14 +60,14 @@ export default function SpectaclesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-xl p-6 mb-8"
+              className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-6 mb-8"
             >
-              <h4 className="text-xl font-playfair text-gold-500 mb-3">Prochains spectacles</h4>
+              <h4 className="text-xl font-playfair text-gold-500 mb-3" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
               <div className="space-y-3">
                 {upcomingShows.map((show, index) => (
                   <div key={index} className="flex justify-between items-center border-b border-gold-500/20 pb-2 last:border-b-0">
-                    <span className="text-cream">{show.name}</span>
-                    <span className="text-gold-500">{show.date}</span>
+                    <span style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.name}</span>
+                    <span className="text-gold-500" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.date}</span>
                   </div>
                 ))}
               </div>

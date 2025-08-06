@@ -29,10 +29,8 @@ export default function ServicesSummary() {
   ];
 
   return (
-    <section className="relative py-20 z-10">
-      {/* Section background that covers the brick wall */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-burgundy-900/20 backdrop-blur-sm" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 z-40">
+      <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,8 +38,8 @@ export default function ServicesSummary() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-playfair text-cream mb-6">Trois expériences uniques</h2>
-          <p className="text-xl text-cream/80 max-w-3xl mx-auto">
+          <h2 className="text-5xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Trois expériences uniques</h2>
+          <p className="text-xl max-w-3xl mx-auto" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
             Le Social s'adapte à vos besoins avec trois volets distincts, chacun pensé pour créer des moments inoubliables.
           </p>
         </motion.div>
@@ -55,7 +53,7 @@ export default function ServicesSummary() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
-              className="group bg-black/40 backdrop-blur-md border-2 border-burgundy-700 rounded-2xl p-8 hover:border-burgundy-500 transition-all duration-300 cursor-pointer"
+              className="group bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8 cursor-pointer"
               onClick={() => scrollToSection(service.href)}
             >
               <div className="text-center">
@@ -67,12 +65,12 @@ export default function ServicesSummary() {
                   <service.icon className="w-12 h-12 text-gold-500 mx-auto" />
                 </motion.div>
                 
-                <h3 className="text-2xl font-playfair text-cream mb-4">{service.title}</h3>
-                <p className="text-cream/80 mb-6">{service.description}</p>
+                <h3 className="text-2xl font-playfair mb-4" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{service.title}</h3>
+                <p className="mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{service.description}</p>
                 
-                <button className="inline-flex items-center text-gold-500 hover:text-gold-400 transition-colors">
+                <button className="inline-flex items-center text-gold-500" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
                   En savoir plus 
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
               </div>
             </motion.div>

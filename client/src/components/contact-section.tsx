@@ -91,7 +91,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-playfair text-cream mb-6">Réservez votre expérience</h2>
+          <h2 className="text-5xl font-playfair mb-6 text-[#ffffff]">Réservez votre expérience</h2>
           <p className="text-xl text-cream/80">Contactez-nous pour créer votre événement sur mesure</p>
         </motion.div>
         

@@ -28,9 +28,8 @@ export default function EvenementsSection() {
   ];
 
   return (
-    <section id="evenements" className="relative py-20 z-10">
-      <div className="absolute inset-0 bg-gradient-to-l from-burgundy-900/30 to-black backdrop-blur-sm" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="evenements" className="relative py-20 z-40">
+      <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -58,10 +57,10 @@ export default function EvenementsSection() {
           >
             <div className="flex items-center mb-6">
               <Users className="w-10 h-10 text-gold-500 mr-4" />
-              <h2 className="text-5xl font-playfair text-cream">Événements Privés</h2>
+              <h2 className="text-5xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Événements Privés</h2>
             </div>
             
-            <p className="text-xl text-cream/90 mb-8 leading-relaxed">
+            <p className="text-xl mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Pour vos moments les plus précieux, offrez à vos proches un lieu qui vous ressemble. Élégante, chaleureuse et adaptable, notre salle privée transforme chaque événement en souvenir inoubliable.
             </p>
             
