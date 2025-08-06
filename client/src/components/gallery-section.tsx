@@ -79,7 +79,7 @@ export default function GallerySection() {
             <Facebook className="w-12 h-12 text-gold-500 mr-4" />
             <h2 className="text-5xl font-playfair text-[#ffffff]">Nos Événements</h2>
           </div>
-          <p className="text-xl text-cream/80 mb-8">
+          <p className="text-xl mb-8 text-[#ffffff]">
             Découvrez nos prochains événements et réservez votre place au Social
           </p>
           <motion.a
