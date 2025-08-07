@@ -53,7 +53,7 @@ export default function EvenementsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="order-1 lg:order-2"
+            className="order-1 lg:order-2 bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8"
           >
             <div className="flex items-center mb-6">
               <Users className="w-10 h-10 text-gold-500 mr-4" />

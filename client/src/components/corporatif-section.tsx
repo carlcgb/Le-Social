@@ -46,6 +46,7 @@ export default function CorporatifSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8"
           >
             <div className="flex items-center mb-6">
               <Handshake className="w-10 h-10 text-gold-500 mr-4" />
