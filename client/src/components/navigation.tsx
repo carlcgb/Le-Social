@@ -23,7 +23,7 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
   const navItems = [
     { href: "#accueil", label: "Accueil" },
     { href: "#spectacles", label: "Spectacles" },
-    { href: "#evenements", label: "Événements Privés" },
+    { href: "#evenements", label: "Privés" },
     { href: "#corporatif", label: "Corporatif" },
     { href: "#galerie", label: "Galerie" },
   ];
