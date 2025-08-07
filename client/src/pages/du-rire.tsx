@@ -170,7 +170,9 @@ export default function DuRirePage() {
                 <MapPin className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
                   <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Lieu</h3>
-                  <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+                  <p
+                    style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+                    className="text-[20px]">
                     Social Bar & Cie<br />
                     150 Rue Saint-Jacques<br />
                     Granby, QC J2G 3V3
@@ -211,7 +213,9 @@ export default function DuRirePage() {
                 <Clock className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
                   <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Horaires</h3>
-                  <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+                  <p
+                    style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+                    className="text-[20px]">
                     Ouverture pour souper : 17h<br />
                     Début du spectacle : 20h<br />
                     Fin de soirée : 23h
@@ -223,7 +227,9 @@ export default function DuRirePage() {
                 <Star className="w-6 h-6 text-white mr-4 mt-1" />
                 <div>
                   <h3 className="text-xl font-semibold mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Tarifs</h3>
-                  <p style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+                  <p
+                    style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+                    className="text-[20px]">
                     Prévente : 15$ par personne<br />
                     À la porte : 20$ par personne<br />
                     Réservation recommandée
