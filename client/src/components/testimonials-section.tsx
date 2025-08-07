@@ -53,7 +53,7 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               
-              <p className="mb-6 italic" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>"{testimonial.text}"</p>
+              <p className="mb-6 italic text-[20px]" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>"{testimonial.text}"</p>
               
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center mr-4">
