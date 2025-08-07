@@ -30,7 +30,7 @@ export default function EvenementsSection() {
   return (
     <section id="evenements" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -53,7 +53,7 @@ export default function EvenementsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="order-1 lg:order-2 bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8"
+            className="order-1 lg:order-2"
           >
             <div className="flex items-center mb-6">
               <Users className="w-10 h-10 text-gold-500 mr-4" />
