@@ -37,19 +37,22 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrolled 
-          ? "bg-black/95 shadow-2xl shadow-burgundy-500/10" 
-          : "bg-gradient-to-b from-black/95 via-black/90 to-black/80"
-      } backdrop-blur-md border-b border-gold-500/30`}
+      className={`fixed top-0 w-full z-50 transition-all duration-500`}
       style={{
         background: scrolled 
-          ? 'linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.98))' 
-          : 'linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.90) 70%, rgba(0,0,0,0.80) 100%)'
+          ? 'linear-gradient(135deg, rgba(5,0,0,0.90) 0%, rgba(15,8,10,0.95) 30%, rgba(25,15,20,0.90) 70%, rgba(10,5,8,0.85) 100%)' 
+          : 'linear-gradient(135deg, rgba(2,0,0,0.70) 0%, rgba(8,5,7,0.75) 25%, rgba(15,10,12,0.80) 50%, rgba(20,12,15,0.75) 75%, rgba(8,3,5,0.70) 100%)',
+        backdropFilter: 'blur(25px) saturate(140%) brightness(1.1)',
+        WebkitBackdropFilter: 'blur(25px) saturate(140%) brightness(1.1)',
+        boxShadow: scrolled 
+          ? '0 8px 32px rgba(0,0,0,0.4), 0 2px 12px rgba(199,23,36,0.2), inset 0 1px 0 rgba(192,132,47,0.1)' 
+          : '0 4px 24px rgba(0,0,0,0.25), 0 1px 6px rgba(192,132,47,0.15), inset 0 1px 0 rgba(255,255,255,0.05)',
+        borderTop: '1px solid rgba(192,132,47,0.15)',
+        borderBottom: scrolled ? '1px solid rgba(199,23,36,0.2)' : '1px solid rgba(192,132,47,0.1)'
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-16">
           <motion.div 
             className="flex items-center"
             whileHover={{ scale: 1.02 }}
@@ -59,7 +62,7 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
               <motion.img 
                 src={logoPath} 
                 alt="Social Logo" 
-                className="h-24 w-auto filter brightness-0 invert cursor-pointer"
+                className="h-14 w-auto filter brightness-0 invert cursor-pointer"
                 style={{
                   filter: 'brightness(0) invert(1) drop-shadow(0 0 8px rgba(192, 132, 47, 0.3))'
                 }}

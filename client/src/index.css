@@ -317,20 +317,22 @@
   transform-origin: right;
 }
 
-/* Enhanced navbar styling */
+/* Enhanced navbar styling with better definition */
 .navbar-glass {
-  backdrop-filter: blur(20px) saturate(120%);
-  -webkit-backdrop-filter: blur(20px) saturate(120%);
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.90) 50%, rgba(25, 25, 25, 0.95) 100%);
-  border-bottom: 1px solid rgba(192, 132, 47, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(199, 23, 36, 0.1);
+  backdrop-filter: blur(25px) saturate(140%) brightness(1.1);
+  -webkit-backdrop-filter: blur(25px) saturate(140%) brightness(1.1);
+  background: linear-gradient(135deg, rgba(2,0,0,0.70) 0%, rgba(8,5,7,0.75) 25%, rgba(15,10,12,0.80) 50%, rgba(20,12,15,0.75) 75%, rgba(8,3,5,0.70) 100%);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25), 0 1px 6px rgba(192,132,47,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(192,132,47,0.15);
+  border-bottom: 1px solid rgba(192,132,47,0.1);
 }
 
 .navbar-scrolled {
-  backdrop-filter: blur(25px) saturate(150%);
-  -webkit-backdrop-filter: blur(25px) saturate(150%);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.95));
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(199, 23, 36, 0.15);
+  backdrop-filter: blur(30px) saturate(160%) brightness(1.15);
+  -webkit-backdrop-filter: blur(30px) saturate(160%) brightness(1.15);
+  background: linear-gradient(135deg, rgba(5,0,0,0.90) 0%, rgba(15,8,10,0.95) 30%, rgba(25,15,20,0.90) 70%, rgba(10,5,8,0.85) 100%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 2px 12px rgba(199,23,36,0.2), inset 0 1px 0 rgba(192,132,47,0.1);
+  border-bottom: 1px solid rgba(199,23,36,0.2);
 }
 
 /* Navigation link hover effects */
