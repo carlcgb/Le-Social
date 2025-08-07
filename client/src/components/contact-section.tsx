@@ -117,7 +117,7 @@ export default function ContactSection() {
                     <info.icon className="w-6 h-6 text-gold-500 mr-4 mt-1" />
                     <div>
                       <h4 className="font-medium mb-1" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.title}</h4>
-                      <p className="whitespace-pre-line" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.content}</p>
+                      <p className="whitespace-pre-line text-[20px]" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.content}</p>
                     </div>
                   </motion.div>
                 ))}
