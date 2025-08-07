@@ -37,68 +37,145 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black" : "bg-black/90"
-      } backdrop-blur-sm border-b border-gold-500/20`}
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled 
+          ? "bg-black/95 shadow-2xl shadow-burgundy-500/10" 
+          : "bg-gradient-to-b from-black/95 via-black/90 to-black/80"
+      } backdrop-blur-md border-b border-gold-500/30`}
+      style={{
+        background: scrolled 
+          ? 'linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.98))' 
+          : 'linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.90) 70%, rgba(0,0,0,0.80) 100%)'
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <div className="flex items-center">
+          <motion.div 
+            className="flex items-center"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
             <Link href="/">
-              <img 
+              <motion.img 
                 src={logoPath} 
                 alt="Social Logo" 
-                className="h-24 w-auto filter brightness-0 invert hover:opacity-80 transition-opacity cursor-pointer"
+                className="h-24 w-auto filter brightness-0 invert cursor-pointer"
+                style={{
+                  filter: 'brightness(0) invert(1) drop-shadow(0 0 8px rgba(192, 132, 47, 0.3))'
+                }}
+                whileHover={{ 
+                  filter: 'brightness(0) invert(1) drop-shadow(0 0 12px rgba(192, 132, 47, 0.6))',
+                  scale: 1.05
+                }}
+                transition={{ duration: 0.3 }}
               />
             </Link>
-          </div>
+          </motion.div>
           
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
+          <div className="hidden md:flex space-x-1">
+            {navItems.map((item, index) => (
               <motion.button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="hover:text-gold-500 transition-colors font-medium"
-                style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+                className="relative px-4 py-2 font-medium font-playfair text-base tracking-wide group"
+                style={{
+                  color: '#ffffff', 
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+                }}
                 whileHover={{ 
-                  scale: 1.1,
-                  textShadow: '0 0 8px rgba(251, 191, 36, 0.6)'
+                  scale: 1.05,
+                  textShadow: '0 0 12px rgba(192, 132, 47, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'
                 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.12 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
               >
-                {item.label}
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-gold-400">
+                  {item.label}
+                </span>
+                
+                {/* Underline effect */}
+                <motion.div
+                  className="absolute bottom-0 left-1/2 h-0.5 bg-gradient-to-r from-gold-500 to-gold-400"
+                  initial={{ width: 0, x: "-50%" }}
+                  whileHover={{ width: "80%" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
+                
+                {/* Background glow effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-lg bg-gradient-to-r from-burgundy-500/0 via-burgundy-500/10 to-gold-500/0"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileHover={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
               </motion.button>
             ))}
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="bg-burgundy-500 px-6 py-2 rounded-full hover:bg-burgundy-600 transition-all duration-150"
-              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              className="relative px-8 py-3 rounded-full font-playfair font-semibold text-base tracking-wide overflow-hidden group"
+              style={{
+                background: 'linear-gradient(135deg, var(--burgundy-500) 0%, var(--burgundy-600) 100%)',
+                color: '#ffffff',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                boxShadow: '0 4px 15px rgba(199, 23, 36, 0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
+              }}
               whileHover={{ 
-                scale: 1.05, 
-                backgroundColor: '#7c2d12',
-                boxShadow: '0 6px 20px rgba(0, 0, 0, 0.4)'
+                scale: 1.05,
+                boxShadow: '0 8px 25px rgba(199, 23, 36, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)',
+                textShadow: '0 0 12px rgba(255, 255, 255, 0.8), 2px 2px 4px rgba(0,0,0,0.8)'
               }}
               whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.15 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
             >
-              Réserver
+              {/* Shimmer effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
+              
+              {/* Border glow */}
+              <div className="absolute inset-0 rounded-full border border-gold-500/30 group-hover:border-gold-400/50 transition-colors duration-300" />
+              
+              <span className="relative z-10">Réserver</span>
             </motion.button>
           </div>
           
           <div className="md:hidden">
             <motion.button
               onClick={onMobileMenuToggle}
-              className="hover:text-gold-500 transition-colors duration-150"
-              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              className="relative p-2 rounded-lg transition-colors duration-300 group"
+              style={{
+                color: '#ffffff', 
+                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                background: 'rgba(192, 132, 47, 0.1)',
+                border: '1px solid rgba(192, 132, 47, 0.3)'
+              }}
               whileHover={{ 
                 scale: 1.1,
-                filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.6))'
+                background: 'rgba(192, 132, 47, 0.2)',
+                filter: 'drop-shadow(0 0 12px rgba(192, 132, 47, 0.6))',
+                borderColor: 'rgba(192, 132, 47, 0.5)'
               }}
               whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.12 }}
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              transition={{ delay: 0.8, duration: 0.4 }}
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6 transition-colors duration-300 group-hover:text-gold-400" />
+              
+              {/* Background pulse effect */}
+              <motion.div
+                className="absolute inset-0 rounded-lg bg-gold-500/10"
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileHover={{ scale: 1.2, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
             </motion.button>
           </div>
         </div>
