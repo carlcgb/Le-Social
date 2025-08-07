@@ -1,16 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Handshake,
-  Rocket,
-  Users,
-  Network,
-  Lightbulb,
-  Shield,
-  Monitor,
-  Wifi,
-  Coffee,
-  Briefcase,
-} from "lucide-react";
+import { Handshake, Rocket, Users, Network, Lightbulb, Shield, Monitor, Wifi, Coffee, Briefcase } from "lucide-react";
 
 export default function CorporatifSection() {
   const scrollToSection = (href: string) => {
@@ -22,30 +11,30 @@ export default function CorporatifSection() {
     {
       icon: Rocket,
       title: "Lancements",
-      description: "Produits, services, événements clients",
+      description: "Produits, services, événements clients"
     },
     {
       icon: Users,
       title: "Team Building",
-      description: "Cohésion d'équipe, réunions stratégiques",
+      description: "Cohésion d'équipe, réunions stratégiques"
     },
     {
       icon: Network,
       title: "Réseautage",
-      description: "Conférences, événements professionnels",
+      description: "Conférences, événements professionnels"
     },
     {
       icon: Lightbulb,
       title: "Secteurs créatifs",
-      description: "Publicité, design, innovation",
-    },
+      description: "Publicité, design, innovation"
+    }
   ];
 
   const features = [
     { icon: Shield, text: "Discrétion et confidentialité assurées" },
     { icon: Monitor, text: "Équipement audiovisuel professionnel" },
     { icon: Wifi, text: "WiFi haut débit dédié" },
-    { icon: Coffee, text: "Service café et restauration premium" },
+    { icon: Coffee, text: "Service café et restauration premium" }
   ];
 
   return (
@@ -60,32 +49,13 @@ export default function CorporatifSection() {
           >
             <div className="flex items-center mb-6">
               <Handshake className="w-10 h-10 text-gold-500 mr-4" />
-              <h2
-                className="text-5xl font-playfair"
-                style={{
-                  color: "#ffffff",
-                  opacity: 1,
-                  textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-                }}
-              >
-                Volet Corporatif
-              </h2>
+              <h2 className="text-5xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Corporatif</h2>
             </div>
-
-            <p
-              className="text-xl mb-8 leading-relaxed"
-              style={{
-                color: "#ffffff",
-                opacity: 1,
-                textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-              }}
-            >
-              Transformez vos événements professionnels en expériences
-              mémorables. Notre salle privée allie sophistication, discrétion et
-              flexibilité pour accueillir vos clients, partenaires ou
-              collaborateurs.
+            
+            <p className="text-xl mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+              Transformez vos événements professionnels en expériences mémorables. Notre salle privée allie sophistication, discrétion et flexibilité pour accueillir vos clients, partenaires ou collaborateurs.
             </p>
-
+            
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
               {serviceTypes.map((type, index) => (
                 <motion.div
@@ -94,29 +64,11 @@ export default function CorporatifSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-burgundy-900/30 backdrop-blur-md rounded-lg p-4 text-[#ffffff]"
+                  className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-4 text-[#ffffff]"
                 >
                   <type.icon className="w-8 h-8 text-gold-500 mb-2" />
-                  <h4
-                    className="text-lg font-playfair mb-2"
-                    style={{
-                      color: "#ffffff",
-                      opacity: 1,
-                      textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-                    }}
-                  >
-                    {type.title}
-                  </h4>
-                  <p
-                    className="text-sm"
-                    style={{
-                      color: "#ffffff",
-                      opacity: 1,
-                      textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-                    }}
-                  >
-                    {type.description}
-                  </p>
+                  <h4 className="text-lg font-playfair mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.title}</h4>
+                  <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -138,26 +90,22 @@ export default function CorporatifSection() {
             </div>
 
             <motion.button
-              whileHover={{
+              whileHover={{ 
                 scale: 1.05,
-                backgroundColor: "#7c2d12",
-                boxShadow: "0 8px 25px rgba(0, 0, 0, 0.4)",
+                backgroundColor: '#7c2d12',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.4)'
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
               className="inline-flex items-center bg-burgundy-500 px-8 py-4 rounded-full hover:bg-burgundy-600 transition-all duration-150"
-              style={{
-                color: "#ffffff",
-                opacity: 1,
-                textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-              }}
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               transition={{ duration: 0.15 }}
             >
               <Briefcase className="w-5 h-5 mr-2" />
               Organiser mon événement corporate
             </motion.button>
           </motion.div>
-
+          
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -165,9 +113,9 @@ export default function CorporatifSection() {
             viewport={{ once: true }}
             className="relative"
           >
-            <img
-              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-              alt="Événement corporatif au Social"
+            <img 
+              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+              alt="Événement corporatif au Social" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
             <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-[#32bd57] text-white shadow-lg drop-shadow-lg">
