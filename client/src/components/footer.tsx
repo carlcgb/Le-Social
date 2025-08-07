@@ -24,7 +24,7 @@ export default function Footer() {
             />
           </div>
           
-          <p className="mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Par Attelier Archibald</p>
+          <p className="mb-6 text-[20px]" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Par Attelier Archibald</p>
           
           
           
