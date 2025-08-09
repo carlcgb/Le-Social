@@ -102,7 +102,7 @@ export default function SpectaclesSection() {
               alt="Spectacle intimiste au Social" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
-            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-[#fbbf24] text-black shadow-lg drop-shadow-lg" style={{textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}>
+            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold shadow-lg drop-shadow-lg bg-[#cc871d] text-[#ffffff]" style={{textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}>
               Ambiance intimiste
             </div>
           </motion.div>
