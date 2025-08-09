@@ -47,7 +47,7 @@ export default function CorporatifSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center mb-6">
+            <div className="flex items-center mb-6 text-[#ffffff]">
               <Handshake className="w-10 h-10 text-gold-500 mr-4" />
               <h2 className="text-responsive-4xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Corporatif</h2>
             </div>
