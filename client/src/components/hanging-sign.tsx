@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
-import logoAnimated from "@assets/Logo-LOOP-Videobolt-unscreen_1754505801632.gif";
+import logoAnimated from "@assets/Untitled-design-unscreen_1754780840848.gif";
 import backboardImage from "@assets/Untitled design_1754780053930.png";
 
 export default function HangingSign() {
@@ -56,19 +56,10 @@ export default function HangingSign() {
               
               {/* Animated logo overlay - positioned in the black center area */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <motion.img
+                <img
                   src={logoAnimated}
-                  alt="La Soirée du Rire - Logo animé"
-                  className="w-30 h-30 md:w-50 md:h-50 object-contain"
-                  animate={{
-                    scale: [1, 1.08, 1],
-                    rotate: [0, 2, -2, 0]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
+                  alt="La Soirée du Rire de Granby - Logo néon animé"
+                  className="w-24 h-24 md:w-28 md:h-28 object-contain"
                 />
               </div>
             </div>
