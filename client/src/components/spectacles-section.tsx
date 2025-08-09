@@ -23,7 +23,7 @@ export default function SpectaclesSection() {
   return (
     <section id="spectacles" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -60,12 +60,12 @@ export default function SpectaclesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="backdrop-blur-md border border-gold-500/30 rounded-lg p-6 mb-8 bg-[#0000007d] text-[#ffffff]"
+              className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-6 mb-8 bg-[#0000007d] text-[#ffffff]"
             >
               <h4 className="text-responsive-xl font-playfair mb-3 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
               <div className="space-y-3">
                 {upcomingShows.map((show, index) => (
-                  <div key={index} className="flex justify-between items-center border-b border-gold-500/20 pb-2 last:border-b-0">
+                  <div key={index} className="flex justify-between items-center border-b border-[#cc871d]/20 pb-2 last:border-b-0">
                     <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.name}</span>
                     <span className="text-responsive-xs text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.date}</span>
                   </div>

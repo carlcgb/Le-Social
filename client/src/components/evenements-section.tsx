@@ -30,7 +30,7 @@ export default function EvenementsSection() {
   return (
     <section id="evenements" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -72,7 +72,7 @@ export default function EvenementsSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="backdrop-blur-md border border-gold-500/30 rounded-lg p-4 text-[#ffffff] bg-[#0000007d]"
+                  className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-4 text-[#ffffff] bg-[#0000007d]"
                 >
                   <type.icon className="w-8 h-8 text-gold-500 mb-2" />
                   <h4 className="text-lg font-playfair mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.title}</h4>
