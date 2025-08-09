@@ -69,7 +69,7 @@ export default function ServicesSummary() {
                 <p className="mb-6 text-[20px] text-left" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{service.description}</p>
                 
                 <motion.button 
-                  className="lien inline-flex items-center text-[#ffffff] font-extrabold relative group/link" 
+                  className="lien inline-flex items-center text-[#ffffff] font-extrabold relative group/link font-playfair" 
                   style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
