@@ -30,24 +30,8 @@ export default function EvenementsSection() {
   return (
     <section id="evenements" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="order-2 lg:order-1 relative"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-              alt="Événement privé au Social" 
-              className="rounded-2xl shadow-2xl w-full h-auto"
-            />
-            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-gold-500 shadow-lg drop-shadow-lg text-[#ffffff]" style={{textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}>
-              Moments précieux
-            </div>
-          </motion.div>
-          
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
+          {/* Title, description, and event types - order 1 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -64,7 +48,7 @@ export default function EvenementsSection() {
               Pour vos moments les plus précieux, offrez à vos proches un lieu qui vous ressemble. Élégante, chaleureuse et adaptable, notre salle privée transforme chaque événement en souvenir inoubliable.
             </p>
             
-            <div className="grid sm:grid-cols-2 gap-6 mb-8">
+            <div className="grid sm:grid-cols-2 gap-6">
               {eventTypes.map((type, index) => (
                 <motion.div
                   key={index}
@@ -80,8 +64,35 @@ export default function EvenementsSection() {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
 
-            <div className="space-y-4 mb-8 text-[#ffffff]">
+          {/* Image - order 2 on mobile, order 1 on desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="order-2 lg:order-1 relative"
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+              alt="Événement privé au Social" 
+              className="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-gold-500 shadow-lg drop-shadow-lg text-[#ffffff]" style={{textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}>
+              Moments précieux
+            </div>
+          </motion.div>
+
+          {/* Features list - order 3 on mobile (second to last) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="order-3 lg:col-span-2"
+          >
+            <div className="space-y-4 text-[#ffffff]">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -96,7 +107,16 @@ export default function EvenementsSection() {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
 
+          {/* Button - order 4 on mobile (last) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="order-4 lg:col-span-2 text-center mt-8"
+          >
             <motion.button
               onClick={() => scrollToSection("#contact")}
               className="inline-flex items-center bg-gold-500 px-8 py-4 rounded-full hover:bg-gold-600 transition-all duration-150 font-playfair font-bold btn-text-responsive text-[#ffffff]"

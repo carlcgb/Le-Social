@@ -40,12 +40,14 @@ export default function CorporatifSection() {
   return (
     <section id="corporatif" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-[#32bd57]/30 rounded-lg p-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 bg-burgundy-900/30 backdrop-blur-md border border-[#32bd57]/30 rounded-lg p-8">
+          {/* Title, description, and service types - order 1 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="order-1 lg:order-1"
           >
             <div className="flex items-center mb-6 text-[#ffffff]">
               <Handshake className="w-10 h-10 text-gold-500 mr-4" />
@@ -56,7 +58,7 @@ export default function CorporatifSection() {
               Transformez vos événements professionnels en expériences mémorables. Notre salle privée allie sophistication, discrétion et flexibilité pour accueillir vos clients, partenaires ou collaborateurs.
             </p>
             
-            <div className="grid sm:grid-cols-2 gap-6 mb-8">
+            <div className="grid sm:grid-cols-2 gap-6">
               {serviceTypes.map((type, index) => (
                 <motion.div
                   key={index}
@@ -72,8 +74,35 @@ export default function CorporatifSection() {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+          
+          {/* Image - order 2 on mobile */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="order-2 lg:order-2 relative"
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+              alt="Événement corporatif au Social" 
+              className="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-[#32bd57] text-white shadow-lg drop-shadow-lg" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+              Excellence professionnelle
+            </div>
+          </motion.div>
 
-            <div className="space-y-4 mb-8 text-[#ffffff]">
+          {/* Features list - order 3 on mobile (second to last) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="order-3 lg:col-span-2"
+          >
+            <div className="space-y-4 text-[#ffffff]">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -88,7 +117,16 @@ export default function CorporatifSection() {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
 
+          {/* Button - order 4 on mobile (last) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="order-4 lg:col-span-2 text-center mt-8"
+          >
             <motion.button
               whileHover={{ 
                 scale: 1.05,
@@ -104,23 +142,6 @@ export default function CorporatifSection() {
               <Briefcase className="w-5 h-5 mr-2" />
               Organiser mon événement corporate
             </motion.button>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-              alt="Événement corporatif au Social" 
-              className="rounded-2xl shadow-2xl w-full h-auto"
-            />
-            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-[#32bd57] text-white shadow-lg drop-shadow-lg" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
-              Excellence professionnelle
-            </div>
           </motion.div>
         </div>
       </div>
