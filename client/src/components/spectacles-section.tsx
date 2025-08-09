@@ -23,7 +23,7 @@ export default function SpectaclesSection() {
   return (
     <section id="spectacles" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 bg-burgundy-900/30 backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/30 backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-6 lg:p-8">
           {/* Title and description - order 1 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -37,7 +37,7 @@ export default function SpectaclesSection() {
               <h2 className="text-responsive-4xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Spectacles</h2>
             </div>
             
-            <p className="text-responsive-lg mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+            <p className="text-responsive-lg mb-6 lg:mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Plongez dans une ambiance feutrée où chaque note résonne autrement. Notre salle privée accueille des spectacles intimistes qui font vibrer vos soirées. Une expérience artistique à vivre autrement.
             </p>
           </motion.div>
@@ -68,7 +68,7 @@ export default function SpectaclesSection() {
             viewport={{ once: true }}
             className="order-3 lg:col-span-2"
           >
-            <div className="space-y-4 mb-8 text-[#ffffff]">
+            <div className="space-y-4 mb-6 text-[#ffffff]">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -109,7 +109,7 @@ export default function SpectaclesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-4 lg:col-span-2 text-center mt-8"
+            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               whileHover={{ 

@@ -30,7 +30,7 @@ export default function EvenementsSection() {
   return (
     <section id="evenements" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-6 lg:p-8">
           {/* Title, description, and event types - order 1 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -44,7 +44,7 @@ export default function EvenementsSection() {
               <h2 className="text-responsive-4xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Événements Privés</h2>
             </div>
             
-            <p className="text-responsive-lg mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+            <p className="text-responsive-lg mb-6 lg:mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Pour vos moments les plus précieux, offrez à vos proches un lieu qui vous ressemble. Élégante, chaleureuse et adaptable, notre salle privée transforme chaque événement en souvenir inoubliable.
             </p>
             
@@ -115,7 +115,7 @@ export default function EvenementsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-4 lg:col-span-2 text-center mt-8"
+            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               onClick={() => scrollToSection("#contact")}

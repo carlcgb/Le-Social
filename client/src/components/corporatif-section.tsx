@@ -40,7 +40,7 @@ export default function CorporatifSection() {
   return (
     <section id="corporatif" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 bg-burgundy-900/30 backdrop-blur-md border border-[#32bd57]/30 rounded-lg p-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/30 backdrop-blur-md border border-[#32bd57]/30 rounded-lg p-6 lg:p-8">
           {/* Title, description, and service types - order 1 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -54,7 +54,7 @@ export default function CorporatifSection() {
               <h2 className="text-responsive-4xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Corporatif</h2>
             </div>
             
-            <p className="text-responsive-lg mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+            <p className="text-responsive-lg mb-6 lg:mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Transformez vos événements professionnels en expériences mémorables. Notre salle privée allie sophistication, discrétion et flexibilité pour accueillir vos clients, partenaires ou collaborateurs.
             </p>
             
@@ -125,7 +125,7 @@ export default function CorporatifSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-4 lg:col-span-2 text-center mt-8"
+            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               whileHover={{ 
