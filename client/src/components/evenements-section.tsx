@@ -30,7 +30,7 @@ export default function EvenementsSection() {
   return (
     <section id="evenements" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
