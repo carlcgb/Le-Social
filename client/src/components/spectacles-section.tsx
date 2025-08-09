@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Theater, Music, Laugh, Eye, Users, CalendarPlus } from "lucide-react";
+import { Theater, CalendarPlus } from "lucide-react";
 
 export default function SpectaclesSection() {
   const scrollToSection = (href: string) => {
@@ -7,12 +7,7 @@ export default function SpectaclesSection() {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const features = [
-    { icon: Music, text: "Jazz, acoustique, chanson française" },
-    { icon: Laugh, text: "Stand-up et spectacles d'humour" },
-    { icon: Eye, text: "Showcases privés sur mesure" },
-    { icon: Users, text: "Capacité intimiste de 50 personnes" }
-  ];
+  
 
   const upcomingShows = [
     { name: "Jazz Session - Marie Dubois", date: "15 Mars" },
@@ -87,30 +82,7 @@ export default function SpectaclesSection() {
             </motion.div>
           </motion.div>
 
-          {/* Features - order 4 on mobile (second to last) */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="order-4 lg:col-span-2"
-          >
-            <div className="space-y-4 text-[#ffffff]">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center"
-                >
-                  <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
-                  <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          
 
           {/* Button - order 5 on mobile (last) */}
           <motion.div
@@ -118,7 +90,7 @@ export default function SpectaclesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-5 lg:col-span-2 text-center mt-6 lg:mt-4"
+            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               whileHover={{ 
