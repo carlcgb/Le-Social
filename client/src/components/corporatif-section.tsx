@@ -67,8 +67,8 @@ export default function CorporatifSection() {
                   className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-4 text-[#ffffff] bg-[#0000007d]"
                 >
                   <type.icon className="w-8 h-8 text-gold-500 mb-2" />
-                  <h4 className="text-lg font-playfair mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.title}</h4>
-                  <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.description}</p>
+                  <h4 className="text-responsive-lg font-playfair mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.title}</h4>
+                  <p className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -84,7 +84,7 @@ export default function CorporatifSection() {
                   className="flex items-center"
                 >
                   <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
-                  <span className="text-[#ffffff]">{feature.text}</span>
+                  <span className="text-responsive-sm text-[#ffffff]" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
                 </motion.div>
               ))}
             </div>
@@ -97,7 +97,7 @@ export default function CorporatifSection() {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
-              className="inline-flex items-center px-8 py-4 rounded-full transition-all duration-150 font-playfair font-bold"
+              className="inline-flex items-center px-8 py-4 rounded-full transition-all duration-150 font-playfair font-bold btn-text-responsive"
               style={{backgroundColor: '#32bd57', color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               transition={{ duration: 0.15 }}
             >
