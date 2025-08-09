@@ -43,7 +43,7 @@ export default function EvenementsSection() {
               alt="Événement privé au Social" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
-            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-gold-500 text-black shadow-lg drop-shadow-lg">
+            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-gold-500 text-black shadow-lg drop-shadow-lg" style={{textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}>
               Moments précieux
             </div>
           </motion.div>
@@ -99,7 +99,7 @@ export default function EvenementsSection() {
 
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="inline-flex items-center bg-gold-500 px-8 py-4 rounded-full hover:bg-gold-600 transition-all duration-150 font-playfair"
+              className="inline-flex items-center bg-gold-500 px-8 py-4 rounded-full hover:bg-gold-600 transition-all duration-150 font-playfair font-bold"
               style={{color: '#000000', opacity: 1, textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}
               whileHover={{ 
                 scale: 1.05, 

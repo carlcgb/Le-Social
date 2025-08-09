@@ -97,7 +97,7 @@ export default function CorporatifSection() {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
-              className="inline-flex items-center px-8 py-4 rounded-full transition-all duration-150 font-playfair"
+              className="inline-flex items-center px-8 py-4 rounded-full transition-all duration-150 font-playfair font-bold"
               style={{backgroundColor: '#32bd57', color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               transition={{ duration: 0.15 }}
             >
@@ -118,7 +118,7 @@ export default function CorporatifSection() {
               alt="Événement corporatif au Social" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
-            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-[#32bd57] text-white shadow-lg drop-shadow-lg">
+            <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-[#32bd57] text-white shadow-lg drop-shadow-lg" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Excellence professionnelle
             </div>
           </motion.div>
