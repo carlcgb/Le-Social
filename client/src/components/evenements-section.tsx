@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Cake, Martini, Utensils, Music, Palette, Bell, Heart } from "lucide-react";
+import { Users, Cake, Martini, Heart } from "lucide-react";
 
 export default function EvenementsSection() {
   const scrollToSection = (href: string) => {
@@ -20,12 +20,7 @@ export default function EvenementsSection() {
     }
   ];
 
-  const features = [
-    { icon: Utensils, text: "Service traiteur personnalisé" },
-    { icon: Music, text: "Système audio professionnel" },
-    { icon: Palette, text: "Décoration sur mesure" },
-    { icon: Bell, text: "Service complet inclus" }
-  ];
+  
 
   return (
     <section id="evenements" className="relative py-20 z-40">
@@ -84,38 +79,13 @@ export default function EvenementsSection() {
             </div>
           </motion.div>
 
-          {/* Features list - order 3 on mobile (second to last) */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="order-3 lg:col-span-2"
-          >
-            <div className="space-y-4 text-[#ffffff]">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center"
-                >
-                  <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
-                  <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Button - order 4 on mobile (last) */}
+          {/* Button - order 3 on mobile (last) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
+            className="order-3 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               onClick={() => scrollToSection("#contact")}
