@@ -24,12 +24,10 @@ export default function Footer() {
             />
           </div>
           
-          <p className="mb-6 text-[20px]" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Par Attelier Archibald</p>
-          
-          
+          <p className="mb-6 text-responsive-base" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Par Attelier Archibald</p>
           
           <div className="mt-8">
-            <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+            <p className="text-responsive-xs" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               © 2025 CGB - Tous droits réservés
             </p>
           </div>

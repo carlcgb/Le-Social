@@ -32,10 +32,10 @@ export default function SpectaclesSection() {
           >
             <div className="flex items-center mb-6">
               <Theater className="w-10 h-10 text-gold-500 mr-4" />
-              <h2 className="text-5xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Spectacles</h2>
+              <h2 className="text-responsive-4xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Spectacles</h2>
             </div>
             
-            <p className="text-xl mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+            <p className="text-responsive-lg mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Plongez dans une ambiance feutrée où chaque note résonne autrement. Notre salle privée accueille des spectacles intimistes qui font vibrer vos soirées. Une expérience artistique à vivre autrement.
             </p>
             
@@ -62,7 +62,7 @@ export default function SpectaclesSection() {
               viewport={{ once: true }}
               className="backdrop-blur-md border border-gold-500/30 rounded-lg p-6 mb-8 bg-[#0000007d] text-[#ffffff]"
             >
-              <h4 className="text-xl font-playfair mb-3 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
+              <h4 className="text-responsive-xl font-playfair mb-3 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
               <div className="space-y-3">
                 {upcomingShows.map((show, index) => (
                   <div key={index} className="flex justify-between items-center border-b border-gold-500/20 pb-2 last:border-b-0">

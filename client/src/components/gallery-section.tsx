@@ -77,7 +77,7 @@ export default function GallerySection() {
         >
           <div className="flex items-center justify-center mb-6">
             <Facebook className="w-12 h-12 text-gold-500 mr-4" />
-            <h2 className="text-5xl font-playfair text-[#ffffff]">Nos Événements</h2>
+            <h2 className="text-responsive-4xl font-playfair text-[#ffffff]">Nos Événements</h2>
           </div>
           
           <motion.a
@@ -86,7 +86,7 @@ export default function GallerySection() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold btn-text-responsive-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Facebook className="w-6 h-6 mr-3" />
             Social Bar & Cie

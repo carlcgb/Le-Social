@@ -193,7 +193,7 @@ export default function HeroSection() {
           </div>
 
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
+            className="text-responsive-lg mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
             style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             animate={{
               textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
@@ -209,7 +209,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0">
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
-              className="bg-burgundy-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 text-sm sm:text-base"
+              className="bg-burgundy-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
@@ -227,7 +227,7 @@ export default function HeroSection() {
 
             <motion.button
               onClick={() => scrollToSection("#evenements")}
-              className="border-2 border-gold-500 text-gold-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 text-sm sm:text-base"
+              className="border-2 border-gold-500 text-gold-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
               style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 

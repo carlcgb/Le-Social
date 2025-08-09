@@ -90,8 +90,8 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Réservez votre expérience</h2>
-          <p className="text-xl" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Contactez-nous pour créer votre événement sur mesure</p>
+          <h2 className="text-responsive-4xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Réservez votre expérience</h2>
+          <p className="text-responsive-lg" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Contactez-nous pour créer votre événement sur mesure</p>
         </motion.div>
         
         <div className="grid lg:grid-cols-2 gap-12">
@@ -102,7 +102,7 @@ export default function ContactSection() {
             viewport={{ once: true }}
           >
             <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
-              <h3 className="text-2xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Informations de contact</h3>
+              <h3 className="text-responsive-2xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Informations de contact</h3>
               
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -116,15 +116,15 @@ export default function ContactSection() {
                   >
                     <info.icon className="w-6 h-6 text-gold-500 mr-4 mt-1" />
                     <div>
-                      <h4 className="font-medium mb-1" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.title}</h4>
-                      <p className="whitespace-pre-line text-[20px]" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.content}</p>
+                      <h4 className="font-medium mb-1 text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.title}</h4>
+                      <p className="whitespace-pre-line text-responsive-base" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.content}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
               
               <div className="mt-8 pt-8 border-t border-gold-500/20">
-                <h4 className="text-lg font-playfair mb-4" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Suivez-nous</h4>
+                <h4 className="text-responsive-lg font-playfair mb-4" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Suivez-nous</h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
                     <motion.a

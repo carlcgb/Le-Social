@@ -33,8 +33,8 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Témoignages</h2>
-          <p className="text-xl" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Ce que nos clients disent de leurs expériences</p>
+          <h2 className="text-responsive-4xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Témoignages</h2>
+          <p className="text-responsive-lg" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Ce que nos clients disent de leurs expériences</p>
         </motion.div>
         
         <div className="grid md:grid-cols-3 gap-8">
@@ -53,15 +53,15 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               
-              <p className="mb-6 italic text-[20px]" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>"{testimonial.text}"</p>
+              <p className="mb-6 italic text-responsive-base" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>"{testimonial.text}"</p>
               
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center mr-4">
                   <span className="text-black font-bold">{testimonial.initials}</span>
                 </div>
                 <div>
-                  <h4 className="font-medium" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{testimonial.name}</h4>
-                  <p className="text-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{testimonial.role}</p>
+                  <h4 className="font-medium text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{testimonial.name}</h4>
+                  <p className="text-responsive-xs" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>
