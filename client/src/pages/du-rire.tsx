@@ -82,7 +82,10 @@ export default function DuRirePage() {
             <img
               src={logoAnimated}
               alt="La Soirée du Rire de Granby - Logo néon animé"
-              className="max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl h-auto opacity-90"
+              className="max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl h-auto opacity-90 drop-shadow-2xl"
+              style={{
+                filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.8))'
+              }}
             />
           </div>
 
