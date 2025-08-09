@@ -81,7 +81,7 @@ export default function SpectaclesSection() {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
-              className="inline-flex items-center px-8 py-4 rounded-full transition-all duration-150 font-playfair font-bold btn-text-responsive"
+              className="inline-flex items-center px-8 py-4 rounded-full transition-all duration-150 font-playfair font-bold btn-text-responsive bg-[#cc871d]"
               style={{backgroundColor: '#fbbf24', color: '#000000', opacity: 1, textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}
               transition={{ duration: 0.10 }}
             >
