@@ -30,7 +30,7 @@ export default function HangingSign() {
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ 
-          scale: isScrolled ? 0.8 : 1.1,
+          scale: 1,
           opacity: 1,
           y: [0, -5, 0],
           rotateY: isFlipping ? 360 : 0
@@ -45,7 +45,7 @@ export default function HangingSign() {
           rotateY: { duration: 0.6, ease: "easeInOut", repeat: 0 }
         }}
         whileHover={{ 
-          scale: isScrolled ? 0.9 : 1.2, 
+          scale: 1.1, 
           rotate: [0, -5, 5, 0],
           transition: { duration: 0.3 }
         }}
