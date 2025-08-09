@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
-import logoAnimated from "@assets/Logo-LOOP-Videobolt-unscreen_1754505801632.gif";
+import logoAnimated from "@assets/Untitled-design-unscreen_1754780840848.gif";
 import { BrickWall } from "@/components";
 
 export default function DuRirePage() {
