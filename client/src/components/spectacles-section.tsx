@@ -29,7 +29,7 @@ export default function SpectaclesSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-          >
+            className="text-[#ffffff]">
             <div className="flex items-center mb-6">
               <Theater className="w-10 h-10 text-gold-500 mr-4" />
               <h2 className="text-responsive-4xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Spectacles</h2>
@@ -50,7 +50,7 @@ export default function SpectaclesSection() {
                   className="flex items-center"
                 >
                   <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
-                  <span style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
+                  <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
                 </motion.div>
               ))}
             </div>
@@ -66,8 +66,8 @@ export default function SpectaclesSection() {
               <div className="space-y-3">
                 {upcomingShows.map((show, index) => (
                   <div key={index} className="flex justify-between items-center border-b border-gold-500/20 pb-2 last:border-b-0">
-                    <span style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.name}</span>
-                    <span className="text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.date}</span>
+                    <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.name}</span>
+                    <span className="text-responsive-xs text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.date}</span>
                   </div>
                 ))}
               </div>
@@ -81,7 +81,7 @@ export default function SpectaclesSection() {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
-              className="inline-flex items-center px-8 py-4 rounded-full transition-all duration-150 font-playfair font-bold"
+              className="inline-flex items-center px-8 py-4 rounded-full transition-all duration-150 font-playfair font-bold btn-text-responsive"
               style={{backgroundColor: '#fbbf24', color: '#000000', opacity: 1, textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}
               transition={{ duration: 0.10 }}
             >
