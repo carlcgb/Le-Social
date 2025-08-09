@@ -59,7 +59,7 @@ export default function HangingSign() {
                 <motion.img
                   src={logoAnimated}
                   alt="La Soirée du Rire - Logo animé"
-                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                  className="w-30 h-30 md:w-50 md:h-50 object-contain"
                   animate={{
                     scale: [1, 1.08, 1],
                     rotate: [0, 2, -2, 0]
