@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
+import logoAnimated from "@assets/Logo-LOOP-Videobolt-unscreen_1754505801632.gif";
+import backboardImage from "@assets/ChatGPT Image Aug 9, 2025, 06_45_08 PM (1)_1754779770782.png";
 
 export default function HangingSign() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,128 +44,31 @@ export default function HangingSign() {
             <div className="w-0.5 h-6 bg-gradient-to-b from-gray-600 to-gray-800"></div>
           </div>
           
-          {/* Main red marquee sign */}
+          {/* Circular backboard with animated logo */}
           <div className="relative">
-            {/* Main red panel */}
-            <div className="bg-gradient-to-br from-red-800 via-red-900 to-red-950 border-2 md:border-4 border-red-700 rounded-lg px-4 py-3 md:px-8 md:py-6 relative overflow-hidden shadow-2xl min-w-[160px] md:min-w-[220px]">
-              {/* Background texture */}
-              <div className="absolute inset-0 bg-gradient-to-br from-red-700/20 to-transparent"></div>
+            {/* Circular backboard background */}
+            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl">
+              <img 
+                src={backboardImage} 
+                alt="Circular backboard"
+                className="w-full h-full object-cover"
+              />
               
-              {/* Text content */}
-              <div className="relative text-center space-y-1">
-                <div className="text-yellow-200 font-bold text-sm md:text-lg leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                  La Soirée du Rire
-                </div>
-                <div className="text-yellow-100 font-extrabold text-base md:text-xl leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                  de GRANBY
-                </div>
-              </div>
-
-              {/* Marquee bulbs around the border */}
-              <div className="absolute -inset-1">
-                {/* Top row of bulbs */}
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                  <motion.div
-                    key={`top-${i}`}
-                    className="absolute w-3 h-3 rounded-full border border-yellow-600"
-                    style={{
-                      left: `${8 + i * 10.5}%`,
-                      top: '-6px',
-                    }}
-                    animate={{
-                      backgroundColor: ['#FFD700', '#FFA500', '#FF6B35', '#FFD700'],
-                      boxShadow: [
-                        '0 0 6px #FFD700, 0 0 12px #FFD700',
-                        '0 0 8px #FFA500, 0 0 16px #FFA500',
-                        '0 0 6px #FF6B35, 0 0 12px #FF6B35',
-                        '0 0 6px #FFD700, 0 0 12px #FFD700'
-                      ]
-                    }}
-                    transition={{
-                      duration: 1.8,
-                      repeat: Infinity,
-                      delay: i * 0.1
-                    }}
-                  />
-                ))}
-                
-                {/* Bottom row of bulbs */}
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                  <motion.div
-                    key={`bottom-${i}`}
-                    className="absolute w-3 h-3 rounded-full border border-yellow-600"
-                    style={{
-                      left: `${8 + i * 10.5}%`,
-                      bottom: '-6px',
-                    }}
-                    animate={{
-                      backgroundColor: ['#FF6B35', '#FFD700', '#FFA500', '#FF6B35'],
-                      boxShadow: [
-                        '0 0 6px #FF6B35, 0 0 12px #FF6B35',
-                        '0 0 8px #FFD700, 0 0 16px #FFD700',
-                        '0 0 6px #FFA500, 0 0 12px #FFA500',
-                        '0 0 6px #FF6B35, 0 0 12px #FF6B35'
-                      ]
-                    }}
-                    transition={{
-                      duration: 1.8,
-                      repeat: Infinity,
-                      delay: i * 0.1 + 0.3
-                    }}
-                  />
-                ))}
-                
-                {/* Left side bulbs */}
-                {[0, 1, 2, 3].map((i) => (
-                  <motion.div
-                    key={`left-${i}`}
-                    className="absolute w-3 h-3 rounded-full border border-yellow-600"
-                    style={{
-                      left: '-6px',
-                      top: `${20 + i * 20}%`,
-                    }}
-                    animate={{
-                      backgroundColor: ['#FFA500', '#FF6B35', '#FFD700', '#FFA500'],
-                      boxShadow: [
-                        '0 0 6px #FFA500, 0 0 12px #FFA500',
-                        '0 0 8px #FF6B35, 0 0 16px #FF6B35',
-                        '0 0 6px #FFD700, 0 0 12px #FFD700',
-                        '0 0 6px #FFA500, 0 0 12px #FFA500'
-                      ]
-                    }}
-                    transition={{
-                      duration: 1.8,
-                      repeat: Infinity,
-                      delay: i * 0.15 + 0.6
-                    }}
-                  />
-                ))}
-                
-                {/* Right side bulbs */}
-                {[0, 1, 2, 3].map((i) => (
-                  <motion.div
-                    key={`right-${i}`}
-                    className="absolute w-3 h-3 rounded-full border border-yellow-600"
-                    style={{
-                      right: '-6px',
-                      top: `${20 + i * 20}%`,
-                    }}
-                    animate={{
-                      backgroundColor: ['#FFD700', '#FFA500', '#FF6B35', '#FFD700'],
-                      boxShadow: [
-                        '0 0 6px #FFD700, 0 0 12px #FFD700',
-                        '0 0 8px #FFA500, 0 0 16px #FFA500',
-                        '0 0 6px #FF6B35, 0 0 12px #FF6B35',
-                        '0 0 6px #FFD700, 0 0 12px #FFD700'
-                      ]
-                    }}
-                    transition={{
-                      duration: 1.8,
-                      repeat: Infinity,
-                      delay: i * 0.15 + 0.9
-                    }}
-                  />
-                ))}
+              {/* Animated logo overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.img
+                  src={logoAnimated}
+                  alt="La Soirée du Rire - Logo animé"
+                  className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
               </div>
             </div>
           </div>
