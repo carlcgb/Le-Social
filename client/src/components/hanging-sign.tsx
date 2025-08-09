@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import logoAnimated from "@assets/Logo-LOOP-Videobolt-unscreen_1754505801632.gif";
-import backboardImage from "@assets/ChatGPT Image Aug 9, 2025, 06_45_08 PM (1)_1754779770782.png";
+import backboardImage from "@assets/Untitled design_1754780053930.png";
 
 export default function HangingSign() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,24 +47,25 @@ export default function HangingSign() {
           {/* Circular backboard with animated logo */}
           <div className="relative">
             {/* Circular backboard background */}
-            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl">
+            <div className="relative w-32 h-32 md:w-40 md:h-40 shadow-2xl">
               <img 
                 src={backboardImage} 
-                alt="Circular backboard"
-                className="w-full h-full object-cover"
+                alt="Circular marquee frame"
+                className="w-full h-full object-contain"
               />
               
-              {/* Animated logo overlay */}
+              {/* Animated logo overlay - positioned in the black center area */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.img
                   src={logoAnimated}
                   alt="La Soirée du Rire - Logo animé"
-                  className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
                   animate={{
-                    scale: [1, 1.05, 1],
+                    scale: [1, 1.08, 1],
+                    rotate: [0, 2, -2, 0]
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
