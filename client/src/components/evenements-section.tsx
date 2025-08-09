@@ -99,7 +99,7 @@ export default function EvenementsSection() {
 
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="inline-flex items-center bg-gold-500 px-8 py-4 rounded-full hover:bg-gold-600 transition-all duration-150 font-playfair font-bold"
+              className="inline-flex items-center bg-gold-500 px-8 py-4 rounded-full hover:bg-gold-600 transition-all duration-150 font-playfair font-bold text-[#ffffff]"
               style={{color: '#000000', opacity: 1, textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}
               whileHover={{ 
                 scale: 1.05, 
