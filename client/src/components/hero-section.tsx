@@ -167,7 +167,7 @@ export default function HeroSection() {
               <img
                 src={logoPath}
                 alt="Social - Par Attelier Archibald"
-                className="h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[32rem] 2xl:h-[36rem] w-auto mx-auto"
+                className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[36rem] 2xl:h-[42rem] w-auto mx-auto"
               />
             </motion.div>
             
