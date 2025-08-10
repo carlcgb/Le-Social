@@ -76,7 +76,7 @@ export default function CorporatifSection() {
             </div>
           </motion.div>
           
-          {/* Image - order 2 on mobile */}
+          {/* Image and Features - order 2 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -87,21 +87,13 @@ export default function CorporatifSection() {
             <img 
               src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
               alt="Événement corporatif au Social" 
-              className="rounded-2xl shadow-2xl w-full h-auto"
+              className="rounded-2xl shadow-2xl w-full h-auto mb-6"
             />
             <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-[#32bd57] text-white shadow-lg drop-shadow-lg" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Excellence professionnelle
             </div>
-          </motion.div>
-
-          {/* Features list - order 3 on mobile (second to last) */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="order-3 lg:col-span-2"
-          >
+            
+            {/* Features list integrated with image */}
             <div className="space-y-4 text-[#ffffff]">
               {features.map((feature, index) => (
                 <motion.div
@@ -119,13 +111,15 @@ export default function CorporatifSection() {
             </div>
           </motion.div>
 
-          {/* Button - order 4 on mobile (last) */}
+
+
+          {/* Button - order 3 on mobile (last) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
+            className="order-3 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               whileHover={{ 

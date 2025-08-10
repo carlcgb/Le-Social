@@ -82,9 +82,7 @@ export default function SpectaclesSection() {
             </motion.div>
           </motion.div>
 
-          
-
-          {/* Button - order 5 on mobile (last) */}
+          {/* Button - order 4 on mobile (last) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
