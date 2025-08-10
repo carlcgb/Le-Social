@@ -114,7 +114,7 @@ export default function HeroSection() {
         <>
           <motion.div
             initial={{ opacity: 1 }}
-            animate={{ opacity: spotlightActive ? spotlightIntensity : 0 }}
+            animate={{ opacity: spotlightActive ? spotlightIntensity : 1 }}
             transition={{ duration: 0.1, ease: "easeOut" }}
             className="fixed inset-0 z-30 pointer-events-none"
             style={{
@@ -126,7 +126,7 @@ export default function HeroSection() {
                     rgba(0, 0, 0, ${0.8 * spotlightIntensity}) 50%, 
                     rgba(0, 0, 0, ${0.92 * spotlightIntensity}) 70%, 
                     rgba(0, 0, 0, ${0.98 * spotlightIntensity}) 100%)`
-                : 'transparent',
+                : 'rgba(0, 0, 0, 0.6)',
             }}
           />
 
