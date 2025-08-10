@@ -45,27 +45,27 @@ export default function HangingSign() {
   }, []);
 
   // Apply shadow effects to sections
-  // Effect removed to prevent divs from moving when logo passes above them
-  // useEffect(() => {
-  //   const sections = ['spectacles', 'evenements', 'corporatif'];
-  //   
-  //   sections.forEach(sectionId => {
-  //     const section = document.getElementById(sectionId);
-  //     if (section) {
-  //       // Find the main content div that contains bg-burgundy-900/30 class or similar backdrop
-  //       const sectionDiv = section.querySelector('[class*="bg-burgundy-900"], [class*="backdrop-blur"]');
-  //       if (sectionDiv) {
-  //         if (activeSection === sectionId) {
-  //           // Add shadow effect when hanging sign is over this section
-  //           sectionDiv.classList.add('shadow-hanging-sign');
-  //         } else {
-  //           // Remove shadow effect
-  //           sectionDiv.classList.remove('shadow-hanging-sign');
-  //         }
-  //       }
-  //     }
-  //   });
-  // }, [activeSection]);
+  // Apply enhanced shadow effects to sections when logo is above them
+  useEffect(() => {
+    const sections = ['spectacles', 'evenements', 'corporatif'];
+    
+    sections.forEach(sectionId => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        // Find the main content div that contains bg-burgundy-900/30 class or similar backdrop
+        const sectionDiv = section.querySelector('[class*="bg-burgundy-900"], [class*="backdrop-blur"]');
+        if (sectionDiv) {
+          if (activeSection === sectionId) {
+            // Add enhanced shadow effect when hanging sign is over this section
+            sectionDiv.classList.add('shadow-hanging-sign-strong');
+          } else {
+            // Remove shadow effect
+            sectionDiv.classList.remove('shadow-hanging-sign-strong');
+          }
+        }
+      }
+    });
+  }, [activeSection]);
 
   const handleClick = () => {
     setIsFlipping(true);

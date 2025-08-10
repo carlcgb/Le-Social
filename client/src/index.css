@@ -234,6 +234,19 @@
     transition: all 0.6s ease-in-out;
     transform: scale(1.01);
   }
+
+  /* Enhanced strong shadow effect for hanging sign */
+  .shadow-hanging-sign-strong {
+    box-shadow: 
+      0 0 50px rgba(255, 255, 255, 0.15),
+      0 0 100px rgba(255, 255, 255, 0.08),
+      0 0 150px rgba(255, 255, 255, 0.04),
+      inset 0 0 40px rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    background-color: rgba(139, 69, 19, 0.12) !important;
+    transition: all 0.6s ease-in-out;
+    /* Removed transform to prevent movement */
+  }
   
   .font-playfair { font-family: 'Playfair Display', serif; }
   .font-inter { font-family: 'Inter', sans-serif; }
