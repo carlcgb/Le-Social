@@ -9,7 +9,6 @@ export default function HeroSection() {
   const [spotlightActive, setSpotlightActive] = useState(true);
   const [spotlightIntensity, setSpotlightIntensity] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-  const [textRevealed, setTextRevealed] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -20,11 +19,6 @@ export default function HeroSection() {
     
     checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
-
-    // Timer to reveal text and buttons after initial animation
-    const revealTimer = setTimeout(() => {
-      setTextRevealed(true);
-    }, 2000); // Reveal text and buttons after 2 seconds
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -83,7 +77,6 @@ export default function HeroSection() {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkIsMobile);
       observer.disconnect();
-      clearTimeout(revealTimer);
     };
   }, [isMobile]);
 
@@ -201,10 +194,8 @@ export default function HeroSection() {
 
           <motion.p 
             className="text-responsive-lg mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
-            style={{color: '#ffffff', textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-            initial={{ opacity: 0 }}
+            style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             animate={{
-              opacity: isMobile || textRevealed ? 1 : 0,
               textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
                 ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
                 : '2px 2px 4px rgba(0,0,0,0.8)',
@@ -212,7 +203,7 @@ export default function HeroSection() {
                 ? `brightness(${1 + 0.3 * spotlightIntensity}) contrast(${1 + 0.2 * spotlightIntensity}) drop-shadow(0 0 ${15 * spotlightIntensity}px rgba(255,255,255,${0.15 * spotlightIntensity}))`
                 : 'brightness(1) contrast(1)'
             }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
             style, chaque histoire.
@@ -220,14 +211,12 @@ export default function HeroSection() {
 
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0"
-            initial={{ opacity: 0 }}
             animate={{
-              opacity: isMobile || textRevealed ? 1 : 0,
               filter: !isMobile && spotlightActive && spotlightIntensity > 0 
                 ? `brightness(${1 + 0.4 * spotlightIntensity}) contrast(${1 + 0.3 * spotlightIntensity})`
                 : 'brightness(1) contrast(1)'
             }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
