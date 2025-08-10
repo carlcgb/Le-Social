@@ -198,7 +198,10 @@ export default function HeroSection() {
             animate={{
               textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
                 ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
-                : '2px 2px 4px rgba(0,0,0,0.8)'
+                : '2px 2px 4px rgba(0,0,0,0.8)',
+              filter: !isMobile && spotlightActive && spotlightIntensity > 0 
+                ? `brightness(${1 + 0.3 * spotlightIntensity}) contrast(${1 + 0.2 * spotlightIntensity}) drop-shadow(0 0 ${15 * spotlightIntensity}px rgba(255,255,255,${0.15 * spotlightIntensity}))`
+                : 'brightness(1) contrast(1)'
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
@@ -206,11 +209,24 @@ export default function HeroSection() {
             style, chaque histoire.
           </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0">
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0"
+            animate={{
+              filter: !isMobile && spotlightActive && spotlightIntensity > 0 
+                ? `brightness(${1 + 0.4 * spotlightIntensity}) contrast(${1 + 0.3 * spotlightIntensity})`
+                : 'brightness(1) contrast(1)'
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
               className="bg-burgundy-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
               style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              animate={{
+                boxShadow: !isMobile && spotlightActive && spotlightIntensity > 0
+                  ? `0 8px 25px rgba(0, 0, 0, 0.4), 0 0 ${25 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity})`
+                  : '0 8px 25px rgba(0, 0, 0, 0.4)'
+              }}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
                 backgroundColor: '#7c2d12',
@@ -229,6 +245,11 @@ export default function HeroSection() {
               onClick={() => scrollToSection("#evenements")}
               className="border-2 border-gold-500 text-gold-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
               style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+              animate={{
+                boxShadow: !isMobile && spotlightActive && spotlightIntensity > 0
+                  ? `0 8px 25px rgba(251, 191, 36, 0.3), 0 0 ${20 * spotlightIntensity}px rgba(192, 132, 47, ${0.25 * spotlightIntensity})`
+                  : '0 8px 25px rgba(251, 191, 36, 0.3)'
+              }}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
                 borderColor: '#fbbf24', 
@@ -243,7 +264,7 @@ export default function HeroSection() {
               <Users className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Événements privés
             </motion.button>
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
