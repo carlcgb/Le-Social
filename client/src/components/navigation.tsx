@@ -36,7 +36,7 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
   return (
     <motion.nav
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      animate={{ y: scrolled ? 0 : -100 }}
       className={`fixed top-0 w-full z-50 transition-all duration-500`}
       style={{
         background: scrolled 
