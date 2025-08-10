@@ -122,10 +122,10 @@ export default function HeroSection() {
                 ? `radial-gradient(circle at center, 
                     transparent 0%, 
                     transparent 20%, 
-                    rgba(0, 0, 0, ${0.4 * spotlightIntensity}) 35%, 
-                    rgba(0, 0, 0, ${0.7 * spotlightIntensity}) 50%, 
-                    rgba(0, 0, 0, ${0.9 * spotlightIntensity}) 70%, 
-                    rgba(0, 0, 0, ${0.95 * spotlightIntensity}) 100%)`
+                    rgba(0, 0, 0, ${0.6 * spotlightIntensity}) 35%, 
+                    rgba(0, 0, 0, ${0.8 * spotlightIntensity}) 50%, 
+                    rgba(0, 0, 0, ${0.92 * spotlightIntensity}) 70%, 
+                    rgba(0, 0, 0, ${0.98 * spotlightIntensity}) 100%)`
                 : 'transparent',
             }}
           />
