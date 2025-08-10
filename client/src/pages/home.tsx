@@ -19,11 +19,25 @@ export default function Home() {
   const [componentsRevealed, setComponentsRevealed] = useState(false);
   const [scrollLocked, setScrollLocked] = useState(true);
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
+  const [spotlightActive, setSpotlightActive] = useState(true);
+  const [landingPagePinned, setLandingPagePinned] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
       setScrolled(scrollY > 100);
+      
+      // Track spotlight state and pinning based on scroll position
+      // Keep landing page pinned until spotlight is completely gone
+      if (scrollY <= windowHeight * 0.7) {
+        setSpotlightActive(true);
+        setLandingPagePinned(true);
+      } else {
+        setSpotlightActive(false);
+        setLandingPagePinned(false);
+      }
       
       // Hide scroll indicator when user starts scrolling
       if (scrollY > 50 && showScrollIndicator) {
@@ -127,32 +141,39 @@ export default function Home() {
       )}
       
       <main>
-        {/* Hero section with snap-top behavior */}
-        <div className="snap-top">
-          <HeroSection onComponentsReveal={handleComponentsReveal} />
+        {/* Landing page container that pins to top until spotlight is removed */}
+        <div className={`landing-page-container ${landingPagePinned ? 'pinned' : 'unpinned'}`}>
+          <div className="snap-top">
+            <HeroSection onComponentsReveal={handleComponentsReveal} />
+          </div>
         </div>
         
+        {/* Spacer to create scroll distance for spotlight effect */}
+        <div className="spotlight-scroll-spacer" />
+        
         {/* Rest of sections with normal snap behavior */}
-        <div className="snap-start">
-          <ServicesSummary />
-        </div>
-        <div className="snap-start">
-          <SpectaclesSection />
-        </div>
-        <div className="snap-start">
-          <EvenementsSection />
-        </div>
-        <div className="snap-start">
-          <CorporatifSection />
-        </div>
-        <div className="snap-start">
-          <GallerySection />
-        </div>
-        <div className="snap-start">
-          <TestimonialsSection />
-        </div>
-        <div className="snap-start">
-          <ContactSection />
+        <div className="content-sections">
+          <div className="snap-start">
+            <ServicesSummary />
+          </div>
+          <div className="snap-start">
+            <SpectaclesSection />
+          </div>
+          <div className="snap-start">
+            <EvenementsSection />
+          </div>
+          <div className="snap-start">
+            <CorporatifSection />
+          </div>
+          <div className="snap-start">
+            <GallerySection />
+          </div>
+          <div className="snap-start">
+            <TestimonialsSection />
+          </div>
+          <div className="snap-start">
+            <ContactSection />
+          </div>
         </div>
       </main>
       

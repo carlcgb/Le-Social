@@ -183,6 +183,34 @@
     width: 100% !important;
   }
 
+  /* Landing page pinning behavior */
+  .landing-page-container {
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease-out;
+  }
+
+  .landing-page-container.pinned {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .landing-page-container.unpinned {
+    position: relative;
+  }
+
+  .spotlight-scroll-spacer {
+    height: 70vh; /* Creates scroll distance for spotlight effect - matches 70% threshold */
+    pointer-events: none;
+  }
+
+  .content-sections {
+    position: relative;
+    z-index: 15;
+    background: black;
+  }
+
   /* Empêche le scroll horizontal sur mobile */
   @media (max-width: 768px) {
     html, body, #root {
