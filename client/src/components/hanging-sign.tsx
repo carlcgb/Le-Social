@@ -35,6 +35,9 @@ export default function HangingSign() {
       }
       
       setActiveSection(currentActiveSection);
+      if (currentActiveSection) {
+        console.log(`Active section: ${currentActiveSection}`); // Debug log
+      }
     };
 
     // Initial call to set active section on mount
@@ -52,16 +55,19 @@ export default function HangingSign() {
     sections.forEach(sectionId => {
       const section = document.getElementById(sectionId);
       if (section) {
-        // Find the main content div that contains bg-burgundy-900/30 class or similar backdrop
-        const sectionDiv = section.querySelector('[class*="bg-burgundy-900"], [class*="backdrop-blur"]');
+        // Find the main content div with the backdrop-blur-md class (the main container)
+        const sectionDiv = section.querySelector('.backdrop-blur-md');
         if (sectionDiv) {
           if (activeSection === sectionId) {
             // Add enhanced shadow effect when hanging sign is over this section
             sectionDiv.classList.add('shadow-hanging-sign-strong');
+            console.log(`Added shadow to ${sectionId}`); // Debug log
           } else {
             // Remove shadow effect
             sectionDiv.classList.remove('shadow-hanging-sign-strong');
           }
+        } else {
+          console.log(`Could not find backdrop-blur-md div in ${sectionId}`); // Debug log
         }
       }
     });
