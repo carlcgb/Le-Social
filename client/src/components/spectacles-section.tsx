@@ -62,12 +62,12 @@ export default function SpectaclesSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="order-2 lg:order-2 relative"
+            className="order-2 lg:order-2 relative flex flex-col"
           >
             <img 
               src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
               alt="Spectacle intimiste au Social" 
-              className="rounded-2xl shadow-2xl w-full h-auto"
+              className="rounded-2xl shadow-2xl w-full h-full object-cover flex-1"
             />
             <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold shadow-lg drop-shadow-lg bg-[#cc871d] text-[#ffffff]" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Ambiance intimiste
