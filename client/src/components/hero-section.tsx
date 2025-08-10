@@ -153,9 +153,7 @@ export default function HeroSection() {
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
               animate={{ 
-                filter: !isMobile && spotlightActive && spotlightIntensity > 0
-                  ? `brightness(0) invert(1) drop-shadow(0 0 ${60 * spotlightIntensity}px rgba(255, 255, 255, ${0.4 * spotlightIntensity})) drop-shadow(0 0 ${100 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity}))`
-                  : "brightness(0) invert(1)"
+                filter: "brightness(0) invert(1)"
               }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative z-10"
