@@ -6,9 +6,11 @@ import BrickWall from "./brick-wall";
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
 export default function HeroSection() {
-  const [spotlightActive, setSpotlightActive] = useState(true);
-  const [spotlightIntensity, setSpotlightIntensity] = useState(1);
+  const [spotlightActive, setSpotlightActive] = useState(false);
+  const [spotlightIntensity, setSpotlightIntensity] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -24,27 +26,31 @@ export default function HeroSection() {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Désactive le spotlight sur mobile
-      if (isMobile) {
-        setSpotlightActive(false);
-        setSpotlightIntensity(0);
-        return;
-      }
+      // Track if user has scrolled
+      setScrolled(scrollY > 50);
       
-      // Calcul progressif de l'intensité basé sur le scroll
-      if (scrollY <= windowHeight * 0.1) {
-        // Dans les premiers 10% de scroll, garde l'effet complet
-        setSpotlightIntensity(1);
-        setSpotlightActive(true);
-      } else if (scrollY <= windowHeight * 0.8) {
-        // Entre 10% et 80%, dissipe progressivement
-        const progress = (scrollY - windowHeight * 0.1) / (windowHeight * 0.7);
-        setSpotlightIntensity(1 - progress);
-        setSpotlightActive(true);
+      // Sequential animation logic
+      if (scrollY > 100) {
+        // Step 1: Show content (description and buttons)
+        setContentVisible(true);
+        
+        // Step 2: After content is visible, activate spotlight effects (only on desktop)
+        if (!isMobile && scrollY > 200) {
+          setSpotlightActive(true);
+          
+          // Gradually increase spotlight intensity
+          if (scrollY <= windowHeight * 0.5) {
+            const progress = Math.min((scrollY - 200) / 300, 1);
+            setSpotlightIntensity(progress);
+          } else {
+            setSpotlightIntensity(1);
+          }
+        }
       } else {
-        // Au-delà de 80%, éteint complètement
-        setSpotlightIntensity(0);
+        // Reset states when at top
+        setContentVisible(false);
         setSpotlightActive(false);
+        setSpotlightIntensity(0);
       }
     };
 
@@ -194,8 +200,16 @@ export default function HeroSection() {
 
           <motion.p 
             className="text-responsive-lg mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
-            style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+            style={{color: '#ffffff', textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+            initial={{ 
+              opacity: 0, 
+              y: 50,
+              scale: 0.9
+            }}
             animate={{
+              opacity: contentVisible ? 1 : 0,
+              y: contentVisible ? 0 : 50,
+              scale: contentVisible ? 1 : 0.9,
               textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
                 ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
                 : '2px 2px 4px rgba(0,0,0,0.8)',
@@ -203,7 +217,11 @@ export default function HeroSection() {
                 ? `brightness(${1 + 0.3 * spotlightIntensity}) contrast(${1 + 0.2 * spotlightIntensity}) drop-shadow(0 0 ${15 * spotlightIntensity}px rgba(255,255,255,${0.15 * spotlightIntensity}))`
                 : 'brightness(1) contrast(1)'
             }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.8, 
+              ease: "easeOut",
+              delay: contentVisible ? 0.2 : 0
+            }}
           >
             Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
             style, chaque histoire.
@@ -211,12 +229,24 @@ export default function HeroSection() {
 
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0"
+            initial={{ 
+              opacity: 0, 
+              y: 60,
+              scale: 0.8 
+            }}
             animate={{
+              opacity: contentVisible ? 1 : 0,
+              y: contentVisible ? 0 : 60,
+              scale: contentVisible ? 1 : 0.8,
               filter: !isMobile && spotlightActive && spotlightIntensity > 0 
                 ? `brightness(${1 + 0.4 * spotlightIntensity}) contrast(${1 + 0.3 * spotlightIntensity})`
                 : 'brightness(1) contrast(1)'
             }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.8, 
+              ease: "easeOut",
+              delay: contentVisible ? 0.4 : 0
+            }}
           >
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
