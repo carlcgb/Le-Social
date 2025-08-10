@@ -37,7 +37,7 @@ export default function EvenementsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="order-1 lg:order-2"
+            className="order-1 lg:order-2 flex flex-col"
           >
             <div className="flex items-center mb-6 text-[#ffffff]">
               <Users className="w-10 h-10 text-gold-500 mr-4" />
@@ -48,7 +48,7 @@ export default function EvenementsSection() {
               Pour vos moments les plus précieux, offrez à vos proches un lieu qui vous ressemble. Élégante, chaleureuse et adaptable, notre salle privée transforme chaque événement en souvenir inoubliable.
             </p>
             
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-6 flex-1">
               {eventTypes.map((type, index) => (
                 <motion.div
                   key={index}
@@ -56,7 +56,7 @@ export default function EvenementsSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-4 text-[#ffffff] bg-[#0000007d]"
+                  className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-4 text-[#ffffff] bg-[#0000007d] flex-1 flex flex-col justify-center"
                 >
                   <type.icon className="w-8 h-8 text-gold-500 mb-2" />
                   <h4 className="text-responsive-lg font-playfair mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.title}</h4>
