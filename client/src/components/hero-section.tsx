@@ -152,15 +152,7 @@ export default function HeroSection() {
         </>
       )}
       
-      <motion.div 
-        className="relative z-40 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
-        animate={{
-          filter: !isMobile && spotlightActive && spotlightIntensity > 0 
-            ? `brightness(${1 + 0.15 * spotlightIntensity}) contrast(${1 + 0.1 * spotlightIntensity})`
-            : 'brightness(1) contrast(1)'
-        }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
+      <div className="relative z-40 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -243,18 +235,10 @@ export default function HeroSection() {
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
               className="bg-burgundy-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
-              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              animate={{
-                boxShadow: !isMobile && spotlightActive && spotlightIntensity > 0
-                  ? `0 8px 25px rgba(0, 0, 0, 0.4), 0 0 ${25 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity})`
-                  : '0 8px 25px rgba(0, 0, 0, 0.4)'
-              }}
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)', boxShadow: '0 8px 25px rgba(0, 0, 0, 0.4)'}}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
-                backgroundColor: '#7c2d12',
-                boxShadow: !isMobile && spotlightActive 
-                  ? '0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1)'
-                  : '0 8px 25px rgba(0, 0, 0, 0.4)'
+                backgroundColor: '#7c2d12'
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.15 }}
@@ -266,19 +250,11 @@ export default function HeroSection() {
             <motion.button
               onClick={() => scrollToSection("#evenements")}
               className="border-2 border-gold-500 text-gold-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
-              style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              animate={{
-                boxShadow: !isMobile && spotlightActive && spotlightIntensity > 0
-                  ? `0 8px 25px rgba(251, 191, 36, 0.3), 0 0 ${20 * spotlightIntensity}px rgba(192, 132, 47, ${0.25 * spotlightIntensity})`
-                  : '0 8px 25px rgba(251, 191, 36, 0.3)'
-              }}
+              style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)', boxShadow: '0 8px 25px rgba(251, 191, 36, 0.3)'}}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
                 borderColor: '#fbbf24', 
-                backgroundColor: 'rgba(251, 191, 36, 0.1)',
-                boxShadow: !isMobile && spotlightActive
-                  ? '0 8px 25px rgba(251, 191, 36, 0.3), 0 0 15px rgba(251, 191, 36, 0.2)'
-                  : '0 8px 25px rgba(251, 191, 36, 0.3)'
+                backgroundColor: 'rgba(251, 191, 36, 0.1)'
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.15 }}
@@ -289,7 +265,7 @@ export default function HeroSection() {
           </motion.div>
         )}
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
