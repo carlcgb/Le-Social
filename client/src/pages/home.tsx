@@ -16,15 +16,47 @@ import HangingSign from "@/components/hanging-sign";
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [componentsRevealed, setComponentsRevealed] = useState(false);
+  const [scrollLocked, setScrollLocked] = useState(true);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 100);
+      
+      // Hide scroll indicator when user starts scrolling
+      if (scrollY > 50 && showScrollIndicator) {
+        setShowScrollIndicator(false);
+      }
     };
 
+    // Lock scroll initially and unlock after components are revealed
+    if (scrollLocked) {
+      document.body.classList.add('scroll-locked');
+    } else {
+      document.body.classList.remove('scroll-locked');
+    }
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.body.classList.remove('scroll-locked');
+    };
+  }, [scrollLocked, showScrollIndicator]);
+
+  // Handle component reveal completion
+  const handleComponentsReveal = () => {
+    setComponentsRevealed(true);
+    // Add a small delay for smooth transition
+    setTimeout(() => {
+      setScrollLocked(false);
+      // Show scroll indicator after another delay
+      setTimeout(() => {
+        setShowScrollIndicator(true);
+      }, 500);
+    }, 200);
+  };
 
   return (
     <div className="min-h-screen bg-black text-cream font-inter">
@@ -68,15 +100,60 @@ export default function Home() {
       />
       <HangingSign />
       
+      {/* Scroll indicator - appears when scrolling is enabled */}
+      {showScrollIndicator && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="text-white/60 text-center"
+          >
+            <div className="text-xs mb-2 font-light">Faire défiler</div>
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+              <motion.div
+                animate={{ y: [2, 14, 2] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-2 bg-white/40 rounded-full mt-2"
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+      
       <main>
-        <HeroSection />
-        <ServicesSummary />
-        <SpectaclesSection />
-        <EvenementsSection />
-        <CorporatifSection />
-        <GallerySection />
-        <TestimonialsSection />
-        <ContactSection />
+        {/* Hero section with snap-top behavior */}
+        <div className="snap-top">
+          <HeroSection onComponentsReveal={handleComponentsReveal} />
+        </div>
+        
+        {/* Rest of sections with normal snap behavior */}
+        <div className="snap-start">
+          <ServicesSummary />
+        </div>
+        <div className="snap-start">
+          <SpectaclesSection />
+        </div>
+        <div className="snap-start">
+          <EvenementsSection />
+        </div>
+        <div className="snap-start">
+          <CorporatifSection />
+        </div>
+        <div className="snap-start">
+          <GallerySection />
+        </div>
+        <div className="snap-start">
+          <TestimonialsSection />
+        </div>
+        <div className="snap-start">
+          <ContactSection />
+        </div>
       </main>
       
       <Footer />

@@ -160,6 +160,29 @@
     overflow-x: hidden;
   }
 
+  /* Scroll snap configuration */
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .snap-start {
+    scroll-snap-align: start;
+  }
+
+  .snap-top {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100vh;
+  }
+
+  /* Scroll lock utility */
+  .scroll-locked {
+    overflow: hidden !important;
+    height: 100vh !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+
   /* Empêche le scroll horizontal sur mobile */
   @media (max-width: 768px) {
     html, body, #root {
