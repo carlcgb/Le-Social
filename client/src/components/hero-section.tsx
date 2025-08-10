@@ -154,11 +154,7 @@ export default function HeroSection() {
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div>
           <div ref={logoRef} className="mb-6 md:mb-8 relative">
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
@@ -295,7 +291,7 @@ export default function HeroSection() {
               Événements privés
             </motion.button>
           </motion.div>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );
