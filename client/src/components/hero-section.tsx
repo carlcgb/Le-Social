@@ -38,49 +38,28 @@ export default function HeroSection() {
       
       // Désactive le spotlight sur mobile
       if (isMobile) {
-        setSpotlightActive(false);
-        setSpotlightIntensity(0);
+        if (spotlightActive) {
+          setSpotlightActive(false);
+          setSpotlightIntensity(0);
+        }
         return;
       }
       
-      // Calcul progressif de l'intensité basé sur le scroll
-      if (scrollY <= windowHeight * 0.1) {
-        // Dans les premiers 10% de scroll, garde l'effet complet
-        setSpotlightIntensity(1);
-        setSpotlightActive(true);
-      } else if (scrollY <= windowHeight * 0.8) {
-        // Entre 10% et 80%, dissipe progressivement
-        const progress = (scrollY - windowHeight * 0.1) / (windowHeight * 0.7);
-        setSpotlightIntensity(1 - progress);
-        setSpotlightActive(true);
+      // Simple fade out: spotlight stays full until 80% scroll, then vanishes
+      if (scrollY <= windowHeight * 0.8) {
+        // Keep spotlight full until 80% scroll
+        if (!spotlightActive) {
+          setSpotlightActive(true);
+          setSpotlightIntensity(1);
+        }
       } else {
-        // Au-delà de 80%, éteint complètement
-        setSpotlightIntensity(0);
-        setSpotlightActive(false);
+        // After 80%, turn off completely
+        if (spotlightActive) {
+          setSpotlightActive(false);
+          setSpotlightIntensity(0);
+        }
       }
     };
-
-    // Intersection Observer pour détecter quand le logo rentre dans la vue
-    const observerOptions = {
-      threshold: [0, 0.1, 0.5, 1],
-      rootMargin: '-10% 0px -10% 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.target === logoRef.current) {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
-            // Le logo est visible, réactive le spotlight
-            setSpotlightActive(true);
-            setSpotlightIntensity(Math.min(entry.intersectionRatio * 1.5, 1));
-          }
-        }
-      });
-    }, observerOptions);
-
-    if (logoRef.current) {
-      observer.observe(logoRef.current);
-    }
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial call
@@ -89,7 +68,6 @@ export default function HeroSection() {
       clearTimeout(animationSequence);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkIsMobile);
-      observer.disconnect();
     };
   }, [isMobile]);
 
