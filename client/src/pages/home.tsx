@@ -16,66 +16,54 @@ import HangingSign from "@/components/hanging-sign";
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [snapScrollActive, setSnapScrollActive] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [componentsRevealed, setComponentsRevealed] = useState(false);
+  const [scrollLocked, setScrollLocked] = useState(false); // Allow scroll immediately
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
+  const [spotlightActive, setSpotlightActive] = useState(true);
+  const [landingPagePinned, setLandingPagePinned] = useState(true);
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const threshold = 100;
-      const snapThreshold = 50; // Start snap effect earlier
+      const windowHeight = window.innerHeight;
       
-      // If we're in snap scroll mode and user tries to scroll past snap threshold
-      if (snapScrollActive && scrollY > snapThreshold && !isTransitioning) {
-        setIsTransitioning(true);
-        
-        // Smooth scroll to exactly the threshold point
-        window.scrollTo({
-          top: threshold,
-          behavior: 'smooth'
-        });
-        
-        // Start the spotlight fade transition immediately
-        setScrolled(true);
-        
-        // After transition completes, disable snap scrolling and allow free scroll
-        timeoutId = setTimeout(() => {
-          setSnapScrollActive(false);
-          setIsTransitioning(false);
-          // Allow continuing to scroll if user was scrolling down
-          if (scrollY > threshold * 1.5) {
-            window.scrollTo({
-              top: scrollY,
-              behavior: 'smooth'
-            });
-          }
-        }, 1200); // Match the longest transition duration
-        
-        return;
+      setScrolled(scrollY > 100);
+      
+      // Track spotlight state and pinning based on scroll position
+      // Match the hero section's spotlight fade timing (60% instead of 70%)
+      if (scrollY <= windowHeight * 0.6) {
+        setSpotlightActive(true);
+        setLandingPagePinned(true);
+      } else {
+        setSpotlightActive(false);
+        setLandingPagePinned(false);
       }
       
-      // Normal scroll behavior when snap is disabled
-      if (!snapScrollActive) {
-        setScrolled(scrollY > threshold);
+      // Hide scroll indicator when user starts scrolling
+      if (scrollY > 50 && showScrollIndicator) {
+        setShowScrollIndicator(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call immediately to set initial state
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (timeoutId) clearTimeout(timeoutId);
     };
-  }, [snapScrollActive, isTransitioning]);
+  }, [showScrollIndicator]);
+
+  // Handle component reveal completion
+  const handleComponentsReveal = () => {
+    setComponentsRevealed(true);
+    // Show scroll indicator after components are revealed
+    setTimeout(() => {
+      setShowScrollIndicator(true);
+    }, 500);
+  };
 
   return (
-    <div 
-      className="min-h-screen bg-black text-cream font-inter"
-      style={{
-        scrollBehavior: snapScrollActive ? 'smooth' : 'auto'
-      }}
-    >
+    <div className="min-h-screen bg-black text-cream font-inter">
       {/* Main Spotlight Overlay - creates dramatic focus on center logo area */}
       <motion.div
         initial={{ opacity: 1 }}
@@ -107,59 +95,6 @@ export default function Home() {
         }}
       />
       
-      {/* Scroll Hint - shows when spotlight is active */}
-      {snapScrollActive && !isTransitioning && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 0.8 }}
-          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
-        >
-          <div className="flex flex-col items-center gap-2 text-gold-500/70">
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="text-sm font-light"
-            >
-              Faites défiler pour révéler
-            </motion.div>
-            <motion.div
-              animate={{ y: [0, 4, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-              className="w-6 h-10 border-2 border-gold-500/40 rounded-full flex justify-center"
-            >
-              <motion.div
-                animate={{ y: [2, 6, 2] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-                className="w-1 h-2 bg-gold-500/60 rounded-full mt-2"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      )}
-
-      {/* Snap Transition Indicator */}
-      {isTransitioning && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
-        >
-          <div className="bg-burgundy-800/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gold-500/30">
-            <div className="flex items-center gap-2 text-gold-500 text-sm font-medium">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                className="w-4 h-4 border-2 border-gold-500/30 border-t-gold-500 rounded-full"
-              />
-              Révélation en cours...
-            </div>
-          </div>
-        </motion.div>
-      )}
-      
       <Navigation 
         onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)} 
       />
@@ -169,18 +104,67 @@ export default function Home() {
       />
       <HangingSign />
       
-      <main>
-        <HeroSection />
-        <ServicesSummary />
-        <SpectaclesSection />
-        <EvenementsSection />
-        <CorporatifSection />
-        <GallerySection />
-        <TestimonialsSection />
-        <ContactSection />
-      </main>
+      {/* Scroll indicator - appears when scrolling is enabled */}
+      {showScrollIndicator && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="text-white/60 text-center"
+          >
+            <div className="text-xs mb-2 font-light">Faire défiler</div>
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+              <motion.div
+                animate={{ y: [2, 14, 2] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-2 bg-white/40 rounded-full mt-2"
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
       
-      <Footer />
+      <main className="relative">
+        {/* Hero section that takes full viewport until spotlight fades */}
+        <section className={`hero-container ${landingPagePinned ? 'fixed top-0 left-0 w-full' : 'relative'}`} style={{ zIndex: landingPagePinned ? 10 : 1 }}>
+          <HeroSection onComponentsReveal={handleComponentsReveal} />
+        </section>
+        
+        {/* Spacer to create scroll distance for spotlight effect when pinned */}
+        {landingPagePinned && <div className="spotlight-scroll-spacer" />}
+        
+        {/* All content including footer - only show when hero is unpinned */}
+        <div className={`content-sections ${landingPagePinned ? 'hidden' : 'block'}`}>
+          <div className="snap-start">
+            <ServicesSummary />
+          </div>
+          <div className="snap-start">
+            <SpectaclesSection />
+          </div>
+          <div className="snap-start">
+            <EvenementsSection />
+          </div>
+          <div className="snap-start">
+            <CorporatifSection />
+          </div>
+          <div className="snap-start">
+            <GallerySection />
+          </div>
+          <div className="snap-start">
+            <TestimonialsSection />
+          </div>
+          <div className="snap-start">
+            <ContactSection />
+          </div>
+          <Footer />
+        </div>
+      </main>
     </div>
   );
 }
