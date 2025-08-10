@@ -19,7 +19,7 @@ export default function SpectaclesSection() {
     <section id="spectacles" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/30 backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-6 lg:p-8">
-          {/* Title and description - order 1 on mobile */}
+          {/* Title, description, and upcoming shows - order 1 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -35,6 +35,25 @@ export default function SpectaclesSection() {
             <p className="text-responsive-lg mb-6 lg:mb-8 leading-relaxed" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Plongez dans une ambiance feutrée où chaque note résonne autrement. Notre salle privée accueille des spectacles intimistes qui font vibrer vos soirées. Une expérience artistique à vivre autrement.
             </p>
+            
+            {/* Prochains spectacles integrated */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-6 bg-[#0000007d] text-[#ffffff]"
+            >
+              <h4 className="text-responsive-xl font-playfair mb-3 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
+              <div className="space-y-3">
+                {upcomingShows.map((show, index) => (
+                  <div key={index} className="flex justify-between items-center border-b border-[#cc871d]/20 pb-2 last:border-b-0">
+                    <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.name}</span>
+                    <span className="text-responsive-xs text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.date}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Image - order 2 on mobile */}
@@ -55,40 +74,15 @@ export default function SpectaclesSection() {
             </div>
           </motion.div>
 
-          {/* Upcoming shows - order 3 on mobile */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="order-3 lg:col-span-2"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-6 bg-[#0000007d] text-[#ffffff]"
-            >
-              <h4 className="text-responsive-xl font-playfair mb-3 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
-              <div className="space-y-3">
-                {upcomingShows.map((show, index) => (
-                  <div key={index} className="flex justify-between items-center border-b border-[#cc871d]/20 pb-2 last:border-b-0">
-                    <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.name}</span>
-                    <span className="text-responsive-xs text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{show.date}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
 
-          {/* Button - order 4 on mobile (last) */}
+
+          {/* Button - order 3 on mobile (last) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
+            className="order-3 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               whileHover={{ 
