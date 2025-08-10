@@ -139,7 +139,7 @@ export default function Home() {
         {/* Spacer to create scroll distance for spotlight effect when pinned */}
         {landingPagePinned && <div className="spotlight-scroll-spacer" />}
         
-        {/* Rest of sections - only show when hero is unpinned */}
+        {/* All content including footer - only show when hero is unpinned */}
         <div className={`content-sections ${landingPagePinned ? 'hidden' : 'block'}`}>
           <div className="snap-start">
             <ServicesSummary />
@@ -162,10 +162,9 @@ export default function Home() {
           <div className="snap-start">
             <ContactSection />
           </div>
+          <Footer />
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }
