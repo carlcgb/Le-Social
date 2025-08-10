@@ -92,10 +92,10 @@ export default function EvenementsSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center"
+                  className="flex items-center justify-between"
                 >
-                  <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
-                  <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
+                  <span className="text-responsive-sm text-left" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
+                  <feature.icon className="w-5 h-5 text-gold-500 ml-3 flex-shrink-0" />
                 </motion.div>
               ))}
             </div>
