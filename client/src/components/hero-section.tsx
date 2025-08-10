@@ -109,28 +109,30 @@ export default function HeroSection() {
         <BrickWall />
       </div>
 
-      {/* Clean spotlight effect overlay - hidden on mobile */}
+      {/* Spotlight effect overlay - hidden on mobile */}
       {!isMobile && (
         <>
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: spotlightActive ? 1 : 0 }}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: spotlightActive ? spotlightIntensity : 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-30 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
                 ? `radial-gradient(circle at center, 
                     transparent 0%, 
-                    transparent 25%, 
-                    rgb(0, 0, 0) 60%, 
-                    rgb(0, 0, 0) 100%)`
+                    transparent 20%, 
+                    rgba(0, 0, 0, ${0.4 * spotlightIntensity}) 35%, 
+                    rgba(0, 0, 0, ${0.7 * spotlightIntensity}) 50%, 
+                    rgba(0, 0, 0, ${0.9 * spotlightIntensity}) 70%, 
+                    rgba(0, 0, 0, ${0.95 * spotlightIntensity}) 100%)`
                 : 'transparent',
             }}
           />
 
           {/* Bright spotlight center */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 1, scale: 1 }}
             animate={{ 
               opacity: spotlightActive ? spotlightIntensity : 0,
               scale: spotlightActive ? 1 : 0.8 
@@ -139,11 +141,11 @@ export default function HeroSection() {
             className="fixed inset-0 z-20 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
-                ? `radial-gradient(ellipse 500px 700px at center, 
-                    rgb(255, 255, 255) 0%, 
-                    rgba(255, 255, 255, 0.8) 15%, 
-                    rgba(255, 255, 255, 0.4) 30%, 
-                    transparent 50%)`
+                ? `radial-gradient(ellipse 600px 800px at center, 
+                    rgba(255, 255, 255, ${0.12 * spotlightIntensity}) 0%, 
+                    rgba(255, 255, 255, ${0.06 * spotlightIntensity}) 20%, 
+                    rgba(255, 255, 255, ${0.02 * spotlightIntensity}) 40%, 
+                    transparent 60%)`
                 : 'transparent',
             }}
           />
@@ -159,7 +161,11 @@ export default function HeroSection() {
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <motion.div 
             ref={logoRef} 
             className={logoPositioned ? "mb-6 md:mb-8 relative" : "fixed inset-0 flex items-center justify-center z-50"}
@@ -175,7 +181,7 @@ export default function HeroSection() {
                   ? `brightness(0) invert(1) drop-shadow(0 0 ${60 * spotlightIntensity}px rgba(255, 255, 255, ${0.4 * spotlightIntensity})) drop-shadow(0 0 ${100 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity}))`
                   : "brightness(0) invert(1)"
               }}
-              transition={{ duration: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative z-10"
             >
               <motion.img
@@ -193,21 +199,21 @@ export default function HeroSection() {
               />
             </motion.div>
             
-            {/* Clean light circle behind logo - hidden on mobile */}
+            {/* Cercle de lumière derrière le logo - hidden on mobile */}
             {!isMobile && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 1, scale: 0.8 }}
                 animate={{ 
-                  opacity: spotlightActive ? 0.8 : 0,
+                  opacity: spotlightActive ? 0.6 * spotlightIntensity : 0,
                   scale: spotlightActive ? 1.2 : 0.8
                 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
               >
                 <div 
-                  className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full blur-md" 
+                  className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-gradient-radial blur-sm" 
                   style={{
-                    background: `radial-gradient(circle, rgb(255,255,255) 0%, rgba(255,255,255,0.6) 30%, transparent 60%)`
+                    background: `radial-gradient(circle, rgba(255,255,255,${0.1 * spotlightIntensity}) 0%, rgba(255,255,255,${0.05 * spotlightIntensity}) 50%, transparent 100%)`
                   }}
                 />
               </motion.div>
@@ -282,7 +288,7 @@ export default function HeroSection() {
             </motion.button>
           </motion.div>
         )}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

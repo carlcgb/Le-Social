@@ -93,9 +93,9 @@ export default function HangingSign() {
           />
           {/* Shadow underneath */}
           <div className="absolute top-full left-1/2 -translate-x-1/2 w-16 h-4 sm:w-20 sm:h-5 md:w-24 md:h-6 lg:w-28 lg:h-7 xl:w-32 xl:h-8 
-                          bg-gray-800 rounded-full blur-md transition-all duration-300"></div>
+                          bg-black/30 rounded-full blur-md opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
           {/* Subtle glow effect */}
-          <div className="absolute inset-0 bg-gray-100 rounded-full blur-lg -z-10 group-hover:bg-white transition-all duration-300"></div>
+          <div className="absolute inset-0 bg-white/10 rounded-full blur-lg -z-10 group-hover:bg-white/20 transition-all duration-300"></div>
         </div>
       </motion.div>
     </div>
