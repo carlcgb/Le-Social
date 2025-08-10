@@ -5,19 +5,13 @@ import BrickWall from "./brick-wall";
 
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
-interface HeroSectionProps {
-  onComponentsReveal?: () => void;
-}
-
-export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
+export default function HeroSection() {
   const [spotlightActive, setSpotlightActive] = useState(true);
   const [spotlightIntensity, setSpotlightIntensity] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-  const [componentsAnimated, setComponentsAnimated] = useState(false);
-  const [textOpacity, setTextOpacity] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -31,33 +25,30 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
+      // Track if user has scrolled (for dimming effect)
+      setScrolled(scrollY > 50);
+      
       // Désactive le spotlight sur mobile
       if (isMobile) {
         setSpotlightActive(false);
         setSpotlightIntensity(0);
-        setTextOpacity(1); // Text always visible on mobile
         return;
       }
       
       // Calcul progressif de l'intensité basé sur le scroll
-      if (scrollY <= windowHeight * 0.05) {
-        // Dans les premiers 5% de scroll, garde l'effet complet
+      if (scrollY <= windowHeight * 0.1) {
+        // Dans les premiers 10% de scroll, garde l'effet complet
         setSpotlightIntensity(1);
         setSpotlightActive(true);
-        // Text opacity starts at 0
-        setTextOpacity(0);
-      } else if (scrollY <= windowHeight * 0.6) {
-        // Entre 5% et 60%, dissipe progressivement le spotlight et augmente l'opacité du texte
-        const progress = (scrollY - windowHeight * 0.05) / (windowHeight * 0.55);
+      } else if (scrollY <= windowHeight * 0.8) {
+        // Entre 10% et 80%, dissipe progressivement
+        const progress = (scrollY - windowHeight * 0.1) / (windowHeight * 0.7);
         setSpotlightIntensity(1 - progress);
         setSpotlightActive(true);
-        // Text opacity increases as spotlight decreases
-        setTextOpacity(Math.min(progress * 1.5, 1)); // Slightly faster opacity increase
       } else {
-        // Au-delà de 60%, éteint complètement le spotlight et texte complètement visible
+        // Au-delà de 80%, éteint complètement
         setSpotlightIntensity(0);
         setSpotlightActive(false);
-        setTextOpacity(1);
       }
     };
 
@@ -92,19 +83,6 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
       observer.disconnect();
     };
   }, [isMobile]);
-
-  // Watch for text opacity changes and trigger scroll unlock when text is fully visible
-  useEffect(() => {
-    if (textOpacity >= 1 && componentsAnimated) {
-      onComponentsReveal?.();
-    }
-    // On mobile, trigger unlock after components animate
-    if (isMobile && componentsAnimated) {
-      setTimeout(() => {
-        onComponentsReveal?.();
-      }, 500);
-    }
-  }, [textOpacity, componentsAnimated, isMobile, onComponentsReveal]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -178,12 +156,6 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          onAnimationComplete={() => {
-            if (!componentsAnimated) {
-              setComponentsAnimated(true);
-              // Don't unlock scrolling yet - wait for text to reach full opacity
-            }
-          }}
         >
           <div ref={logoRef} className="mb-6 md:mb-8 relative">
             {/* Logo avec effet de lumière supplémentaire */}
@@ -225,81 +197,78 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
           </div>
 
           <motion.p 
-            ref={textRef}
             className="text-responsive-lg mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
-            style={{color: '#ffffff', textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+            style={{
+              color: scrolled ? '#ffffff' : '#333333', 
+              opacity: scrolled ? 1 : 0.6, 
+              textShadow: scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)'
+            }}
             animate={{
-              opacity: isMobile ? 1 : textOpacity,
               textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
-                ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
-                : '2px 2px 4px rgba(0,0,0,0.8)',
-              filter: !isMobile && spotlightActive && spotlightIntensity > 0 
-                ? `brightness(${1 + 0.3 * spotlightIntensity}) contrast(${1 + 0.2 * spotlightIntensity}) drop-shadow(0 0 ${15 * spotlightIntensity}px rgba(255,255,255,${0.15 * spotlightIntensity}))`
-                : 'brightness(1) contrast(1)'
+                ? `${scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)'}, 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
+                : scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)'
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-
           >
             Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
             style, chaque histoire.
           </motion.p>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0"
-            animate={{
-              filter: !isMobile && spotlightActive && spotlightIntensity > 0 
-                ? `brightness(${1 + 0.4 * spotlightIntensity}) contrast(${1 + 0.3 * spotlightIntensity})`
-                : 'brightness(1) contrast(1)'
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0">
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
-              className="bg-burgundy-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
-              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              animate={{
-                boxShadow: !isMobile && spotlightActive && spotlightIntensity > 0
-                  ? `0 8px 25px rgba(0, 0, 0, 0.4), 0 0 ${25 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity})`
-                  : '0 8px 25px rgba(0, 0, 0, 0.4)'
+              className="px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
+              style={{
+                backgroundColor: scrolled ? '#7c2d12' : 'rgba(100, 100, 100, 0.2)',
+                color: scrolled ? '#ffffff' : '#444444', 
+                opacity: scrolled ? 1 : 0.5, 
+                textShadow: scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)',
+                border: scrolled ? 'none' : '1px solid #666666'
               }}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
-                backgroundColor: '#7c2d12',
-                boxShadow: !isMobile && spotlightActive 
-                  ? '0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1)'
-                  : '0 8px 25px rgba(0, 0, 0, 0.4)'
+                backgroundColor: scrolled ? '#7c2d12' : 'rgba(120, 120, 120, 0.3)',
+                opacity: scrolled ? 1 : 0.7,
+                boxShadow: scrolled 
+                  ? (!isMobile && spotlightActive 
+                    ? '0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1)'
+                    : '0 8px 25px rgba(0, 0, 0, 0.4)')
+                  : '0 4px 15px rgba(0, 0, 0, 0.6)'
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.15 }}
             >
-              <Theater className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+              <Theater className={`w-4 h-4 sm:w-5 sm:h-5 mr-2 ${scrolled ? 'opacity-100' : 'opacity-50'}`} />
               Découvrir nos spectacles
             </motion.button>
 
             <motion.button
               onClick={() => scrollToSection("#evenements")}
-              className="border-2 border-gold-500 text-gold-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
-              style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-              animate={{
-                boxShadow: !isMobile && spotlightActive && spotlightIntensity > 0
-                  ? `0 8px 25px rgba(251, 191, 36, 0.3), 0 0 ${20 * spotlightIntensity}px rgba(192, 132, 47, ${0.25 * spotlightIntensity})`
-                  : '0 8px 25px rgba(251, 191, 36, 0.3)'
+              className="border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
+              style={{
+                borderColor: scrolled ? '#d97706' : '#666666', 
+                color: scrolled ? '#d97706' : '#444444', 
+                opacity: scrolled ? 1 : 0.5, 
+                textShadow: scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)'
               }}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
-                borderColor: '#fbbf24', 
-                backgroundColor: 'rgba(251, 191, 36, 0.1)',
-                boxShadow: !isMobile && spotlightActive
-                  ? '0 8px 25px rgba(251, 191, 36, 0.3), 0 0 15px rgba(251, 191, 36, 0.2)'
-                  : '0 8px 25px rgba(251, 191, 36, 0.3)'
+                borderColor: scrolled ? '#fbbf24' : '#777777', 
+                backgroundColor: scrolled ? 'rgba(251, 191, 36, 0.1)' : 'rgba(100, 100, 100, 0.1)',
+                opacity: scrolled ? 1 : 0.7,
+                boxShadow: scrolled
+                  ? (!isMobile && spotlightActive
+                    ? '0 8px 25px rgba(251, 191, 36, 0.3), 0 0 15px rgba(251, 191, 36, 0.2)'
+                    : '0 8px 25px rgba(251, 191, 36, 0.3)')
+                  : '0 4px 15px rgba(0, 0, 0, 0.6)'
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.15 }}
             >
-              <Users className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+              <Users className={`w-4 h-4 sm:w-5 sm:h-5 mr-2 ${scrolled ? 'opacity-100' : 'opacity-50'}`} />
               Événements privés
             </motion.button>
-          </motion.div>
+          </div>
         </motion.div>
       </motion.div>
     </section>

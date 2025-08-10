@@ -160,46 +160,6 @@
     overflow-x: hidden;
   }
 
-  /* Scroll snap configuration */
-  html {
-    scroll-snap-type: y proximity;
-  }
-
-  .snap-start {
-    scroll-snap-align: start;
-  }
-
-  .snap-top {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    min-height: 100vh;
-  }
-
-  /* Scroll lock utility */
-  .scroll-locked {
-    overflow: hidden !important;
-    height: 100vh !important;
-    position: fixed !important;
-    width: 100% !important;
-  }
-
-  /* Hero container pinning behavior */
-  .hero-container {
-    min-height: 100vh;
-    transition: all 0.3s ease-out;
-  }
-
-  .spotlight-scroll-spacer {
-    height: 60vh; /* Creates scroll distance for spotlight effect - matches 60% threshold */
-    pointer-events: none;
-  }
-
-  .content-sections {
-    position: relative;
-    z-index: 15;
-    background: black;
-  }
-
   /* Empêche le scroll horizontal sur mobile */
   @media (max-width: 768px) {
     html, body, #root {
