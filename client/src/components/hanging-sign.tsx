@@ -54,50 +54,12 @@ export default function HangingSign() {
         // Find the main content div that contains the section content
         const sectionDiv = section.querySelector('[class*="bg-burgundy-900"], [class*="backdrop-blur"]');
         if (sectionDiv) {
-          // Remove any existing overlay
-          const existingOverlay = sectionDiv.querySelector('.hanging-sign-shadow-overlay');
-          if (existingOverlay) {
-            existingOverlay.remove();
-          }
-
           if (activeSection === sectionId) {
-            // Calculate logo position relative to the section
-            const sectionRect = sectionDiv.getBoundingClientRect();
-            const hangingSignX = window.innerWidth >= 1024 ? 32 : // lg: left-8 (2rem = 32px)
-                                window.innerWidth >= 640 ? 24 :   // sm: left-6 (1.5rem = 24px)
-                                16; // left-4 (1rem = 16px)
-            
-            const hangingSignY = window.innerWidth >= 1024 ? 112 : // lg: top-28 (7rem = 112px)
-                                window.innerWidth >= 640 ? 96 :   // sm: top-24 (6rem = 96px)
-                                80; // top-20 (5rem = 80px)
-            
-            // Logo size based on responsive classes
-            const logoSize = window.innerWidth >= 1280 ? 144 : // xl: 36x36 (9rem = 144px)
-                            window.innerWidth >= 1024 ? 128 : // lg: 32x32 (8rem = 128px)
-                            window.innerWidth >= 768 ? 112 :  // md: 28x28 (7rem = 112px)
-                            window.innerWidth >= 640 ? 96 :   // sm: 24x24 (6rem = 96px)
-                            80; // 20x20 (5rem = 80px)
-            
-            // Position shadow relative to the section
-            const shadowLeft = hangingSignX - sectionRect.left + window.scrollX;
-            const shadowTop = hangingSignY - sectionRect.top + window.scrollY;
-            
-            // Add shadow overlay that matches logo size and position
-            const overlay = document.createElement('div') as HTMLDivElement;
-            overlay.className = 'hanging-sign-shadow-overlay absolute bg-black/60 rounded-full pointer-events-none transition-all duration-500 blur-md';
-            overlay.style.left = `${shadowLeft}px`;
-            overlay.style.top = `${shadowTop}px`;
-            overlay.style.width = `${logoSize}px`;
-            overlay.style.height = `${logoSize}px`;
-            overlay.style.zIndex = '10';
-            
-            // Make the parent relative if it's not already
-            const sectionDivElement = sectionDiv as HTMLElement;
-            if (getComputedStyle(sectionDivElement).position === 'static') {
-              sectionDivElement.style.position = 'relative';
-            }
-            
-            sectionDivElement.appendChild(overlay);
+            // Add shadow effect class that affects all content inside
+            sectionDiv.classList.add('hanging-sign-shadow-effect');
+          } else {
+            // Remove shadow effect when sign is not over this section
+            sectionDiv.classList.remove('hanging-sign-shadow-effect');
           }
         }
       }
