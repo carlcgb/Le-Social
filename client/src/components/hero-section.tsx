@@ -109,43 +109,41 @@ export default function HeroSection() {
         <BrickWall />
       </div>
 
-      {/* Spotlight effect overlay - hidden on mobile */}
+      {/* Clean spotlight effect overlay - hidden on mobile */}
       {!isMobile && (
         <>
           <motion.div
-            initial={{ opacity: 1 }}
-            animate={{ opacity: spotlightActive ? spotlightIntensity : 1 }}
-            transition={{ duration: 0.1, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: spotlightActive ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-30 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
                 ? `radial-gradient(circle at center, 
                     transparent 0%, 
-                    transparent 20%, 
-                    rgba(0, 0, 0, ${0.6 * spotlightIntensity}) 35%, 
-                    rgba(0, 0, 0, ${0.8 * spotlightIntensity}) 50%, 
-                    rgba(0, 0, 0, ${0.92 * spotlightIntensity}) 70%, 
-                    rgba(0, 0, 0, ${0.98 * spotlightIntensity}) 100%)`
-                : 'rgba(0, 0, 0, 0.6)',
+                    transparent 25%, 
+                    rgb(0, 0, 0) 60%, 
+                    rgb(0, 0, 0) 100%)`
+                : 'transparent',
             }}
           />
 
           {/* Bright spotlight center */}
           <motion.div
-            initial={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ 
               opacity: spotlightActive ? spotlightIntensity : 0,
               scale: spotlightActive ? 1 : 0.8 
             }}
-            transition={{ duration: 0.1, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-20 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
-                ? `radial-gradient(ellipse 600px 800px at center, 
-                    rgba(255, 255, 255, ${0.04 * spotlightIntensity}) 0%, 
-                    rgba(255, 255, 255, ${0.02 * spotlightIntensity}) 20%, 
-                    rgba(255, 255, 255, ${0.008 * spotlightIntensity}) 40%, 
-                    transparent 60%)`
+                ? `radial-gradient(ellipse 500px 700px at center, 
+                    rgb(255, 255, 255) 0%, 
+                    rgba(255, 255, 255, 0.8) 15%, 
+                    rgba(255, 255, 255, 0.4) 30%, 
+                    transparent 50%)`
                 : 'transparent',
             }}
           />
@@ -195,21 +193,21 @@ export default function HeroSection() {
               />
             </motion.div>
             
-            {/* Cercle de lumière derrière le logo - hidden on mobile */}
+            {/* Clean light circle behind logo - hidden on mobile */}
             {!isMobile && (
               <motion.div
-                initial={{ opacity: 1, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ 
-                  opacity: spotlightActive ? 0.6 * spotlightIntensity : 0,
+                  opacity: spotlightActive ? 0.8 : 0,
                   scale: spotlightActive ? 1.2 : 0.8
                 }}
-                transition={{ duration: 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
               >
                 <div 
-                  className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-gradient-radial blur-sm" 
+                  className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full blur-md" 
                   style={{
-                    background: `radial-gradient(circle, rgba(255,255,255,${0.03 * spotlightIntensity}) 0%, rgba(255,255,255,${0.015 * spotlightIntensity}) 50%, transparent 100%)`
+                    background: `radial-gradient(circle, rgb(255,255,255) 0%, rgba(255,255,255,0.6) 30%, transparent 60%)`
                   }}
                 />
               </motion.div>

@@ -31,8 +31,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           transition={{ type: "tween", duration: 0.4, ease: "easeOut" }}
           className="fixed inset-0 z-50 md:hidden"
           style={{
-            background: 'linear-gradient(135deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.95) 50%, rgba(25,25,25,0.98) 100%)',
-            backdropFilter: 'blur(20px)'
+            background: 'linear-gradient(135deg, rgb(0,0,0) 0%, rgb(15,15,15) 50%, rgb(25,25,25) 100%)'
           }}
         >
           <div className="flex flex-col items-center justify-center h-full space-y-10 text-xl relative">
@@ -47,15 +46,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               className="absolute top-8 right-8 p-2 rounded-lg group"
               style={{
                 color: '#ffffff', 
-                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
-                background: 'rgba(192, 132, 47, 0.1)',
-                border: '1px solid rgba(192, 132, 47, 0.3)'
+                textShadow: '2px 2px 4px rgb(0,0,0)',
+                background: 'rgb(192, 132, 47)',
+                border: '1px solid rgb(192, 132, 47)'
               }}
               whileHover={{ 
                 scale: 1.1,
-                background: 'rgba(192, 132, 47, 0.2)',
-                filter: 'drop-shadow(0 0 12px rgba(192, 132, 47, 0.6))',
-                borderColor: 'rgba(192, 132, 47, 0.5)'
+                background: 'rgb(220, 150, 60)',
+                filter: 'drop-shadow(0 0 12px rgb(192, 132, 47))',
+                borderColor: 'rgb(220, 150, 60)'
               }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, rotate: 90 }}
