@@ -11,6 +11,7 @@ export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [logoPositioned, setLogoPositioned] = useState(false);
+  const [logoScale, setLogoScale] = useState(1);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -22,15 +23,21 @@ export default function HeroSection() {
     checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
 
-    // Sequence d'animation: logo viewport -> contenu -> spotlight
-    const animationSequence = setTimeout(() => {
+    // Sequence d'animation: logo viewport -> downscale -> snap to top -> contenu -> spotlight
+    const downscaleSequence = setTimeout(() => {
+      // Phase 1: Downscale to 0.9
+      setLogoScale(0.9);
+    }, 1000);
+
+    const snapSequence = setTimeout(() => {
+      // Phase 2: Snap to top and show content
       setShowContent(true);
       setLogoPositioned(true);
       if (!isMobile) {
         setSpotlightActive(true);
         setSpotlightIntensity(1);
       }
-    }, 2000); // 2 secondes après le chargement
+    }, 2000);
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -86,7 +93,8 @@ export default function HeroSection() {
     handleScroll(); // Initial call
 
     return () => {
-      clearTimeout(animationSequence);
+      clearTimeout(downscaleSequence);
+      clearTimeout(snapSequence);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkIsMobile);
       observer.disconnect();
@@ -168,11 +176,18 @@ export default function HeroSection() {
         >
           <motion.div 
             ref={logoRef} 
-            className={logoPositioned ? "mb-6 md:mb-8 relative" : "fixed inset-0 flex items-center justify-center z-50"}
+            className="mb-6 md:mb-8 relative"
             animate={{
-              position: logoPositioned ? "relative" : "fixed"
+              position: logoPositioned ? "relative" : "fixed",
+              top: logoPositioned ? "auto" : logoScale === 0.9 ? "2rem" : "50%",
+              left: logoPositioned ? "auto" : "50%",
+              transform: logoPositioned ? "none" : logoScale === 0.9 ? "translateX(-50%)" : "translate(-50%, -50%)",
+              zIndex: logoPositioned ? 10 : 50
             }}
-            transition={{ duration: 1, ease: "easeInOut" }}
+            transition={{ 
+              duration: logoPositioned ? 0.6 : logoScale === 0.9 ? 0.4 : 1, 
+              ease: logoPositioned ? "easeOut" : logoScale === 0.9 ? "easeOut" : "easeInOut"
+            }}
           >
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
@@ -188,9 +203,13 @@ export default function HeroSection() {
                 src={logoPath}
                 alt="Social - Par Attelier Archibald"
                 animate={{
-                  height: logoPositioned ? "auto" : "100vh"
+                  height: logoPositioned ? "auto" : "100vh",
+                  scale: logoScale
                 }}
-                transition={{ duration: 1, ease: "easeInOut" }}
+                transition={{ 
+                  height: { duration: 1, ease: "easeInOut" },
+                  scale: { duration: 0.8, ease: "easeOut" }
+                }}
                 className={logoPositioned 
                   ? "h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[36rem] 2xl:h-[42rem] w-auto mx-auto" 
                   : "w-auto max-w-[90vw] max-h-[90vh] object-contain mx-auto"
