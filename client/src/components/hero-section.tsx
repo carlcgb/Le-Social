@@ -115,7 +115,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 1 }}
             animate={{ opacity: spotlightActive ? spotlightIntensity : 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.1, ease: "easeOut" }}
             className="fixed inset-0 z-30 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
@@ -137,7 +137,7 @@ export default function HeroSection() {
               opacity: spotlightActive ? spotlightIntensity : 0,
               scale: spotlightActive ? 1 : 0.8 
             }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.1, ease: "easeOut" }}
             className="fixed inset-0 z-20 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
@@ -177,7 +177,7 @@ export default function HeroSection() {
                   ? `brightness(0) invert(1) drop-shadow(0 0 ${60 * spotlightIntensity}px rgba(255, 255, 255, ${0.4 * spotlightIntensity})) drop-shadow(0 0 ${100 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity}))`
                   : "brightness(0) invert(1)"
               }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.1, ease: "easeOut" }}
               className="relative z-10"
             >
               <motion.img
@@ -203,7 +203,7 @@ export default function HeroSection() {
                   opacity: spotlightActive ? 0.6 * spotlightIntensity : 0,
                   scale: spotlightActive ? 1.2 : 0.8
                 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={{ duration: 0.1, ease: "easeOut" }}
                 className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
               >
                 <div 
