@@ -222,35 +222,6 @@
   
   .text-cream { color: var(--cream); }
   .bg-cream { background-color: var(--cream); }
-
-  /* Hanging sign shadow effect that affects all content inside */
-  .hanging-sign-shadow-effect {
-    filter: brightness(0.3) contrast(1.2) saturate(0.8);
-    transition: all 0.8s ease-in-out;
-  }
-
-  .hanging-sign-shadow-effect * {
-    text-shadow: none !important;
-  }
-
-  .hanging-sign-shadow-effect img {
-    filter: brightness(0.4) contrast(1.1);
-  }
-
-  .hanging-sign-shadow-effect h1,
-  .hanging-sign-shadow-effect h2, 
-  .hanging-sign-shadow-effect h3,
-  .hanging-sign-shadow-effect h4,
-  .hanging-sign-shadow-effect h5,
-  .hanging-sign-shadow-effect h6 {
-    color: rgba(255, 255, 255, 0.4) !important;
-  }
-
-  .hanging-sign-shadow-effect p,
-  .hanging-sign-shadow-effect span {
-    color: rgba(255, 255, 255, 0.3) !important;
-  }
-
   
   .font-playfair { font-family: 'Playfair Display', serif; }
   .font-inter { font-family: 'Inter', sans-serif; }

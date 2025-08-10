@@ -6,65 +6,16 @@ import logoAnimated from "@assets/Untitled-design-unscreen_1754780840848.gif";
 export default function HangingSign() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isFlipping, setIsFlipping] = useState(false);
-  const [activeSection, setActiveSection] = useState<string | null>(null);
   const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
-      
-      // Get the position of the hanging sign (fixed at top-20/24/28 left-4/6/8)
-      const hangingSignY = window.innerWidth >= 1024 ? 112 : // lg: top-28 (7rem = 112px)
-                          window.innerWidth >= 640 ? 96 :   // sm: top-24 (6rem = 96px)
-                          80; // top-20 (5rem = 80px)
-      
-      // Check which section the hanging sign is overlapping
-      const sections = ['spectacles', 'evenements', 'corporatif'];
-      let currentActiveSection = null;
-      
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          // Check if hanging sign is vertically aligned with this section
-          if (rect.top <= hangingSignY + 50 && rect.bottom >= hangingSignY - 50) {
-            currentActiveSection = sectionId;
-            break;
-          }
-        }
-      }
-      
-      setActiveSection(currentActiveSection);
     };
-
-    // Initial call to set active section on mount
-    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Apply shadow overlay effects to sections
-  useEffect(() => {
-    const sections = ['spectacles', 'evenements', 'corporatif'];
-    
-    sections.forEach(sectionId => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        // Find the main content div that contains the section content
-        const sectionDiv = section.querySelector('[class*="bg-burgundy-900"], [class*="backdrop-blur"]');
-        if (sectionDiv) {
-          if (activeSection === sectionId) {
-            // Add shadow effect class that affects all content inside
-            sectionDiv.classList.add('hanging-sign-shadow-effect');
-          } else {
-            // Remove shadow effect when sign is not over this section
-            sectionDiv.classList.remove('hanging-sign-shadow-effect');
-          }
-        }
-      }
-    });
-  }, [activeSection]);
 
   const handleClick = () => {
     setIsFlipping(true);
