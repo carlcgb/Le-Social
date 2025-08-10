@@ -30,8 +30,8 @@ export default function Home() {
       setScrolled(scrollY > 100);
       
       // Track spotlight state and pinning based on scroll position
-      // Keep landing page pinned until spotlight is completely gone (70% of viewport height)
-      if (scrollY <= windowHeight * 0.7) {
+      // Match the hero section's spotlight fade timing (60% instead of 70%)
+      if (scrollY <= windowHeight * 0.6) {
         setSpotlightActive(true);
         setLandingPagePinned(true);
       } else {

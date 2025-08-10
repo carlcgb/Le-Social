@@ -190,7 +190,7 @@
   }
 
   .spotlight-scroll-spacer {
-    height: 70vh; /* Creates scroll distance for spotlight effect - matches 70% threshold */
+    height: 60vh; /* Creates scroll distance for spotlight effect - matches 60% threshold */
     pointer-events: none;
   }
 
