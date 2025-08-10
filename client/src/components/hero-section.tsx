@@ -14,10 +14,8 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
   const [spotlightIntensity, setSpotlightIntensity] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
   const [componentsAnimated, setComponentsAnimated] = useState(false);
-  const [textOpacity, setTextOpacity] = useState(0);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -35,29 +33,23 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
       if (isMobile) {
         setSpotlightActive(false);
         setSpotlightIntensity(0);
-        setTextOpacity(1); // Text always visible on mobile
         return;
       }
       
       // Calcul progressif de l'intensité basé sur le scroll
-      if (scrollY <= windowHeight * 0.05) {
-        // Dans les premiers 5% de scroll, garde l'effet complet
+      if (scrollY <= windowHeight * 0.1) {
+        // Dans les premiers 10% de scroll, garde l'effet complet
         setSpotlightIntensity(1);
         setSpotlightActive(true);
-        // Text opacity starts at 0
-        setTextOpacity(0);
-      } else if (scrollY <= windowHeight * 0.6) {
-        // Entre 5% et 60%, dissipe progressivement le spotlight et augmente l'opacité du texte
-        const progress = (scrollY - windowHeight * 0.05) / (windowHeight * 0.55);
+      } else if (scrollY <= windowHeight * 0.8) {
+        // Entre 10% et 80%, dissipe progressivement
+        const progress = (scrollY - windowHeight * 0.1) / (windowHeight * 0.7);
         setSpotlightIntensity(1 - progress);
         setSpotlightActive(true);
-        // Text opacity increases as spotlight decreases
-        setTextOpacity(Math.min(progress * 1.5, 1)); // Slightly faster opacity increase
       } else {
-        // Au-delà de 60%, éteint complètement le spotlight et texte complètement visible
+        // Au-delà de 80%, éteint complètement
         setSpotlightIntensity(0);
         setSpotlightActive(false);
-        setTextOpacity(1);
       }
     };
 
@@ -92,19 +84,6 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
       observer.disconnect();
     };
   }, [isMobile]);
-
-  // Watch for text opacity changes and trigger scroll unlock when text is fully visible
-  useEffect(() => {
-    if (textOpacity >= 1 && componentsAnimated) {
-      onComponentsReveal?.();
-    }
-    // On mobile, trigger unlock after components animate
-    if (isMobile && componentsAnimated) {
-      setTimeout(() => {
-        onComponentsReveal?.();
-      }, 500);
-    }
-  }, [textOpacity, componentsAnimated, isMobile, onComponentsReveal]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -181,7 +160,10 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
           onAnimationComplete={() => {
             if (!componentsAnimated) {
               setComponentsAnimated(true);
-              // Don't unlock scrolling yet - wait for text to reach full opacity
+              // Delay to allow button animations to complete
+              setTimeout(() => {
+                onComponentsReveal?.();
+              }, 1000);
             }
           }}
         >
@@ -225,11 +207,9 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
           </div>
 
           <motion.p 
-            ref={textRef}
             className="text-responsive-lg mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
-            style={{color: '#ffffff', textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+            style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             animate={{
-              opacity: isMobile ? 1 : textOpacity,
               textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
                 ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
                 : '2px 2px 4px rgba(0,0,0,0.8)',
@@ -238,7 +218,6 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
                 : 'brightness(1) contrast(1)'
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-
           >
             Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
             style, chaque histoire.

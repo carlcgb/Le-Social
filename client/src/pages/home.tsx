@@ -17,27 +17,13 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [componentsRevealed, setComponentsRevealed] = useState(false);
-  const [scrollLocked, setScrollLocked] = useState(false); // Allow scroll immediately
+  const [scrollLocked, setScrollLocked] = useState(true);
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
-  const [spotlightActive, setSpotlightActive] = useState(true);
-  const [landingPagePinned, setLandingPagePinned] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
       setScrolled(scrollY > 100);
-      
-      // Track spotlight state and pinning based on scroll position
-      // Match the hero section's spotlight fade timing (60% instead of 70%)
-      if (scrollY <= windowHeight * 0.6) {
-        setSpotlightActive(true);
-        setLandingPagePinned(true);
-      } else {
-        setSpotlightActive(false);
-        setLandingPagePinned(false);
-      }
       
       // Hide scroll indicator when user starts scrolling
       if (scrollY > 50 && showScrollIndicator) {
@@ -45,21 +31,31 @@ export default function Home() {
       }
     };
 
+    // Lock scroll initially and unlock after components are revealed
+    if (scrollLocked) {
+      document.body.classList.add('scroll-locked');
+    } else {
+      document.body.classList.remove('scroll-locked');
+    }
+
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Call immediately to set initial state
-    
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.body.classList.remove('scroll-locked');
     };
-  }, [showScrollIndicator]);
+  }, [scrollLocked, showScrollIndicator]);
 
   // Handle component reveal completion
   const handleComponentsReveal = () => {
     setComponentsRevealed(true);
-    // Show scroll indicator after components are revealed
+    // Add a small delay for smooth transition
     setTimeout(() => {
-      setShowScrollIndicator(true);
-    }, 500);
+      setScrollLocked(false);
+      // Show scroll indicator after another delay
+      setTimeout(() => {
+        setShowScrollIndicator(true);
+      }, 500);
+    }, 200);
   };
 
   return (
@@ -130,41 +126,37 @@ export default function Home() {
         </motion.div>
       )}
       
-      <main className="relative">
-        {/* Hero section that takes full viewport until spotlight fades */}
-        <section className={`hero-container ${landingPagePinned ? 'fixed top-0 left-0 w-full' : 'relative'}`} style={{ zIndex: landingPagePinned ? 10 : 1 }}>
+      <main>
+        {/* Hero section with snap-top behavior */}
+        <div className="snap-top">
           <HeroSection onComponentsReveal={handleComponentsReveal} />
-        </section>
+        </div>
         
-        {/* Spacer to create scroll distance for spotlight effect when pinned */}
-        {landingPagePinned && <div className="spotlight-scroll-spacer" />}
-        
-        {/* All content including footer - only show when hero is unpinned */}
-        <div className={`content-sections ${landingPagePinned ? 'hidden' : 'block'}`}>
-          <div className="snap-start">
-            <ServicesSummary />
-          </div>
-          <div className="snap-start">
-            <SpectaclesSection />
-          </div>
-          <div className="snap-start">
-            <EvenementsSection />
-          </div>
-          <div className="snap-start">
-            <CorporatifSection />
-          </div>
-          <div className="snap-start">
-            <GallerySection />
-          </div>
-          <div className="snap-start">
-            <TestimonialsSection />
-          </div>
-          <div className="snap-start">
-            <ContactSection />
-          </div>
-          <Footer />
+        {/* Rest of sections with normal snap behavior */}
+        <div className="snap-start">
+          <ServicesSummary />
+        </div>
+        <div className="snap-start">
+          <SpectaclesSection />
+        </div>
+        <div className="snap-start">
+          <EvenementsSection />
+        </div>
+        <div className="snap-start">
+          <CorporatifSection />
+        </div>
+        <div className="snap-start">
+          <GallerySection />
+        </div>
+        <div className="snap-start">
+          <TestimonialsSection />
+        </div>
+        <div className="snap-start">
+          <ContactSection />
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 }
