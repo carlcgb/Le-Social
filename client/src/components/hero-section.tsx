@@ -13,7 +13,6 @@ export default function HeroSection() {
   const [logoPositioned, setLogoPositioned] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -33,39 +32,44 @@ export default function HeroSection() {
       }
     }, 2000); // 2 secondes après le chargement
 
-    // No scroll-based spotlight logic - now controlled by intersection observer
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Désactive le spotlight sur mobile
+      if (isMobile) {
+        if (spotlightActive) {
+          setSpotlightActive(false);
+          setSpotlightIntensity(0);
+        }
+        return;
+      }
+      
+      // Simple fade out: spotlight stays full until 80% scroll, then vanishes
+      if (scrollY <= windowHeight * 0.8) {
+        // Keep spotlight full until 80% scroll
+        if (!spotlightActive) {
+          setSpotlightActive(true);
+          setSpotlightIntensity(1);
+        }
+      } else {
+        // After 80%, turn off completely
+        if (spotlightActive) {
+          setSpotlightActive(false);
+          setSpotlightIntensity(0);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
 
     return () => {
       clearTimeout(animationSequence);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkIsMobile);
     };
   }, [isMobile]);
-
-  // Intersection Observer for text element to control spotlight
-  useEffect(() => {
-    if (isMobile || !textRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Text is visible - fade out spotlight
-            setSpotlightActive(false);
-            setSpotlightIntensity(0);
-          } else if (showContent) {
-            // Text is not visible but content is shown - spotlight on
-            setSpotlightActive(true);
-            setSpotlightIntensity(1);
-          }
-        });
-      },
-      { threshold: 0.1 } // Trigger when 10% of text is visible
-    );
-
-    observer.observe(textRef.current);
-
-    return () => observer.disconnect();
-  }, [isMobile, showContent]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -89,7 +93,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 1 }}
             animate={{ opacity: spotlightActive ? spotlightIntensity : 0 }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-30 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
@@ -111,7 +115,7 @@ export default function HeroSection() {
               opacity: spotlightActive ? spotlightIntensity : 0,
               scale: spotlightActive ? 1 : 0.8 
             }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-20 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
@@ -143,7 +147,9 @@ export default function HeroSection() {
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
               animate={{ 
-                filter: "brightness(0) invert(1)"
+                filter: !isMobile && spotlightActive && spotlightIntensity > 0
+                  ? `brightness(0) invert(1) drop-shadow(0 0 ${60 * spotlightIntensity}px rgba(255, 255, 255, ${0.4 * spotlightIntensity})) drop-shadow(0 0 ${100 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity}))`
+                  : "brightness(0) invert(1)"
               }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative z-10"
@@ -171,7 +177,7 @@ export default function HeroSection() {
                   opacity: spotlightActive ? 0.6 * spotlightIntensity : 0,
                   scale: spotlightActive ? 1.2 : 0.8
                 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
               >
                 <div 
@@ -186,7 +192,6 @@ export default function HeroSection() {
 
 {showContent && (
             <motion.p 
-              ref={textRef}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
