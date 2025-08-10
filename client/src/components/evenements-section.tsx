@@ -66,7 +66,7 @@ export default function EvenementsSection() {
             </div>
           </motion.div>
 
-          {/* Image - order 2 on mobile, order 1 on desktop */}
+          {/* Image and Features - order 2 on mobile, order 1 on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -77,21 +77,13 @@ export default function EvenementsSection() {
             <img 
               src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
               alt="Événement privé au Social" 
-              className="rounded-2xl shadow-2xl w-full h-auto"
+              className="rounded-2xl shadow-2xl w-full h-auto mb-6"
             />
             <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold bg-gold-500 shadow-lg drop-shadow-lg text-[#ffffff]" style={{textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}>
               Moments précieux
             </div>
-          </motion.div>
-
-          {/* Features list - order 3 on mobile (second to last) */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="order-3 lg:col-span-2"
-          >
+            
+            {/* Features list integrated with image */}
             <div className="space-y-4 text-[#ffffff]">
               {features.map((feature, index) => (
                 <motion.div
@@ -109,13 +101,15 @@ export default function EvenementsSection() {
             </div>
           </motion.div>
 
-          {/* Button - order 4 on mobile (last) */}
+
+
+          {/* Button - order 3 on mobile (last) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
+            className="order-3 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               onClick={() => scrollToSection("#contact")}
