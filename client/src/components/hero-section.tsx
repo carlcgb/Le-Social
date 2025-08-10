@@ -6,9 +6,11 @@ import BrickWall from "./brick-wall";
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
 export default function HeroSection() {
-  const [spotlightActive, setSpotlightActive] = useState(true);
-  const [spotlightIntensity, setSpotlightIntensity] = useState(1);
+  const [spotlightActive, setSpotlightActive] = useState(false);
+  const [spotlightIntensity, setSpotlightIntensity] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const [logoPositioned, setLogoPositioned] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -19,6 +21,16 @@ export default function HeroSection() {
     
     checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
+
+    // Sequence d'animation: logo viewport -> contenu -> spotlight
+    const animationSequence = setTimeout(() => {
+      setShowContent(true);
+      setLogoPositioned(true);
+      if (!isMobile) {
+        setSpotlightActive(true);
+        setSpotlightIntensity(1);
+      }
+    }, 2000); // 2 secondes après le chargement
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -74,6 +86,7 @@ export default function HeroSection() {
     handleScroll(); // Initial call
 
     return () => {
+      clearTimeout(animationSequence);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkIsMobile);
       observer.disconnect();
@@ -153,7 +166,14 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div ref={logoRef} className="mb-6 md:mb-8 relative">
+          <motion.div 
+            ref={logoRef} 
+            className={logoPositioned ? "mb-6 md:mb-8 relative" : "fixed inset-0 flex items-center justify-center z-50"}
+            animate={{
+              position: logoPositioned ? "relative" : "fixed"
+            }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
               animate={{ 
@@ -164,10 +184,18 @@ export default function HeroSection() {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative z-10"
             >
-              <img
+              <motion.img
                 src={logoPath}
                 alt="Social - Par Attelier Archibald"
-                className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[36rem] 2xl:h-[42rem] w-auto mx-auto"
+                animate={{
+                  height: logoPositioned ? "auto" : "100vh"
+                }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className={logoPositioned 
+                  ? "h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[36rem] 2xl:h-[42rem] w-auto mx-auto" 
+                  : "w-auto max-w-[90vw] max-h-[90vh] object-contain mx-auto"
+                }
+                style={!logoPositioned ? { height: "100vh", maxHeight: "90vh" } : {}}
               />
             </motion.div>
             
@@ -190,34 +218,28 @@ export default function HeroSection() {
                 />
               </motion.div>
             )}
-          </div>
+          </motion.div>
 
-          <motion.p 
-            className="text-responsive-lg mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
-            style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
-            animate={{
-              textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
-                ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
-                : '2px 2px 4px rgba(0,0,0,0.8)',
-              filter: !isMobile && spotlightActive && spotlightIntensity > 0 
-                ? `brightness(${1 + 0.3 * spotlightIntensity}) contrast(${1 + 0.2 * spotlightIntensity}) drop-shadow(0 0 ${15 * spotlightIntensity}px rgba(255,255,255,${0.15 * spotlightIntensity}))`
-                : 'brightness(1) contrast(1)'
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
-            style, chaque histoire.
-          </motion.p>
+{showContent && (
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-responsive-lg mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
+            >
+              Un lieu d'exception, pensé pour s'accorder à chaque occasion, chaque
+              style, chaque histoire.
+            </motion.p>
+          )}
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0"
-            animate={{
-              filter: !isMobile && spotlightActive && spotlightIntensity > 0 
-                ? `brightness(${1 + 0.4 * spotlightIntensity}) contrast(${1 + 0.3 * spotlightIntensity})`
-                : 'brightness(1) contrast(1)'
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
+{showContent && (
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0"
+            >
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
               className="bg-burgundy-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
@@ -265,6 +287,7 @@ export default function HeroSection() {
               Événements privés
             </motion.button>
           </motion.div>
+        )}
         </motion.div>
       </motion.div>
     </section>
