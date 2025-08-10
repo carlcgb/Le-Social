@@ -183,21 +183,10 @@
     width: 100% !important;
   }
 
-  /* Landing page pinning behavior */
-  .landing-page-container {
-    position: relative;
-    z-index: 10;
+  /* Hero container pinning behavior */
+  .hero-container {
+    min-height: 100vh;
     transition: all 0.3s ease-out;
-  }
-
-  .landing-page-container.pinned {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .landing-page-container.unpinned {
-    position: relative;
   }
 
   .spotlight-scroll-spacer {

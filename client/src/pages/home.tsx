@@ -17,7 +17,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [componentsRevealed, setComponentsRevealed] = useState(false);
-  const [scrollLocked, setScrollLocked] = useState(true);
+  const [scrollLocked, setScrollLocked] = useState(false); // Allow scroll immediately
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
   const [spotlightActive, setSpotlightActive] = useState(true);
   const [landingPagePinned, setLandingPagePinned] = useState(true);
@@ -30,7 +30,7 @@ export default function Home() {
       setScrolled(scrollY > 100);
       
       // Track spotlight state and pinning based on scroll position
-      // Keep landing page pinned until spotlight is completely gone
+      // Keep landing page pinned until spotlight is completely gone (70% of viewport height)
       if (scrollY <= windowHeight * 0.7) {
         setSpotlightActive(true);
         setLandingPagePinned(true);
@@ -45,31 +45,21 @@ export default function Home() {
       }
     };
 
-    // Lock scroll initially and unlock after components are revealed
-    if (scrollLocked) {
-      document.body.classList.add('scroll-locked');
-    } else {
-      document.body.classList.remove('scroll-locked');
-    }
-
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call immediately to set initial state
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      document.body.classList.remove('scroll-locked');
     };
-  }, [scrollLocked, showScrollIndicator]);
+  }, [showScrollIndicator]);
 
   // Handle component reveal completion
   const handleComponentsReveal = () => {
     setComponentsRevealed(true);
-    // Add a small delay for smooth transition
+    // Show scroll indicator after components are revealed
     setTimeout(() => {
-      setScrollLocked(false);
-      // Show scroll indicator after another delay
-      setTimeout(() => {
-        setShowScrollIndicator(true);
-      }, 500);
-    }, 200);
+      setShowScrollIndicator(true);
+    }, 500);
   };
 
   return (
@@ -140,19 +130,17 @@ export default function Home() {
         </motion.div>
       )}
       
-      <main>
-        {/* Landing page container that pins to top until spotlight is removed */}
-        <div className={`landing-page-container ${landingPagePinned ? 'pinned' : 'unpinned'}`}>
-          <div className="snap-top">
-            <HeroSection onComponentsReveal={handleComponentsReveal} />
-          </div>
-        </div>
+      <main className="relative">
+        {/* Hero section that takes full viewport until spotlight fades */}
+        <section className={`hero-container ${landingPagePinned ? 'fixed top-0 left-0 w-full' : 'relative'}`} style={{ zIndex: landingPagePinned ? 10 : 1 }}>
+          <HeroSection onComponentsReveal={handleComponentsReveal} />
+        </section>
         
-        {/* Spacer to create scroll distance for spotlight effect */}
-        <div className="spotlight-scroll-spacer" />
+        {/* Spacer to create scroll distance for spotlight effect when pinned */}
+        {landingPagePinned && <div className="spotlight-scroll-spacer" />}
         
-        {/* Rest of sections with normal snap behavior */}
-        <div className="content-sections">
+        {/* Rest of sections - only show when hero is unpinned */}
+        <div className={`content-sections ${landingPagePinned ? 'hidden' : 'block'}`}>
           <div className="snap-start">
             <ServicesSummary />
           </div>
