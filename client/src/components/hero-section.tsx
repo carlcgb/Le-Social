@@ -142,9 +142,9 @@ export default function HeroSection() {
             style={{
               background: spotlightActive && spotlightIntensity > 0
                 ? `radial-gradient(ellipse 600px 800px at center, 
-                    rgba(255, 255, 255, ${0.12 * spotlightIntensity}) 0%, 
-                    rgba(255, 255, 255, ${0.06 * spotlightIntensity}) 20%, 
-                    rgba(255, 255, 255, ${0.02 * spotlightIntensity}) 40%, 
+                    rgba(255, 255, 255, ${0.04 * spotlightIntensity}) 0%, 
+                    rgba(255, 255, 255, ${0.02 * spotlightIntensity}) 20%, 
+                    rgba(255, 255, 255, ${0.008 * spotlightIntensity}) 40%, 
                     transparent 60%)`
                 : 'transparent',
             }}
@@ -161,11 +161,7 @@ export default function HeroSection() {
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div>
           <motion.div 
             ref={logoRef} 
             className={logoPositioned ? "mb-6 md:mb-8 relative" : "fixed inset-0 flex items-center justify-center z-50"}
@@ -213,7 +209,7 @@ export default function HeroSection() {
                 <div 
                   className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-gradient-radial blur-sm" 
                   style={{
-                    background: `radial-gradient(circle, rgba(255,255,255,${0.1 * spotlightIntensity}) 0%, rgba(255,255,255,${0.05 * spotlightIntensity}) 50%, transparent 100%)`
+                    background: `radial-gradient(circle, rgba(255,255,255,${0.03 * spotlightIntensity}) 0%, rgba(255,255,255,${0.015 * spotlightIntensity}) 50%, transparent 100%)`
                   }}
                 />
               </motion.div>
@@ -288,7 +284,7 @@ export default function HeroSection() {
             </motion.button>
           </motion.div>
         )}
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );
