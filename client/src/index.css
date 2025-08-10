@@ -223,6 +223,17 @@
   .text-cream { color: var(--cream); }
   .bg-cream { background-color: var(--cream); }
 
+  /* Hanging sign black shadow effect */
+  .shadow-hanging-sign-black {
+    box-shadow: 
+      0 0 30px rgba(0, 0, 0, 0.8),
+      0 0 60px rgba(0, 0, 0, 0.6),
+      inset 0 0 30px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.8s ease-in-out;
+    transform: scale(1.02);
+  }
+
 
   
   .font-playfair { font-family: 'Playfair Display', serif; }
