@@ -90,7 +90,7 @@ export default function SpectaclesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-3 lg:col-span-2 text-center mt-6 lg:mt-4"
+            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
           >
             <motion.button
               whileHover={{ 

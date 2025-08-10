@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Cake, Martini, Heart, ChefHat, Music, Palette, Bell, Sparkles, Camera, Car, Shield, MapPin, Clock, Users2, Utensils } from "lucide-react";
+import { Users, Cake, Martini, Utensils, Music, Palette, Bell, Heart } from "lucide-react";
 
 export default function EvenementsSection() {
   const scrollToSection = (href: string) => {
@@ -21,24 +21,11 @@ export default function EvenementsSection() {
   ];
 
   const features = [
-    { icon: ChefHat, text: "Service traiteur personnalisé" },
+    { icon: Utensils, text: "Service traiteur personnalisé" },
     { icon: Music, text: "Système audio professionnel" },
     { icon: Palette, text: "Décoration sur mesure" },
-    { icon: Bell, text: "Service complet inclus" },
-    { icon: Sparkles, text: "Ambiance feutrée unique" },
-    { icon: Camera, text: "Espaces photo dédiés" },
-    { icon: Car, text: "Parking privé disponible" },
-    { icon: Shield, text: "Sécurité et discrétion" },
-    { icon: MapPin, text: "Localisation centrale" },
-    { icon: Clock, text: "Horaires flexibles" },
-    { icon: Users2, text: "Capacité jusqu'à 80 personnes" },
-    { icon: Utensils, text: "Bar et cuisine équipés" },
-    { icon: Sparkles, text: "Éclairage d'ambiance" },
-    { icon: Music, text: "Sonorisation premium" },
-    { icon: Heart, text: "Service personnalisé" }
+    { icon: Bell, text: "Service complet inclus" }
   ];
-
-  
 
   return (
     <section id="evenements" className="relative py-20 z-40">
@@ -97,65 +84,55 @@ export default function EvenementsSection() {
             </div>
           </motion.div>
 
-          {/* Features Grid - order 3 on mobile */}
+          {/* Features list - order 3 on mobile (second to last) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="order-3 lg:col-span-2"
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {features.slice(0, 7).map((feature, index) => (
+            <div className="space-y-4 text-[#ffffff]">
+              {features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="backdrop-blur-md border border-gold-500/20 rounded-lg p-3 text-center text-[#ffffff] bg-burgundy-900/20 hover:bg-burgundy-900/40 transition-all duration-300"
+                  className="flex items-center"
                 >
-                  <feature.icon className="w-6 h-6 text-gold-500 mx-auto mb-2" />
-                  <span className="text-xs leading-tight block" style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>{feature.text}</span>
-                </motion.div>
-              ))}
-              
-              {/* Call to action button in the middle */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.35 }}
-                viewport={{ once: true }}
-                className="backdrop-blur-md border border-gold-500/40 rounded-lg p-3 flex items-center justify-center bg-gold-500/20 hover:bg-gold-500/30 transition-all duration-300"
-              >
-                <motion.button
-                  onClick={() => scrollToSection("#contact")}
-                  className="w-full h-full flex flex-col items-center justify-center text-center"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Heart className="w-6 h-6 text-gold-500 mb-2" />
-                  <span className="text-xs font-bold text-gold-500 leading-tight">Planifier mon événement</span>
-                </motion.button>
-              </motion.div>
-
-              {features.slice(7, 15).map((feature, index) => (
-                <motion.div
-                  key={index + 8}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: (index + 8) * 0.05 }}
-                  viewport={{ once: true }}
-                  className="backdrop-blur-md border border-gold-500/20 rounded-lg p-3 text-center text-[#ffffff] bg-burgundy-900/20 hover:bg-burgundy-900/40 transition-all duration-300"
-                >
-                  <feature.icon className="w-6 h-6 text-gold-500 mx-auto mb-2" />
-                  <span className="text-xs leading-tight block" style={{color: '#ffffff', opacity: 1, textShadow: '1px 1px 2px rgba(0,0,0,0.8)'}}>{feature.text}</span>
+                  <feature.icon className="w-5 h-5 text-gold-500 mr-3" />
+                  <span className="text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{feature.text}</span>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-
+          {/* Button - order 4 on mobile (last) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="order-4 lg:col-span-2 text-center mt-6 lg:mt-4"
+          >
+            <motion.button
+              onClick={() => scrollToSection("#contact")}
+              className="inline-flex items-center bg-gold-500 px-8 py-4 rounded-full hover:bg-gold-600 transition-all duration-150 font-playfair font-bold btn-text-responsive text-[#ffffff]"
+              style={{color: '#000000', opacity: 1, textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: '#d97706',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.4)'
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.15 }}
+            >
+              <Heart className="w-5 h-5 mr-2" />
+              Planifier mon événement
+            </motion.button>
+          </motion.div>
         </div>
       </div>
     </section>
