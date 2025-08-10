@@ -44,22 +44,22 @@ export default function HangingSign() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Apply black shadow effects to sections
+  // Apply shadow overlay effects to sections
   useEffect(() => {
     const sections = ['spectacles', 'evenements', 'corporatif'];
     
     sections.forEach(sectionId => {
       const section = document.getElementById(sectionId);
       if (section) {
-        // Find the main content div that contains bg-burgundy-900/30 class or similar backdrop
+        // Find the main content div that contains the section content
         const sectionDiv = section.querySelector('[class*="bg-burgundy-900"], [class*="backdrop-blur"]');
         if (sectionDiv) {
           if (activeSection === sectionId) {
-            // Add black shadow effect when hanging sign is over this section
-            sectionDiv.classList.add('shadow-hanging-sign-black');
+            // Add shadow effect class that affects all content inside
+            sectionDiv.classList.add('hanging-sign-shadow-effect');
           } else {
-            // Remove shadow effect
-            sectionDiv.classList.remove('shadow-hanging-sign-black');
+            // Remove shadow effect when sign is not over this section
+            sectionDiv.classList.remove('hanging-sign-shadow-effect');
           }
         }
       }
