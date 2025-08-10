@@ -13,6 +13,7 @@ export default function HeroSection() {
   const [logoPositioned, setLogoPositioned] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -32,50 +33,39 @@ export default function HeroSection() {
       }
     }, 2000); // 2 secondes après le chargement
 
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
-      // Désactive le spotlight sur mobile
-      if (isMobile) {
-        if (spotlightActive) {
-          setSpotlightActive(false);
-          setSpotlightIntensity(0);
-        }
-        return;
-      }
-      
-      // Fast fade out: spotlight stays full until 60% scroll, then quickly fades
-      if (scrollY <= windowHeight * 0.6) {
-        // Keep spotlight full until 60% scroll
-        if (!spotlightActive || spotlightIntensity !== 1) {
-          setSpotlightActive(true);
-          setSpotlightIntensity(1);
-        }
-      } else if (scrollY <= windowHeight * 0.75) {
-        // Between 60% and 75%, quickly fade out (shorter zone = faster fade)
-        const fadeProgress = (scrollY - windowHeight * 0.6) / (windowHeight * 0.15);
-        const newIntensity = Math.max(0, 1 - fadeProgress);
-        setSpotlightActive(true);
-        setSpotlightIntensity(newIntensity);
-      } else {
-        // After 75%, turn off completely
-        if (spotlightActive) {
-          setSpotlightActive(false);
-          setSpotlightIntensity(0);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
+    // No scroll-based spotlight logic - now controlled by intersection observer
 
     return () => {
       clearTimeout(animationSequence);
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkIsMobile);
     };
   }, [isMobile]);
+
+  // Intersection Observer for text element to control spotlight
+  useEffect(() => {
+    if (isMobile || !textRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Text is visible - fade out spotlight
+            setSpotlightActive(false);
+            setSpotlightIntensity(0);
+          } else if (showContent) {
+            // Text is not visible but content is shown - spotlight on
+            setSpotlightActive(true);
+            setSpotlightIntensity(1);
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of text is visible
+    );
+
+    observer.observe(textRef.current);
+
+    return () => observer.disconnect();
+  }, [isMobile, showContent]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -196,6 +186,7 @@ export default function HeroSection() {
 
 {showContent && (
             <motion.p 
+              ref={textRef}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
