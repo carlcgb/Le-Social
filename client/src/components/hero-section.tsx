@@ -11,8 +11,6 @@ export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [logoPositioned, setLogoPositioned] = useState(false);
-  const [logoScale, setLogoScale] = useState(1);
-  const [logoSnappedToTop, setLogoSnappedToTop] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -24,26 +22,15 @@ export default function HeroSection() {
     checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
 
-    // Sequence d'animation: logo viewport -> snap to top -> downscale while at top -> final position -> contenu -> spotlight
-    const snapToTopSequence = setTimeout(() => {
-      // Phase 1: Snap to top immediately
-      setLogoSnappedToTop(true);
-    }, 500);
-
-    const downscaleSequence = setTimeout(() => {
-      // Phase 2: Downscale to 0.9 while at top
-      setLogoScale(0.9);
-    }, 1000);
-
-    const finalPositionSequence = setTimeout(() => {
-      // Phase 3: Move to final position and show content
+    // Sequence d'animation: logo viewport -> contenu -> spotlight
+    const animationSequence = setTimeout(() => {
       setShowContent(true);
       setLogoPositioned(true);
       if (!isMobile) {
         setSpotlightActive(true);
         setSpotlightIntensity(1);
       }
-    }, 2000);
+    }, 2000); // 2 secondes après le chargement
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -99,9 +86,7 @@ export default function HeroSection() {
     handleScroll(); // Initial call
 
     return () => {
-      clearTimeout(snapToTopSequence);
-      clearTimeout(downscaleSequence);
-      clearTimeout(finalPositionSequence);
+      clearTimeout(animationSequence);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkIsMobile);
       observer.disconnect();
@@ -183,18 +168,11 @@ export default function HeroSection() {
         >
           <motion.div 
             ref={logoRef} 
-            className="mb-6 md:mb-8 relative"
+            className={logoPositioned ? "mb-6 md:mb-8 relative" : "fixed inset-0 flex items-center justify-center z-50"}
             animate={{
-              position: logoPositioned ? "relative" : "fixed",
-              top: logoPositioned ? "auto" : logoSnappedToTop ? "2rem" : "50%",
-              left: logoPositioned ? "auto" : "50%",
-              transform: logoPositioned ? "none" : logoSnappedToTop ? "translateX(-50%)" : "translate(-50%, -50%)",
-              zIndex: logoPositioned ? 10 : 50
+              position: logoPositioned ? "relative" : "fixed"
             }}
-            transition={{ 
-              duration: logoPositioned ? 0.6 : logoSnappedToTop ? 0.3 : 0.8, 
-              ease: logoPositioned ? "easeOut" : logoSnappedToTop ? "easeOut" : "easeInOut"
-            }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           >
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
@@ -210,13 +188,9 @@ export default function HeroSection() {
                 src={logoPath}
                 alt="Social - Par Attelier Archibald"
                 animate={{
-                  height: logoPositioned ? "auto" : "100vh",
-                  scale: logoScale
+                  height: logoPositioned ? "auto" : "100vh"
                 }}
-                transition={{ 
-                  height: { duration: 1, ease: "easeInOut" },
-                  scale: { duration: 0.8, ease: "easeOut" }
-                }}
+                transition={{ duration: 1, ease: "easeInOut" }}
                 className={logoPositioned 
                   ? "h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[36rem] 2xl:h-[42rem] w-auto mx-auto" 
                   : "w-auto max-w-[90vw] max-h-[90vh] object-contain mx-auto"
