@@ -45,21 +45,21 @@ export default function HeroSection() {
         return;
       }
       
-      // Smooth fade out: spotlight stays full until 60% scroll, then gradually fades
+      // Fast fade out: spotlight stays full until 60% scroll, then quickly fades
       if (scrollY <= windowHeight * 0.6) {
         // Keep spotlight full until 60% scroll
         if (!spotlightActive || spotlightIntensity !== 1) {
           setSpotlightActive(true);
           setSpotlightIntensity(1);
         }
-      } else if (scrollY <= windowHeight * 0.9) {
-        // Between 60% and 90%, gradually fade out
-        const fadeProgress = (scrollY - windowHeight * 0.6) / (windowHeight * 0.3);
+      } else if (scrollY <= windowHeight * 0.75) {
+        // Between 60% and 75%, quickly fade out (shorter zone = faster fade)
+        const fadeProgress = (scrollY - windowHeight * 0.6) / (windowHeight * 0.15);
         const newIntensity = Math.max(0, 1 - fadeProgress);
         setSpotlightActive(true);
         setSpotlightIntensity(newIntensity);
       } else {
-        // After 90%, turn off completely
+        // After 75%, turn off completely
         if (spotlightActive) {
           setSpotlightActive(false);
           setSpotlightIntensity(0);
@@ -99,7 +99,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 1 }}
             animate={{ opacity: spotlightActive ? spotlightIntensity : 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="fixed inset-0 z-30 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
@@ -121,7 +121,7 @@ export default function HeroSection() {
               opacity: spotlightActive ? spotlightIntensity : 0,
               scale: spotlightActive ? 1 : 0.8 
             }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="fixed inset-0 z-20 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
@@ -181,7 +181,7 @@ export default function HeroSection() {
                   opacity: spotlightActive ? 0.6 * spotlightIntensity : 0,
                   scale: spotlightActive ? 1.2 : 0.8
                 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
                 className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
               >
                 <div 
