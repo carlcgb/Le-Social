@@ -13,7 +13,7 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -39,16 +39,12 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
       animate={{ y: scrolled ? 0 : -100 }}
       className={`fixed top-0 w-full z-50 transition-all duration-500`}
       style={{
-        background: scrolled 
-          ? 'linear-gradient(135deg, rgba(5,0,0,0.90) 0%, rgba(15,8,10,0.95) 30%, rgba(25,15,20,0.90) 70%, rgba(10,5,8,0.85) 100%)' 
-          : 'linear-gradient(135deg, rgba(2,0,0,0.70) 0%, rgba(8,5,7,0.75) 25%, rgba(15,10,12,0.80) 50%, rgba(20,12,15,0.75) 75%, rgba(8,3,5,0.70) 100%)',
+        background: 'linear-gradient(135deg, rgba(5,0,0,0.90) 0%, rgba(15,8,10,0.95) 30%, rgba(25,15,20,0.90) 70%, rgba(10,5,8,0.85) 100%)',
         backdropFilter: 'blur(25px) saturate(140%) brightness(1.1)',
         WebkitBackdropFilter: 'blur(25px) saturate(140%) brightness(1.1)',
-        boxShadow: scrolled 
-          ? '0 8px 32px rgba(0,0,0,0.4), 0 2px 12px rgba(199,23,36,0.2), inset 0 1px 0 rgba(192,132,47,0.1)' 
-          : '0 4px 24px rgba(0,0,0,0.25), 0 1px 6px rgba(192,132,47,0.15), inset 0 1px 0 rgba(255,255,255,0.05)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 2px 12px rgba(199,23,36,0.2), inset 0 1px 0 rgba(192,132,47,0.1)',
         borderTop: '1px solid rgba(192,132,47,0.15)',
-        borderBottom: scrolled ? '1px solid rgba(199,23,36,0.2)' : '1px solid rgba(192,132,47,0.1)'
+        borderBottom: '1px solid rgba(199,23,36,0.2)'
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
