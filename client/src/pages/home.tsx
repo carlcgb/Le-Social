@@ -28,14 +28,34 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-cream font-inter">
-      {/* Dark Overlay - shows initially, fades on scroll */}
+      {/* Main Spotlight Overlay - creates dramatic focus on center logo area */}
       <motion.div
         initial={{ opacity: 1 }}
-        animate={{ opacity: scrolled ? 0 : 0.7 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-        className="fixed inset-0 bg-black pointer-events-none z-40"
+        animate={{ opacity: scrolled ? 0 : 0.9 }}
+        transition={{ duration: 1.0, ease: "easeInOut" }}
+        className="fixed inset-0 pointer-events-none z-35"
         style={{
-          background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(20,10,15,0.7) 30%, rgba(30,15,20,0.8) 70%, rgba(0,0,0,0.9) 100%)'
+          background: `radial-gradient(ellipse 400px 500px at 50% 45vh, 
+            rgba(0,0,0,0) 0%, 
+            rgba(0,0,0,0.1) 25%, 
+            rgba(0,0,0,0.5) 45%, 
+            rgba(0,0,0,0.8) 65%, 
+            rgba(0,0,0,0.92) 80%, 
+            rgba(0,0,0,0.96) 100%)`
+        }}
+      />
+      
+      {/* Golden glow enhancement for logo area */}
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: scrolled ? 0 : 0.4 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+        className="fixed inset-0 pointer-events-none z-34"
+        style={{
+          background: `radial-gradient(ellipse 600px 700px at 50% 45vh, 
+            rgba(192,132,47,0.12) 0%, 
+            rgba(192,132,47,0.06) 35%, 
+            rgba(0,0,0,0) 55%)`
         }}
       />
       
