@@ -9,6 +9,7 @@ export default function HeroSection() {
   const [spotlightActive, setSpotlightActive] = useState(true);
   const [spotlightIntensity, setSpotlightIntensity] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
+  const [textRevealed, setTextRevealed] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -19,6 +20,11 @@ export default function HeroSection() {
     
     checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
+
+    // Timer to reveal text and buttons after initial animation
+    const revealTimer = setTimeout(() => {
+      setTextRevealed(true);
+    }, 2000); // Reveal text and buttons after 2 seconds
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -77,6 +83,7 @@ export default function HeroSection() {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkIsMobile);
       observer.disconnect();
+      clearTimeout(revealTimer);
     };
   }, [isMobile]);
 
@@ -197,7 +204,7 @@ export default function HeroSection() {
             style={{color: '#ffffff', textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             initial={{ opacity: 0 }}
             animate={{
-              opacity: !isMobile && spotlightActive && spotlightIntensity > 0 ? 0 : 1,
+              opacity: isMobile || textRevealed ? 1 : 0,
               textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
                 ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
                 : '2px 2px 4px rgba(0,0,0,0.8)',
@@ -215,7 +222,7 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0"
             initial={{ opacity: 0 }}
             animate={{
-              opacity: !isMobile && spotlightActive && spotlightIntensity > 0 ? 0 : 1,
+              opacity: isMobile || textRevealed ? 1 : 0,
               filter: !isMobile && spotlightActive && spotlightIntensity > 0 
                 ? `brightness(${1 + 0.4 * spotlightIntensity}) contrast(${1 + 0.3 * spotlightIntensity})`
                 : 'brightness(1) contrast(1)'

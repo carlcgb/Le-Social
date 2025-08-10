@@ -18,11 +18,18 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [snapScrollActive, setSnapScrollActive] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [scrollLocked, setScrollLocked] = useState(true);
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
     
     const handleScroll = () => {
+      // If scroll is locked, prevent scrolling
+      if (scrollLocked) {
+        window.scrollTo(0, 0);
+        return;
+      }
+      
       const scrollY = window.scrollY;
       const threshold = 100;
       const snapThreshold = 50; // Start snap effect earlier
@@ -67,7 +74,38 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
       if (timeoutId) clearTimeout(timeoutId);
     };
-  }, [snapScrollActive, isTransitioning]);
+  }, [snapScrollActive, isTransitioning, scrollLocked]);
+
+  // Unlock scroll when text and buttons should be revealed
+  useEffect(() => {
+    const checkMobile = () => window.innerWidth < 768;
+    
+    // Timer to unlock scroll after logo animation completes
+    const unlockTimer = setTimeout(() => {
+      if (checkMobile()) {
+        // On mobile, unlock immediately
+        setScrollLocked(false);
+      } else {
+        // On desktop, unlock after initial animation
+        setScrollLocked(false);
+      }
+    }, 2000); // Wait for initial animations to complete
+    
+    return () => clearTimeout(unlockTimer);
+  }, []);
+
+  // Prevent scrolling by setting body overflow when locked
+  useEffect(() => {
+    if (scrollLocked) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [scrollLocked]);
 
   return (
     <div 
@@ -134,28 +172,6 @@ export default function Home() {
                 className="w-1 h-2 bg-gold-500/60 rounded-full mt-2"
               />
             </motion.div>
-          </div>
-        </motion.div>
-      )}
-
-      {/* Snap Transition Indicator */}
-      {isTransitioning && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
-        >
-          <div className="bg-burgundy-800/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gold-500/30">
-            <div className="flex items-center gap-2 text-gold-500 text-sm font-medium">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                className="w-4 h-4 border-2 border-gold-500/30 border-t-gold-500 rounded-full"
-              />
-              Révélation en cours...
-            </div>
           </div>
         </motion.div>
       )}
