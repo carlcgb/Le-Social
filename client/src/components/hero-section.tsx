@@ -45,15 +45,21 @@ export default function HeroSection() {
         return;
       }
       
-      // Simple fade out: spotlight stays full until 80% scroll, then vanishes
-      if (scrollY <= windowHeight * 0.8) {
-        // Keep spotlight full until 80% scroll
-        if (!spotlightActive) {
+      // Smooth fade out: spotlight stays full until 60% scroll, then gradually fades
+      if (scrollY <= windowHeight * 0.6) {
+        // Keep spotlight full until 60% scroll
+        if (!spotlightActive || spotlightIntensity !== 1) {
           setSpotlightActive(true);
           setSpotlightIntensity(1);
         }
+      } else if (scrollY <= windowHeight * 0.9) {
+        // Between 60% and 90%, gradually fade out
+        const fadeProgress = (scrollY - windowHeight * 0.6) / (windowHeight * 0.3);
+        const newIntensity = Math.max(0, 1 - fadeProgress);
+        setSpotlightActive(true);
+        setSpotlightIntensity(newIntensity);
       } else {
-        // After 80%, turn off completely
+        // After 90%, turn off completely
         if (spotlightActive) {
           setSpotlightActive(false);
           setSpotlightIntensity(0);
@@ -147,9 +153,7 @@ export default function HeroSection() {
             {/* Logo avec effet de lumière supplémentaire */}
             <motion.div
               animate={{ 
-                filter: !isMobile && spotlightActive && spotlightIntensity > 0
-                  ? `brightness(0) invert(1) drop-shadow(0 0 ${60 * spotlightIntensity}px rgba(255, 255, 255, ${0.4 * spotlightIntensity})) drop-shadow(0 0 ${100 * spotlightIntensity}px rgba(255, 255, 255, ${0.2 * spotlightIntensity}))`
-                  : "brightness(0) invert(1)"
+                filter: "brightness(0) invert(1)"
               }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative z-10"
