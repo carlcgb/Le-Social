@@ -9,7 +9,6 @@ export default function HeroSection() {
   const [spotlightActive, setSpotlightActive] = useState(true);
   const [spotlightIntensity, setSpotlightIntensity] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -24,9 +23,6 @@ export default function HeroSection() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      
-      // Track if user has scrolled (for dimming effect)
-      setScrolled(scrollY > 50);
       
       // Désactive le spotlight sur mobile
       if (isMobile) {
@@ -198,15 +194,11 @@ export default function HeroSection() {
 
           <motion.p 
             className="text-responsive-lg mb-6 md:mb-8 font-light leading-relaxed px-2 sm:px-0"
-            style={{
-              color: scrolled ? '#ffffff' : '#333333', 
-              opacity: scrolled ? 1 : 0.6, 
-              textShadow: scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)'
-            }}
+            style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
             animate={{
               textShadow: !isMobile && spotlightActive && spotlightIntensity > 0
-                ? `${scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)'}, 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
-                : scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)'
+                ? `2px 2px 4px rgba(0,0,0,0.8), 0 0 ${20 * spotlightIntensity}px rgba(255,255,255,${0.1 * spotlightIntensity})`
+                : '2px 2px 4px rgba(0,0,0,0.8)'
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
@@ -217,55 +209,38 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-[#ffffff] px-4 sm:px-0">
             <motion.button
               onClick={() => scrollToSection("#spectacles")}
-              className="px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
-              style={{
-                backgroundColor: scrolled ? '#7c2d12' : 'rgba(100, 100, 100, 0.2)',
-                color: scrolled ? '#ffffff' : '#444444', 
-                opacity: scrolled ? 1 : 0.5, 
-                textShadow: scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)',
-                border: scrolled ? 'none' : '1px solid #666666'
-              }}
+              className="bg-burgundy-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
-                backgroundColor: scrolled ? '#7c2d12' : 'rgba(120, 120, 120, 0.3)',
-                opacity: scrolled ? 1 : 0.7,
-                boxShadow: scrolled 
-                  ? (!isMobile && spotlightActive 
-                    ? '0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1)'
-                    : '0 8px 25px rgba(0, 0, 0, 0.4)')
-                  : '0 4px 15px rgba(0, 0, 0, 0.6)'
+                backgroundColor: '#7c2d12',
+                boxShadow: !isMobile && spotlightActive 
+                  ? '0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1)'
+                  : '0 8px 25px rgba(0, 0, 0, 0.4)'
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.15 }}
             >
-              <Theater className={`w-4 h-4 sm:w-5 sm:h-5 mr-2 ${scrolled ? 'opacity-100' : 'opacity-50'}`} />
+              <Theater className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Découvrir nos spectacles
             </motion.button>
 
             <motion.button
               onClick={() => scrollToSection("#evenements")}
-              className="border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
-              style={{
-                borderColor: scrolled ? '#d97706' : '#666666', 
-                color: scrolled ? '#d97706' : '#444444', 
-                opacity: scrolled ? 1 : 0.5, 
-                textShadow: scrolled ? '2px 2px 4px rgba(0,0,0,0.8)' : '1px 1px 2px rgba(0,0,0,0.9)'
-              }}
+              className="border-2 border-gold-500 text-gold-500 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium flex items-center justify-center transition-all duration-150 btn-text-responsive"
+              style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               whileHover={{ 
                 scale: isMobile ? 1 : 1.05, 
-                borderColor: scrolled ? '#fbbf24' : '#777777', 
-                backgroundColor: scrolled ? 'rgba(251, 191, 36, 0.1)' : 'rgba(100, 100, 100, 0.1)',
-                opacity: scrolled ? 1 : 0.7,
-                boxShadow: scrolled
-                  ? (!isMobile && spotlightActive
-                    ? '0 8px 25px rgba(251, 191, 36, 0.3), 0 0 15px rgba(251, 191, 36, 0.2)'
-                    : '0 8px 25px rgba(251, 191, 36, 0.3)')
-                  : '0 4px 15px rgba(0, 0, 0, 0.6)'
+                borderColor: '#fbbf24', 
+                backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                boxShadow: !isMobile && spotlightActive
+                  ? '0 8px 25px rgba(251, 191, 36, 0.3), 0 0 15px rgba(251, 191, 36, 0.2)'
+                  : '0 8px 25px rgba(251, 191, 36, 0.3)'
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.15 }}
             >
-              <Users className={`w-4 h-4 sm:w-5 sm:h-5 mr-2 ${scrolled ? 'opacity-100' : 'opacity-50'}`} />
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Événements privés
             </motion.button>
           </div>
