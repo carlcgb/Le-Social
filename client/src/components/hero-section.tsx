@@ -5,15 +5,10 @@ import BrickWall from "./brick-wall";
 
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
-interface HeroSectionProps {
-  onComponentsReveal?: () => void;
-}
-
-export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
+export default function HeroSection() {
   const [spotlightActive, setSpotlightActive] = useState(true);
   const [spotlightIntensity, setSpotlightIntensity] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-  const [componentsAnimated, setComponentsAnimated] = useState(false);
   const logoRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -157,15 +152,6 @@ export default function HeroSection({ onComponentsReveal }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          onAnimationComplete={() => {
-            if (!componentsAnimated) {
-              setComponentsAnimated(true);
-              // Delay to allow button animations to complete
-              setTimeout(() => {
-                onComponentsReveal?.();
-              }, 1000);
-            }
-          }}
         >
           <div ref={logoRef} className="mb-6 md:mb-8 relative">
             {/* Logo avec effet de lumière supplémentaire */}
