@@ -6,27 +6,16 @@ import logoAnimated from "@assets/Untitled-design-unscreen_1754780840848.gif";
 export default function HangingSign() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isFlipping, setIsFlipping] = useState(false);
-  const [showSign, setShowSign] = useState(false);
   const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 100;
-      setIsScrolled(scrolled);
-      
-      // Show hanging sign with delay after navbar appears
-      if (scrolled && !showSign) {
-        setTimeout(() => {
-          setShowSign(true);
-        }, 300); // 300ms delay after navbar appears
-      } else if (!scrolled) {
-        setShowSign(false);
-      }
+      setIsScrolled(window.scrollY > 100);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [showSign]);
+  }, []);
 
   const handleClick = () => {
     setIsFlipping(true);
@@ -39,39 +28,21 @@ export default function HangingSign() {
   return (
     <div className="fixed top-20 left-4 sm:top-24 sm:left-6 md:top-28 md:left-8 z-[100]">
       <motion.div
-        initial={{ 
-          y: -200, 
-          opacity: 0, 
-          scale: 0.8,
-          rotate: -10 
-        }}
-        animate={showSign ? { 
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ 
+          scale: isScrolled ? 1 : 0,
+          opacity: isScrolled ? 1 : 0,
           y: [0, -5, 0],
-          opacity: 1,
-          scale: 1,
-          rotate: 0,
           rotateY: isFlipping ? 360 : 0
-        } : {
-          y: -200,
-          opacity: 0,
-          scale: 0.8,
-          rotate: -10
         }}
-        transition={showSign ? { 
-          y: { 
-            duration: 0.8, 
-            ease: [0.25, 0.46, 0.45, 0.94], // Falling ease curve
-            times: [0, 0.7, 1],
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1
-          },
-          opacity: { duration: 0.3, ease: "easeOut" },
-          scale: { duration: 0.6, ease: "easeOut" },
-          rotate: { duration: 0.6, ease: "easeOut" },
+        transition={{ 
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          opacity: { duration: 0.5 },
+          scale: { duration: 0.3, ease: "easeOut" },
+          y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
           rotateY: { duration: 0.6, ease: "easeInOut", repeat: 0 }
-        } : {
-          duration: 0.1
         }}
         whileHover={{ 
           scale: 1.1, 
