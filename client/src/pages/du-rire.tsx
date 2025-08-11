@@ -23,6 +23,11 @@ export default function DuRirePage() {
     seconds: 0,
   });
 
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const targetDate = new Date("2025-09-20T20:00:00").getTime();
 
