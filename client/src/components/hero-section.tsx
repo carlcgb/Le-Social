@@ -142,36 +142,16 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div 
-            ref={logoRef} 
-            className={logoPositioned ? "mb-6 md:mb-8 relative" : "fixed inset-0 flex items-center justify-center z-50"}
-            animate={{
-              position: logoPositioned ? "relative" : "fixed"
-            }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-          >
-            {/* Logo avec effet de lumière supplémentaire */}
-            <motion.div
-              animate={{ 
-                filter: "brightness(0) invert(1)"
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative z-10"
-            >
-              <motion.img
+          <div className="mb-6 md:mb-8 relative">
+            {/* Static logo without animations */}
+            <div className="relative z-10">
+              <img
                 src={logoPath}
                 alt="Social - Par Attelier Archibald"
-                animate={{
-                  height: logoPositioned ? "auto" : "100vh"
-                }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-                className={logoPositioned 
-                  ? "h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[36rem] 2xl:h-[42rem] w-auto mx-auto" 
-                  : "w-auto max-w-[90vw] max-h-[90vh] object-contain mx-auto"
-                }
-                style={!logoPositioned ? { height: "100vh", maxHeight: "90vh" } : {}}
+                className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[36rem] 2xl:h-[42rem] w-auto mx-auto"
+                style={{ filter: "brightness(0) invert(1)" }}
               />
-            </motion.div>
+            </div>
             
             {/* Cercle de lumière derrière le logo - hidden on mobile */}
             {!isMobile && (
@@ -192,7 +172,7 @@ export default function HeroSection() {
                 />
               </motion.div>
             )}
-          </motion.div>
+          </div>
 
 {showContent && (
             <motion.p 
