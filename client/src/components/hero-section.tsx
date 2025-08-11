@@ -148,7 +148,7 @@ export default function HeroSection() {
               <img
                 src={logoPath}
                 alt="Social - Par Attelier Archibald"
-                className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[36rem] 2xl:h-[42rem] w-auto mx-auto"
+                className="h-80 sm:h-96 md:h-[32rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[56rem] 3xl:h-[64rem] w-auto mx-auto max-w-[95vw]"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
             </div>
