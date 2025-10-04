@@ -29,7 +29,7 @@ export default function DuRirePage() {
   }, []);
 
   useEffect(() => {
-    const targetDate = new Date("2025-09-20T20:00:00").getTime();
+    const targetDate = new Date("2025-10-11T20:00:00").getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -106,7 +106,7 @@ export default function DuRirePage() {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <div className="bg-burgundy-500/20 backdrop-blur-md border border-gold-500/30 rounded-2xl px-8 py-6 flex flex-col items-center max-w-2xl">
+            <div className="bg-burgundy-500/20 backdrop-blur-md border border-gold-500/30 rounded-2xl px-8 py-6 flex flex-col items-center w-[475px] min-w-[475px]">
               <div className="flex items-center mb-4">
                 <Calendar className="w-8 h-8 mr-3 text-gold-500" />
                 <span
@@ -128,11 +128,11 @@ export default function DuRirePage() {
                   textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
                 }}
               >
-                20 septembre 2025 - 20h
+                11 octobre 2025 - 20h
               </div>
               <div className="flex gap-6">
-                <div className="text-center">
-                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">
+                <div className="text-center w-20">
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2 min-h-[4rem] flex items-center justify-center">
                     {timeLeft.days}
                   </div>
                   <div
@@ -146,8 +146,8 @@ export default function DuRirePage() {
                     jours
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">
+                <div className="text-center w-20">
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2 min-h-[4rem] flex items-center justify-center">
                     {timeLeft.hours}
                   </div>
                   <div
@@ -161,8 +161,8 @@ export default function DuRirePage() {
                     heures
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">
+                <div className="text-center w-20">
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2 min-h-[4rem] flex items-center justify-center">
                     {timeLeft.minutes}
                   </div>
                   <div
@@ -176,8 +176,8 @@ export default function DuRirePage() {
                     min
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2">
+                <div className="text-center w-20">
+                  <div className="text-5xl md:text-6xl font-bold text-gold-500 mb-2 min-h-[4rem] flex items-center justify-center">
                     {timeLeft.seconds}
                   </div>
                   <div
