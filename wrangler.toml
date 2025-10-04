@@ -1,9 +1,23 @@
-name = "le-social"
-main = "dist/index.js"
-compatibility_date = "2024-01-01"
+name = "le-social-api"
+main = "worker.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "le-social-db"
+database_id = "85cdee3c-58fa-4275-944b-2504b1314a4f"
+
+# Environment variables
+[vars]
+FACEBOOK_PAGE_ID = "social.bar.cie"
+
+# Secrets (set via wrangler secret put)
+# FACEBOOK_ACCESS_TOKEN
 
 [env.production]
-name = "le-social"
+name = "le-social-api"
 
 [env.staging]
-name = "le-social-staging"
+name = "le-social-api-staging"

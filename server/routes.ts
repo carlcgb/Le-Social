@@ -1,5 +1,5 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
+import { createServer, type Server } from "node:http";
 import { storage } from "./storage";
 import { insertReservationSchema, facebookFeedSchema } from "@shared/schema";
 import { z } from "zod";
