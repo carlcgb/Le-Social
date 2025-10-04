@@ -28,36 +28,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-cream font-inter">
-      {/* Main Spotlight Overlay - creates dramatic focus on center logo area */}
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: scrolled ? 0 : 0.9 }}
-        transition={{ duration: 1.0, ease: "easeInOut" }}
-        className="fixed inset-0 pointer-events-none z-35"
-        style={{
-          background: `radial-gradient(ellipse 400px 500px at 50% 45vh, 
-            rgba(0,0,0,0) 0%, 
-            rgba(0,0,0,0.1) 25%, 
-            rgba(0,0,0,0.5) 45%, 
-            rgba(0,0,0,0.8) 65%, 
-            rgba(0,0,0,0.92) 80%, 
-            rgba(0,0,0,0.96) 100%)`
-        }}
-      />
-      
-      {/* Golden glow enhancement for logo area */}
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: scrolled ? 0 : 0.4 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
-        className="fixed inset-0 pointer-events-none z-34"
-        style={{
-          background: `radial-gradient(ellipse 600px 700px at 50% 45vh, 
-            rgba(192,132,47,0.12) 0%, 
-            rgba(192,132,47,0.06) 35%, 
-            rgba(0,0,0,0) 55%)`
-        }}
-      />
       
       <Navigation 
         onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)} 

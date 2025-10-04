@@ -45,21 +45,15 @@ export default function HeroSection() {
         return;
       }
       
-      // Smooth fade out: spotlight stays full until 60% scroll, then gradually fades
-      if (scrollY <= windowHeight * 0.6) {
-        // Keep spotlight full until 60% scroll
+      // Spotlight only at the very top - disappears after 20% scroll
+      if (scrollY <= windowHeight * 0.2) {
+        // Keep spotlight full until 20% scroll
         if (!spotlightActive || spotlightIntensity !== 1) {
           setSpotlightActive(true);
           setSpotlightIntensity(1);
         }
-      } else if (scrollY <= windowHeight * 0.9) {
-        // Between 60% and 90%, gradually fade out
-        const fadeProgress = (scrollY - windowHeight * 0.6) / (windowHeight * 0.3);
-        const newIntensity = Math.max(0, 1 - fadeProgress);
-        setSpotlightActive(true);
-        setSpotlightIntensity(newIntensity);
       } else {
-        // After 90%, turn off completely
+        // After 20%, turn off completely and don't come back
         if (spotlightActive) {
           setSpotlightActive(false);
           setSpotlightIntensity(0);
@@ -105,10 +99,11 @@ export default function HeroSection() {
               background: spotlightActive && spotlightIntensity > 0
                 ? `radial-gradient(circle at center, 
                     transparent 0%, 
-                    transparent 20%, 
-                    rgba(0, 0, 0, ${0.4 * spotlightIntensity}) 35%, 
-                    rgba(0, 0, 0, ${0.7 * spotlightIntensity}) 50%, 
-                    rgba(0, 0, 0, ${0.9 * spotlightIntensity}) 70%, 
+                    transparent 15%, 
+                    rgba(0, 0, 0, ${0.3 * spotlightIntensity}) 25%, 
+                    rgba(0, 0, 0, ${0.5 * spotlightIntensity}) 40%, 
+                    rgba(0, 0, 0, ${0.7 * spotlightIntensity}) 60%, 
+                    rgba(0, 0, 0, ${0.85 * spotlightIntensity}) 80%, 
                     rgba(0, 0, 0, ${0.95 * spotlightIntensity}) 100%)`
                 : 'transparent',
             }}
@@ -125,11 +120,12 @@ export default function HeroSection() {
             className="fixed inset-0 z-20 pointer-events-none"
             style={{
               background: spotlightActive && spotlightIntensity > 0
-                ? `radial-gradient(ellipse 600px 800px at center, 
-                    rgba(255, 255, 255, ${0.12 * spotlightIntensity}) 0%, 
-                    rgba(255, 255, 255, ${0.06 * spotlightIntensity}) 20%, 
-                    rgba(255, 255, 255, ${0.02 * spotlightIntensity}) 40%, 
-                    transparent 60%)`
+                ? `radial-gradient(ellipse 800px 1000px at center, 
+                    rgba(255, 255, 255, ${0.15 * spotlightIntensity}) 0%, 
+                    rgba(255, 255, 255, ${0.08 * spotlightIntensity}) 15%, 
+                    rgba(255, 255, 255, ${0.04 * spotlightIntensity}) 30%, 
+                    rgba(255, 255, 255, ${0.02 * spotlightIntensity}) 50%, 
+                    transparent 70%)`
                 : 'transparent',
             }}
           />
@@ -165,9 +161,9 @@ export default function HeroSection() {
                 className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
               >
                 <div 
-                  className="w-96 h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-gradient-radial blur-sm" 
+                  className="w-[28rem] h-[28rem] md:w-[40rem] md:h-[40rem] lg:w-[48rem] lg:h-[48rem] xl:w-[56rem] xl:h-[56rem] rounded-full bg-gradient-radial blur-sm" 
                   style={{
-                    background: `radial-gradient(circle, rgba(255,255,255,${0.1 * spotlightIntensity}) 0%, rgba(255,255,255,${0.05 * spotlightIntensity}) 50%, transparent 100%)`
+                    background: `radial-gradient(circle, rgba(255,255,255,${0.12 * spotlightIntensity}) 0%, rgba(255,255,255,${0.06 * spotlightIntensity}) 40%, rgba(255,255,255,${0.03 * spotlightIntensity}) 70%, transparent 100%)`
                   }}
                 />
               </motion.div>
