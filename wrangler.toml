@@ -20,4 +20,4 @@ FACEBOOK_PAGE_ID = "social.bar.cie"
 name = "le-social-api"
 
 [env.staging]
-name = "le-social-api-staging"
+name = "socialbar"
