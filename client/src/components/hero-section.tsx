@@ -46,22 +46,14 @@ export default function HeroSection() {
         >
           <div className="mb-6 md:mb-8 relative">
             {/* Static logo without animations */}
-            <motion.a
-              href="https://lasoireedurire.ca"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative z-10 block cursor-pointer"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div className="relative z-10 block">
               <img
                 src={logoPath}
                 alt="Social - Par Attelier Archibald"
                 className="h-80 sm:h-96 md:h-[32rem] lg:h-[40rem] xl:h-[48rem] 2xl:h-[56rem] 3xl:h-[64rem] w-auto mx-auto max-w-[95vw]"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
-            </motion.a>
+            </div>
           </div>
 
           <motion.p 

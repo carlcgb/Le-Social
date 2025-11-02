@@ -32,9 +32,9 @@ export default function ServicesSummary() {
     <section className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -48,22 +48,18 @@ export default function ServicesSummary() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
               className="group bg-burgundy-900/80 backdrop-blur-md rounded-lg p-8 cursor-pointer text-[#ffffff]"
               onClick={() => scrollToSection(service.href)}
             >
               <div className="text-center">
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="mb-6"
-                >
+                <div className="mb-6">
                   <service.icon className="w-12 h-12 text-gold-500 mx-auto" />
-                </motion.div>
+                </div>
                 
                 <h3 className="text-responsive-2xl font-playfair mb-4" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{service.title}</h3>
                 <p className="mb-6 text-responsive-base text-left" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{service.description}</p>

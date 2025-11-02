@@ -27,9 +27,9 @@ export default function TestimonialsSection() {
     <section className="relative py-20 z-30">
       <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -41,9 +41,9 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
               className="bg-burgundy-900/80 backdrop-blur-md rounded-lg p-8"
             >

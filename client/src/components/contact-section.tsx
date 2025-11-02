@@ -80,9 +80,9 @@ export default function ContactSection() {
     <section id="contact" className="relative py-20 z-30">
       <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -91,23 +91,14 @@ export default function ContactSection() {
         </motion.div>
         
         <div className="grid lg:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <div className="bg-burgundy-900/80 backdrop-blur-md rounded-lg p-8">
               <h3 className="text-responsive-2xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Informations de contact</h3>
               
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
                     className="flex items-start"
                   >
                     <info.icon className="w-6 h-6 text-gold-500 mr-4 mt-1" />
@@ -115,7 +106,7 @@ export default function ContactSection() {
                       <h4 className="font-medium mb-1 text-responsive-sm" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.title}</h4>
                       <p className="whitespace-pre-line text-responsive-base" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{info.content}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
               
@@ -138,14 +129,9 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <div className="bg-burgundy-900/80 backdrop-blur-md rounded-lg p-8">
               <h3 className="text-2xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Demande de réservation</h3>
               
@@ -354,7 +340,7 @@ export default function ContactSection() {
                 </form>
               </Form>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

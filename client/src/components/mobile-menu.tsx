@@ -12,7 +12,6 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     { href: "#spectacles", label: "Spectacles" },
     { href: "#evenements", label: "Événements Privés" },
     { href: "#corporatif", label: "Corporatif" },
-    { href: "#galerie", label: "Galerie" },
   ];
 
   const scrollToSection = (href: string) => {

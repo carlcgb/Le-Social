@@ -21,13 +21,7 @@ export default function SpectaclesSection() {
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/80 backdrop-blur-md rounded-lg p-6 lg:p-8">
           {/* Title, description, and upcoming shows - order 1 on mobile */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="order-1 lg:order-1 text-[#ffffff]"
-          >
+          <div className="order-1 lg:order-1 text-[#ffffff]">
             <div className="flex items-center mb-6">
               <Theater className="w-10 h-10 text-gold-500 mr-4" />
               <h2 className="text-responsive-4xl font-playfair" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Volet Spectacles</h2>
@@ -38,13 +32,7 @@ export default function SpectaclesSection() {
             </p>
             
             {/* Prochains spectacles integrated */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="backdrop-blur-md rounded-lg p-6 bg-[#000000e0] text-[#ffffff]"
-            >
+            <div className="backdrop-blur-md rounded-lg p-6 bg-[#000000e0] text-[#ffffff]">
               <h4 className="text-responsive-xl font-playfair mb-3 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
               <div className="space-y-3">
                 {upcomingShows.map((show, index) => (
@@ -54,17 +42,11 @@ export default function SpectaclesSection() {
                   </div>
                 ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Image - order 2 on mobile */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="order-2 lg:order-2 relative flex flex-col"
-          >
+          <div className="order-2 lg:order-2 relative flex flex-col">
             <img 
               src={srdgImage} 
               alt="Spectacle intimiste au Social" 
@@ -73,18 +55,12 @@ export default function SpectaclesSection() {
             <div className="absolute -top-4 -right-4 px-6 py-3 rounded-xl transform rotate-12 font-playfair font-bold shadow-lg drop-shadow-lg bg-[#cc871d] text-[#ffffff]" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
               Ambiance intimiste
             </div>
-          </motion.div>
+          </div>
 
 
 
           {/* Button - order 3 on mobile (last) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="order-3 lg:col-span-2 text-center mt-6 lg:mt-4"
-          >
+          <div className="order-3 lg:col-span-2 text-center mt-6 lg:mt-4">
             <motion.button
               whileHover={{ 
                 scale: 1.05,
@@ -100,7 +76,7 @@ export default function SpectaclesSection() {
               <CalendarPlus className="w-5 h-5 mr-2" />
               Réserver un spectacle
             </motion.button>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

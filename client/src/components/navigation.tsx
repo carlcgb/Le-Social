@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
-import { Link } from "wouter";
 import logoPath from "@assets/483588457_1211262284332726_4514405450123834326_n_1754398185701.png";
 
 interface NavigationProps {
@@ -25,7 +24,6 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
     { href: "#spectacles", label: "Spectacles" },
     { href: "#evenements", label: "Privés" },
     { href: "#corporatif", label: "Corporatif" },
-    { href: "#galerie", label: "Galerie" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -49,27 +47,16 @@ export default function Navigation({ onMobileMenuToggle }: NavigationProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <motion.div 
-            className="flex items-center"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Link href="/">
-              <motion.img 
-                src={logoPath} 
-                alt="Social Logo" 
-                className="h-14 w-auto filter brightness-0 invert cursor-pointer"
-                style={{
-                  filter: 'brightness(0) invert(1) drop-shadow(0 0 8px rgba(192, 132, 47, 0.3))'
-                }}
-                whileHover={{ 
-                  filter: 'brightness(0) invert(1) drop-shadow(0 0 12px rgba(192, 132, 47, 0.6))',
-                  scale: 1.05
-                }}
-                transition={{ duration: 0.3 }}
-              />
-            </Link>
-          </motion.div>
+          <div className="flex items-center">
+            <img 
+              src={logoPath} 
+              alt="Social Logo" 
+              className="h-14 w-auto filter brightness-0 invert"
+              style={{
+                filter: 'brightness(0) invert(1) drop-shadow(0 0 8px rgba(192, 132, 47, 0.3))'
+              }}
+            />
+          </div>
           
           <div className="hidden md:flex space-x-1">
             {navItems.map((item, index) => (
