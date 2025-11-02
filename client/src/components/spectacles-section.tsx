@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Theater, CalendarPlus } from "lucide-react";
+import srdgImage from "@assets/srdg.jpg";
 
 export default function SpectaclesSection() {
   const scrollToSection = (href: string) => {
@@ -10,15 +11,15 @@ export default function SpectaclesSection() {
   
 
   const upcomingShows = [
-    { name: "Jazz Session - Marie Dubois", date: "15 Mars" },
-    { name: "Stand-up Night", date: "22 Mars" },
-    { name: "Soirée Chanson Française", date: "29 Mars" }
+    { name: "La Soirée du Rire Saison 4 - Épisode 03", date: "8 Novembre 2025" },
+    { name: "La Soirée du Rire Saison 4 - Épisode 04", date: "10 Janvier 2026" },
+    { name: "La Soirée du Rire Saison 4 - Épisode 05", date: "7 Février 2026"}
   ];
 
   return (
     <section id="spectacles" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/30 backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-6 lg:p-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/80 backdrop-blur-md rounded-lg p-6 lg:p-8">
           {/* Title, description, and upcoming shows - order 1 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -42,7 +43,7 @@ export default function SpectaclesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-6 bg-[#0000007d] text-[#ffffff]"
+              className="backdrop-blur-md rounded-lg p-6 bg-[#000000e0] text-[#ffffff]"
             >
               <h4 className="text-responsive-xl font-playfair mb-3 text-[#ffffff]" style={{opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Prochains spectacles</h4>
               <div className="space-y-3">
@@ -65,7 +66,7 @@ export default function SpectaclesSection() {
             className="order-2 lg:order-2 relative flex flex-col"
           >
             <img 
-              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+              src={srdgImage} 
               alt="Spectacle intimiste au Social" 
               className="rounded-2xl shadow-2xl w-full h-full object-cover flex-1"
             />

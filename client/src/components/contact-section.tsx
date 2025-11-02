@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -11,11 +10,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { insertReservationSchema, type InsertReservation } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
 
 export default function ContactSection() {
   const { toast } = useToast();
-  const queryClient = useQueryClient();
 
   const form = useForm<InsertReservation>({
     resolver: zodResolver(insertReservationSchema),
@@ -33,8 +30,9 @@ export default function ContactSection() {
 
   const reservationMutation = useMutation({
     mutationFn: async (data: InsertReservation) => {
-      const response = await apiRequest("POST", "/api/reservations", data);
-      return response.json();
+      // Form is validated but not saved to database
+      // You can add email notification or other handling here if needed
+      return Promise.resolve({ success: true, message: "Formulaire validé" });
     },
     onSuccess: () => {
       toast({
@@ -42,9 +40,8 @@ export default function ContactSection() {
         description: "Nous vous contacterons bientôt pour confirmer votre réservation.",
       });
       form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/reservations"] });
     },
-    onError: (error) => {
+    onError: () => {
       toast({
         title: "Erreur",
         description: "Une erreur est survenue lors de l'envoi de votre demande.",
@@ -76,7 +73,6 @@ export default function ContactSection() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/SocialBarEtCie", label: "Facebook" },
     { icon: Instagram, href: "https://instagram.com/social_par_attelier_archibald", label: "Instagram" }
   ];
 
@@ -101,7 +97,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
+            <div className="bg-burgundy-900/80 backdrop-blur-md rounded-lg p-8">
               <h3 className="text-responsive-2xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Informations de contact</h3>
               
               <div className="space-y-6">
@@ -150,7 +146,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-8">
+            <div className="bg-burgundy-900/80 backdrop-blur-md rounded-lg p-8">
               <h3 className="text-2xl font-playfair mb-6" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>Demande de réservation</h3>
               
               <Form {...form}>

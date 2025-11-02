@@ -5,21 +5,17 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --target=node18",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "build": "node scripts/build.js && esbuild server/index.ts --platform=node --bundle --format=esm --outdir=build --target=node18 --packages=external --external:cloudflare:node",
+    "start": "cross-env NODE_ENV=production NODE_PATH=. node build/index.js",
     "check": "tsc",
-    "db:push": "drizzle-kit push",
     "deploy": "wrangler deploy",
-    "deploy:pages": "npm run build && wrangler pages deploy dist/public --project-name=le-social",
+    "deploy:pages": "npm run build && wrangler pages deploy build/public --project-name=le-social",
     "deploy:api": "wrangler deploy",
-    "deploy:staging": "wrangler deploy --env staging",
-    "db:create": "wrangler d1 create le-social-db",
-    "db:migrate": "wrangler d1 execute le-social-db --file=./schema.sql"
+    "deploy:staging": "wrangler deploy --env staging"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
-    "@neondatabase/serverless": "^0.10.4",
     "@radix-ui/react-accordion": "^1.2.4",
     "@radix-ui/react-alert-dialog": "^1.1.7",
     "@radix-ui/react-aspect-ratio": "^1.1.3",
@@ -70,17 +66,15 @@
     "vaul": "^1.1.2",
     "wouter": "^3.3.5",
     "zod": "^3.24.2",
-    "zod-validation-error": "^3.4.0"
+    "zod-validation-error": "^3.4.0",
+    "express": "^4.21.1"
   },
   "devDependencies": {
-    "@replit/vite-plugin-cartographer": "^0.2.8",
-    "@replit/vite-plugin-runtime-error-modal": "^0.0.3",
     "@tailwindcss/typography": "^0.5.15",
-    "@tailwindcss/vite": "^4.1.3",
+    "@types/express": "^4.17.21",
     "@types/node": "20.16.11",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
     "cross-env": "^10.1.0",
     "esbuild": "^0.25.0",
@@ -88,7 +82,6 @@
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.1",
     "typescript": "5.6.3",
-    "vite": "^5.4.19",
     "wrangler": "^3.114.14"
   },
   "optionalDependencies": {

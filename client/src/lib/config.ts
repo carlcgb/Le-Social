@@ -1,6 +1,13 @@
 // API Configuration
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://le-social-api.carl-g-bisaillon.workers.dev';
+// These constants will be replaced by esbuild during build
+declare const __API_BASE_URL__: string;
+
+export const API_BASE_URL = __API_BASE_URL__ || 'https://le-social-api.carl-g-bisaillon.workers.dev';
 
 // Environment check
-export const isDevelopment = import.meta.env.DEV;
-export const isProduction = import.meta.env.PROD;
+// These constants will be replaced by esbuild during build
+declare const __DEV__: boolean;
+declare const __PROD__: boolean;
+
+export const isDevelopment = __DEV__ || false;
+export const isProduction = __PROD__ || true;

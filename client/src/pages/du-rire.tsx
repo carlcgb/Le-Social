@@ -7,7 +7,6 @@ import {
   Star,
   Heart,
   ArrowLeft,
-  Facebook,
   Instagram,
 } from "lucide-react";
 import { Link } from "wouter";
@@ -361,15 +360,6 @@ export default function DuRirePage() {
                     Suivez-nous
                   </h3>
                   <div className="flex space-x-4 mt-3">
-                    <a
-                      href="https://facebook.com/social.bar.cie"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-blue-600 p-3 rounded-full inline-flex items-center"
-                      style={{ color: "#ffffff" }}
-                    >
-                      <Facebook className="w-5 h-5" />
-                    </a>
                     <a
                       href="https://instagram.com/social_par_attelier_archibald"
                       target="_blank"

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Cake, Martini, Utensils, Music, Palette, Bell, Heart } from "lucide-react";
+import privateImage from "@assets/private.jpg";
 
 export default function EvenementsSection() {
   const scrollToSection = (href: string) => {
@@ -30,7 +31,7 @@ export default function EvenementsSection() {
   return (
     <section id="evenements" className="relative py-20 z-40">
       <div className="relative z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/30 backdrop-blur-md border border-gold-500/30 rounded-lg p-6 lg:p-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 bg-burgundy-900/80 backdrop-blur-md rounded-lg p-6 lg:p-8">
           {/* Title, description, and event types - order 1 on mobile */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -56,7 +57,7 @@ export default function EvenementsSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="backdrop-blur-md border border-[#cc871d]/30 rounded-lg p-4 text-[#ffffff] bg-[#0000007d] flex-1 flex flex-col justify-center"
+                  className="backdrop-blur-md rounded-lg p-4 text-[#ffffff] bg-[#000000e0] flex-1 flex flex-col justify-center"
                 >
                   <type.icon className="w-8 h-8 text-gold-500 mb-2" />
                   <h4 className="text-responsive-lg font-playfair mb-2" style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>{type.title}</h4>
@@ -75,7 +76,7 @@ export default function EvenementsSection() {
             className="order-2 lg:order-1 relative"
           >
             <img 
-              src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+              src={privateImage} 
               alt="Événement privé au Social" 
               className="rounded-2xl shadow-2xl w-full h-auto mb-6"
             />
@@ -113,8 +114,8 @@ export default function EvenementsSection() {
           >
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="inline-flex items-center bg-gold-500 px-8 py-4 rounded-full hover:bg-gold-600 transition-all duration-150 font-playfair font-bold btn-text-responsive text-[#ffffff]"
-              style={{color: '#000000', opacity: 1, textShadow: '1px 1px 2px rgba(255,255,255,0.3)'}}
+              className="inline-flex items-center bg-gold-500 px-8 py-4 rounded-full hover:bg-gold-600 transition-all duration-150 font-playfair font-bold btn-text-responsive"
+              style={{color: '#ffffff', opacity: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}
               whileHover={{ 
                 scale: 1.05, 
                 backgroundColor: '#d97706',

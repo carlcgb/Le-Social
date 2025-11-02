@@ -4,7 +4,6 @@ export { default as ServicesSummary } from './services-summary';
 export { default as SpectaclesSection } from './spectacles-section';
 export { default as EvenementsSection } from './evenements-section';
 export { default as CorporatifSection } from './corporatif-section';
-export { default as GallerySection } from './gallery-section';
 export { default as TestimonialsSection } from './testimonials-section';
 export { default as ContactSection } from './contact-section';
 export { default as Footer } from './footer';

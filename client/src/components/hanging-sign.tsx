@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
-import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import logoAnimated from "@assets/Untitled-design-unscreen_1754780840848.gif";
 
 export default function HangingSign() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isFlipping, setIsFlipping] = useState(false);
-  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,9 +17,9 @@ export default function HangingSign() {
 
   const handleClick = () => {
     setIsFlipping(true);
-    // Navigate after flip animation completes
+    // Open external URL after flip animation completes
     setTimeout(() => {
-      setLocation('/du-rire');
+      window.open('https://lasoireedurire.ca', '_blank', 'noopener,noreferrer');
     }, 600); // 600ms to allow flip to complete
   };
 
