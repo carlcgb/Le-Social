@@ -5,13 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "node scripts/build.js && esbuild server/index.ts --platform=node --bundle --format=esm --outdir=build --target=node18 --packages=external --external:cloudflare:node",
+    "build": "node scripts/build.js && esbuild server/index.ts --platform=node --bundle --format=esm --outdir=build --target=node18 --packages=external",
     "start": "cross-env NODE_ENV=production NODE_PATH=. node build/index.js",
-    "check": "tsc",
-    "deploy": "wrangler deploy",
-    "deploy:pages": "npm run build && wrangler pages deploy build/public --project-name=le-social",
-    "deploy:api": "wrangler deploy",
-    "deploy:staging": "wrangler deploy --env staging"
+    "check": "tsc"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -81,8 +77,7 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.1",
-    "typescript": "5.6.3",
-    "wrangler": "^3.114.14"
+    "typescript": "5.6.3"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8"

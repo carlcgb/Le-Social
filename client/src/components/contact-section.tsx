@@ -30,7 +30,7 @@ export default function ContactSection() {
 
   const reservationMutation = useMutation({
     mutationFn: async (data: InsertReservation) => {
-      // Form is validated but not saved to database
+      // Form is validated
       // You can add email notification or other handling here if needed
       return Promise.resolve({ success: true, message: "Formulaire validé" });
     },

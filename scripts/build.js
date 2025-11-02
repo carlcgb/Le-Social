@@ -97,10 +97,7 @@ await esbuild.build({
   target: ['es2020'],
   jsx: 'automatic',
   define: {
-    'import.meta.env.DEV': 'false',
-    'import.meta.env.PROD': 'true',
-    'import.meta.env.VITE_API_BASE_URL': JSON.stringify(process.env.VITE_API_BASE_URL || 'https://le-social-api.carl-g-bisaillon.workers.dev'),
-    '__API_BASE_URL__': JSON.stringify(process.env.VITE_API_BASE_URL || 'https://le-social-api.carl-g-bisaillon.workers.dev'),
+    '__API_BASE_URL__': JSON.stringify(process.env.API_BASE_URL || 'https://le-social-api.carl-g-bisaillon.workers.dev'),
     '__DEV__': String(process.env.NODE_ENV === 'development'),
     '__PROD__': String(process.env.NODE_ENV === 'production' || !process.env.NODE_ENV),
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),

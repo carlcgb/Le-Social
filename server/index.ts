@@ -1,6 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
-import { serveStatic, log } from "./vite";
+import { serveStatic, log } from "./static";
 
 const app = express();
 app.use(express.json());
@@ -36,27 +36,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Cloudflare Workers export
-export default {
-  async fetch(request: Request, env: any, ctx: any) {
-    const server = await registerRoutes(app);
-
-    app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-      const status = err.status || err.statusCode || 500;
-      const message = err.message || "Internal Server Error";
-
-      res.status(status).json({ message });
-      throw err;
-    });
-
-    serveStatic(app);
-
-    const { httpServerHandler } = await import('cloudflare:node');
-    return httpServerHandler({ port: 3000 })(request, env, ctx);
-  }
-};
-
-// Server startup (runs in both development and production when not in Cloudflare Workers)
+// Server startup
 if (typeof process !== 'undefined' && process.env.NODE_ENV) {
   (async () => {
     const server = await registerRoutes(app);

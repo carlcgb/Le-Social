@@ -8,7 +8,7 @@ async function registerRoutes(app2) {
   return httpServer;
 }
 
-// server/vite.ts
+// server/static.ts
 import express from "express";
 import fs from "node:fs";
 import path from "node:path";
@@ -62,20 +62,6 @@ app.use((req, res, next) => {
   });
   next();
 });
-var index_default = {
-  async fetch(request, env, ctx) {
-    const server = await registerRoutes(app);
-    app.use((err, _req, res, _next) => {
-      const status = err.status || err.statusCode || 500;
-      const message = err.message || "Internal Server Error";
-      res.status(status).json({ message });
-      throw err;
-    });
-    serveStatic(app);
-    const { httpServerHandler } = await import("cloudflare:node");
-    return httpServerHandler({ port: 3e3 })(request, env, ctx);
-  }
-};
 if (typeof process !== "undefined" && process.env.NODE_ENV) {
   (async () => {
     const server = await registerRoutes(app);
@@ -92,6 +78,3 @@ if (typeof process !== "undefined" && process.env.NODE_ENV) {
     });
   })();
 }
-export {
-  index_default as default
-};
