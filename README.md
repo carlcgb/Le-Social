@@ -217,6 +217,24 @@ Ajoutez ces secrets dans les paramètres GitHub du dépôt :
 | `NODE_ENV` | Environnement (development/production) | `production` |
 | `PORT` | Port du serveur | `3000` |
 | `API_BASE_URL` | URL de l'API backend | `https://le-social-api.carl-g-bisaillon.workers.dev` |
+| `RESEND_API_KEY` | Clé API Resend pour l'envoi d'emails | *(requis pour l'envoi d'emails)* |
+| `EMAIL_FROM` | Adresse email expéditeur | `Le Social <onboarding@resend.dev>` |
+
+#### Configuration de l'email (Resend)
+
+Le formulaire de réservation envoie des emails via [Resend](https://resend.com), un service d'email moderne et fiable.
+
+**Pour configurer :**
+
+1. Créez un compte gratuit sur [resend.com](https://resend.com) (100 emails/jour, 3,000/mois)
+2. Obtenez votre clé API dans [les paramètres](https://resend.com/api-keys)
+3. Ajoutez-la à vos variables d'environnement :
+   ```bash
+   RESEND_API_KEY=re_xxxxxxxxxxxxx
+   EMAIL_FROM="Le Social <noreply@socialbar.ca>"
+   ```
+
+**Note :** En développement, si `RESEND_API_KEY` n'est pas configuré, le formulaire fonctionnera mais l'email ne sera pas envoyé (utile pour tester sans configurer l'email).
 
 ### Alias de chemins
 

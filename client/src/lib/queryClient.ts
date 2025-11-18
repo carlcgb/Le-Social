@@ -13,7 +13,22 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const fullUrl = url.startsWith('http') ? url : `${API_BASE_URL}${url}`;
+  // If URL is already absolute, use it as-is
+  if (url.startsWith('http')) {
+    const res = await fetch(url, {
+      method,
+      headers: data ? { "Content-Type": "application/json" } : {},
+      body: data ? JSON.stringify(data) : undefined,
+      credentials: "include",
+    });
+    await throwIfResNotOk(res);
+    return res;
+  }
+  
+  // For relative URLs, use API_BASE_URL if set, otherwise use current origin (for local dev)
+  const fullUrl = API_BASE_URL && API_BASE_URL !== 'undefined' 
+    ? `${API_BASE_URL}${url}` 
+    : url; // Relative URL will use current origin
   
   const res = await fetch(fullUrl, {
     method,

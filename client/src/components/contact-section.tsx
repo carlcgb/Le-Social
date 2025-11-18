@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { insertReservationSchema, type InsertReservation } from "@shared/schema";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -30,9 +31,8 @@ export default function ContactSection() {
 
   const reservationMutation = useMutation({
     mutationFn: async (data: InsertReservation) => {
-      // Form is validated
-      // You can add email notification or other handling here if needed
-      return Promise.resolve({ success: true, message: "Formulaire validé" });
+      const response = await apiRequest("POST", "/api/reservations", data);
+      return await response.json();
     },
     onSuccess: () => {
       toast({
@@ -41,10 +41,10 @@ export default function ContactSection() {
       });
       form.reset();
     },
-    onError: () => {
+    onError: (error: Error) => {
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue lors de l'envoi de votre demande.",
+        description: error.message || "Une erreur est survenue lors de l'envoi de votre demande.",
         variant: "destructive"
       });
     }
